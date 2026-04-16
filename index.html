@@ -1,0 +1,1469 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>株式会社サンプル企業 新卒・中途採用サイト</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ========================================
+   RESET & BASE
+   ======================================== */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Noto Sans JP', 'Helvetica Neue', Arial, sans-serif;
+  font-size: 1.5rem;
+  line-height: 1.8;
+  color: #333;
+  background: #fff;
+  overflow-x: hidden;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: opacity 0.3s ease;
+}
+
+a:hover {
+  opacity: 0.7;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+ul, ol {
+  list-style: none;
+}
+
+/* ========================================
+   UTILITY
+   ======================================== */
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+.en {
+  font-family: 'Montserrat', sans-serif;
+}
+
+.section-label {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.4rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: #1a3c6e;
+  margin-bottom: 15px;
+}
+
+.section-title-ja {
+  font-size: 2.8rem;
+  font-weight: 700;
+  line-height: 1.6;
+  letter-spacing: 0.05em;
+  margin-bottom: 30px;
+}
+
+.section-text {
+  font-size: 1.5rem;
+  line-height: 2;
+  color: #555;
+  max-width: 700px;
+}
+
+.btn-readmore {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.4rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  color: #1a3c6e;
+  border: 1px solid #1a3c6e;
+  padding: 14px 40px;
+  border-radius: 50px;
+  transition: all 0.3s ease;
+  margin-top: 40px;
+}
+
+.btn-readmore:hover {
+  background: #1a3c6e;
+  color: #fff;
+  opacity: 1;
+}
+
+.btn-readmore::after {
+  content: '';
+  display: block;
+  width: 20px;
+  height: 1px;
+  background: currentColor;
+  transition: width 0.3s ease;
+}
+
+.btn-readmore:hover::after {
+  width: 30px;
+}
+
+/* ========================================
+   HEADER
+   ======================================== */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  padding: 0 40px;
+  transition: background 0.4s ease, box-shadow 0.4s ease;
+}
+
+.header.scrolled {
+  background: rgba(255,255,255,0.97);
+  box-shadow: 0 2px 20px rgba(0,0,0,0.08);
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 80px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.header-logo {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.header-logo-main {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 2rem;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: 0.05em;
+  transition: color 0.4s ease;
+}
+
+.header-logo-sub {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 400;
+  letter-spacing: 0.15em;
+  color: rgba(255,255,255,0.8);
+  text-transform: uppercase;
+  transition: color 0.4s ease;
+}
+
+.header.scrolled .header-logo-main {
+  color: #1a3c6e;
+}
+
+.header.scrolled .header-logo-sub {
+  color: #666;
+}
+
+.header-nav {
+  display: flex;
+  align-items: center;
+  gap: 0;
+}
+
+.header-nav a {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+  padding: 10px 18px;
+  font-size: 1.1rem;
+  color: #fff;
+  transition: color 0.4s ease;
+}
+
+.header.scrolled .header-nav a {
+  color: #333;
+}
+
+.header-nav a .en {
+  font-size: 1.1rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.header-nav a .ja {
+  font-size: 0.9rem;
+  font-weight: 300;
+  opacity: 0.8;
+}
+
+.header-nav .nav-entry {
+  background: #1a3c6e;
+  color: #fff !important;
+  border-radius: 4px;
+  padding: 10px 24px;
+  margin-left: 10px;
+  transition: background 0.3s ease;
+}
+
+.header-nav .nav-entry:hover {
+  background: #0d2a52;
+  opacity: 1;
+}
+
+/* Hamburger */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 6px;
+  cursor: pointer;
+  z-index: 1100;
+  padding: 10px;
+}
+
+.hamburger span {
+  display: block;
+  width: 28px;
+  height: 2px;
+  background: #fff;
+  transition: all 0.3s ease;
+}
+
+.header.scrolled .hamburger span {
+  background: #333;
+}
+
+/* Mobile nav overlay */
+.mobile-nav {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(26, 60, 110, 0.97);
+  z-index: 1050;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s ease;
+}
+
+.mobile-nav.active {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.mobile-nav a {
+  color: #fff;
+  font-size: 1.8rem;
+  letter-spacing: 0.1em;
+}
+
+/* ========================================
+   HERO
+   ======================================== */
+.hero {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  min-height: 600px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background: #1a3c6e;
+}
+
+.hero-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #0d2a52 0%, #1a3c6e 30%, #2b5ea0 60%, #3a7bd5 100%);
+  z-index: 1;
+}
+
+.hero-bg::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Ccircle cx='30' cy='30' r='1.5'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  z-index: 1;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  color: #fff;
+}
+
+.hero-slogan {
+  font-size: 5rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  line-height: 1.4;
+  margin-bottom: 25px;
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeUp 1s ease 0.3s forwards;
+}
+
+.hero-slogan-en {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.6rem;
+  font-weight: 300;
+  letter-spacing: 0.2em;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeUp 1s ease 0.6s forwards;
+}
+
+.hero-cta {
+  margin-top: 60px;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeUp 1s ease 0.9s forwards;
+}
+
+.hero-cta a {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  color: #fff;
+  border: 1px solid rgba(255,255,255,0.6);
+  padding: 16px 50px;
+  border-radius: 50px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.4rem;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  transition: all 0.3s ease;
+}
+
+.hero-cta a:hover {
+  background: #fff;
+  color: #1a3c6e;
+  opacity: 1;
+}
+
+.hero-scroll {
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  color: rgba(255,255,255,0.7);
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1rem;
+  letter-spacing: 0.15em;
+}
+
+.hero-scroll::after {
+  content: '';
+  display: block;
+  width: 1px;
+  height: 40px;
+  background: rgba(255,255,255,0.5);
+  animation: scrollLine 1.5s ease-in-out infinite;
+}
+
+@keyframes scrollLine {
+  0% { transform: scaleY(0); transform-origin: top; }
+  50% { transform: scaleY(1); transform-origin: top; }
+  51% { transform: scaleY(1); transform-origin: bottom; }
+  100% { transform: scaleY(0); transform-origin: bottom; }
+}
+
+@keyframes fadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ========================================
+   SECTION: COMPANY
+   ======================================== */
+.sec-company {
+  padding: 120px 0;
+  background: #fff;
+}
+
+.sec-company .inner {
+  display: flex;
+  align-items: center;
+  gap: 80px;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+.sec-company .image-side {
+  flex: 1;
+  min-width: 0;
+}
+
+.sec-company .image-side .img-wrap {
+  position: relative;
+  border-radius: 8px;
+  overflow: hidden;
+  aspect-ratio: 4/3;
+  background: #e8edf3;
+}
+
+.sec-company .image-side .img-wrap::before {
+  content: '';
+  position: absolute;
+  top: -20px;
+  left: -20px;
+  width: 100px;
+  height: 100px;
+  border: 2px solid #1a3c6e;
+  border-radius: 8px;
+  opacity: 0.3;
+  z-index: 0;
+}
+
+.sec-company .image-side .img-wrap .placeholder-img {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #dce5f0 0%, #c4d2e4 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+  color: #8a9bb5;
+}
+
+.sec-company .text-side {
+  flex: 1;
+  min-width: 0;
+}
+
+/* ========================================
+   SECTION: BUSINESS
+   ======================================== */
+.sec-business {
+  padding: 120px 0;
+  background: #f5f7fa;
+}
+
+.sec-business .inner {
+  display: flex;
+  align-items: center;
+  gap: 80px;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 40px;
+  flex-direction: row-reverse;
+}
+
+.sec-business .image-side {
+  flex: 1;
+  min-width: 0;
+}
+
+.sec-business .image-side .img-wrap {
+  position: relative;
+  border-radius: 8px;
+  overflow: hidden;
+  aspect-ratio: 4/3;
+  background: #e0e5ec;
+}
+
+.sec-business .image-side .img-wrap .placeholder-img {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #ccd5e2 0%, #b8c5d8 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+  color: #8a9bb5;
+}
+
+.sec-business .text-side {
+  flex: 1;
+  min-width: 0;
+}
+
+/* ========================================
+   SECTION: INTERVIEW
+   ======================================== */
+.sec-interview {
+  padding: 120px 0;
+  background: #fff;
+  overflow: hidden;
+}
+
+.sec-interview .section-header {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 40px;
+  margin-bottom: 60px;
+}
+
+.interview-slider {
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 0 40px;
+  position: relative;
+}
+
+.interview-track {
+  display: flex;
+  gap: 30px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  padding-bottom: 20px;
+}
+
+.interview-track::-webkit-scrollbar {
+  display: none;
+}
+
+.interview-card {
+  flex: 0 0 300px;
+  scroll-snap-align: start;
+  border-radius: 8px;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.interview-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+}
+
+.interview-card .card-img {
+  aspect-ratio: 3/4;
+  background: #e0e5ec;
+  position: relative;
+  overflow: hidden;
+}
+
+.interview-card .card-img .placeholder-img {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  color: #8a9bb5;
+}
+
+.interview-card .card-img .card-tag {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  background: rgba(26, 60, 110, 0.85);
+  color: #fff;
+  font-size: 1.1rem;
+  padding: 4px 14px;
+  border-radius: 3px;
+  letter-spacing: 0.05em;
+}
+
+.interview-card .card-body {
+  padding: 22px 20px;
+}
+
+.interview-card .card-name {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #1a3c6e;
+  margin-bottom: 4px;
+}
+
+.interview-card .card-dept {
+  font-size: 1.1rem;
+  color: #888;
+  margin-bottom: 12px;
+}
+
+.interview-card .card-quote {
+  font-size: 1.4rem;
+  font-weight: 500;
+  line-height: 1.7;
+  color: #333;
+}
+
+.interview-nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 40px;
+}
+
+.interview-nav button {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 1px solid #1a3c6e;
+  background: transparent;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  color: #1a3c6e;
+  font-size: 1.8rem;
+}
+
+.interview-nav button:hover {
+  background: #1a3c6e;
+  color: #fff;
+}
+
+.sec-interview .view-all {
+  text-align: center;
+  margin-top: 50px;
+}
+
+/* ========================================
+   SECTION: COLUMN
+   ======================================== */
+.sec-column {
+  padding: 120px 0;
+  background: #1a3c6e;
+  color: #fff;
+}
+
+.sec-column .section-label {
+  color: rgba(255,255,255,0.6);
+}
+
+.sec-column .section-title-ja {
+  color: #fff;
+}
+
+.sec-column .section-text {
+  color: rgba(255,255,255,0.8);
+}
+
+.column-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  margin-top: 50px;
+}
+
+.column-card {
+  background: rgba(255,255,255,0.08);
+  border-radius: 8px;
+  overflow: hidden;
+  transition: background 0.3s ease, transform 0.3s ease;
+  cursor: pointer;
+}
+
+.column-card:hover {
+  background: rgba(255,255,255,0.15);
+  transform: translateY(-3px);
+}
+
+.column-card .card-img {
+  aspect-ratio: 16/9;
+  background: rgba(255,255,255,0.05);
+  overflow: hidden;
+}
+
+.column-card .card-img .placeholder-img {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  color: rgba(255,255,255,0.4);
+}
+
+.column-card .card-body {
+  padding: 22px 20px;
+}
+
+.column-card .card-num {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: rgba(255,255,255,0.5);
+  margin-bottom: 8px;
+  letter-spacing: 0.1em;
+}
+
+.column-card .card-title {
+  font-size: 1.5rem;
+  font-weight: 500;
+  line-height: 1.6;
+  color: #fff;
+}
+
+.sec-column .btn-readmore {
+  color: #fff;
+  border-color: rgba(255,255,255,0.5);
+}
+
+.sec-column .btn-readmore:hover {
+  background: #fff;
+  color: #1a3c6e;
+}
+
+/* ========================================
+   SECTION: RECRUIT
+   ======================================== */
+.sec-recruit {
+  padding: 100px 0;
+  background: #f5f7fa;
+  text-align: center;
+}
+
+.sec-recruit .section-title-ja {
+  font-size: 2.4rem;
+}
+
+.recruit-links {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin-top: 40px;
+}
+
+.recruit-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 280px;
+  padding: 22px 40px;
+  background: #1a3c6e;
+  color: #fff;
+  font-size: 1.6rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+}
+
+.recruit-link:hover {
+  background: #0d2a52;
+  opacity: 1;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(26, 60, 110, 0.3);
+}
+
+.recruit-link::after {
+  content: '\2192';
+  font-size: 1.8rem;
+  transition: transform 0.3s ease;
+}
+
+.recruit-link:hover::after {
+  transform: translateX(4px);
+}
+
+/* ========================================
+   FIXED SIDE CTA
+   ======================================== */
+.side-cta {
+  position: fixed;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 900;
+  writing-mode: vertical-rl;
+}
+
+.side-cta a {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #c0392b;
+  color: #fff;
+  padding: 20px 14px;
+  font-size: 1.3rem;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  border-radius: 6px 0 0 6px;
+  transition: background 0.3s ease;
+}
+
+.side-cta a:hover {
+  background: #a93226;
+  opacity: 1;
+}
+
+/* ========================================
+   FOOTER
+   ======================================== */
+.footer {
+  background: #0d1f38;
+  color: #fff;
+  padding: 80px 0 0;
+}
+
+.footer-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+.footer-top {
+  display: flex;
+  gap: 60px;
+  padding-bottom: 60px;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.footer-logo-area {
+  min-width: 200px;
+}
+
+.footer-logo {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  margin-bottom: 10px;
+}
+
+.footer-logo-sub {
+  font-size: 1.1rem;
+  color: rgba(255,255,255,0.5);
+}
+
+.footer-nav {
+  display: flex;
+  gap: 50px;
+  flex: 1;
+  flex-wrap: wrap;
+}
+
+.footer-nav-col h4 {
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-bottom: 15px;
+  letter-spacing: 0.05em;
+}
+
+.footer-nav-col ul li {
+  margin-bottom: 8px;
+}
+
+.footer-nav-col ul li a {
+  font-size: 1.2rem;
+  color: rgba(255,255,255,0.6);
+  transition: color 0.3s ease;
+}
+
+.footer-nav-col ul li a:hover {
+  color: #fff;
+  opacity: 1;
+}
+
+.footer-external {
+  display: flex;
+  gap: 25px;
+  margin-top: 20px;
+}
+
+.footer-external a {
+  font-size: 1.2rem;
+  color: rgba(255,255,255,0.5);
+  border-bottom: 1px solid rgba(255,255,255,0.2);
+  padding-bottom: 2px;
+}
+
+.footer-bottom {
+  padding: 25px 0;
+  text-align: center;
+}
+
+.footer-copyright {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.1rem;
+  color: rgba(255,255,255,0.4);
+  letter-spacing: 0.05em;
+}
+
+.footer-backtop {
+  position: fixed;
+  bottom: 30px;
+  right: 70px;
+  width: 50px;
+  height: 50px;
+  background: #1a3c6e;
+  color: #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  opacity: 0;
+  pointer-events: none;
+  z-index: 800;
+  border: none;
+}
+
+.footer-backtop.visible {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.footer-backtop:hover {
+  background: #0d2a52;
+  transform: translateY(-3px);
+}
+
+/* ========================================
+   SCROLL ANIMATIONS
+   ======================================== */
+.fade-in {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.fade-in-left {
+  opacity: 0;
+  transform: translateX(-40px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.fade-in-left.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.fade-in-right {
+  opacity: 0;
+  transform: translateX(40px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.fade-in-right.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* ========================================
+   RESPONSIVE
+   ======================================== */
+@media (max-width: 1024px) {
+  .header-nav {
+    display: none;
+  }
+
+  .hamburger {
+    display: flex;
+  }
+
+  .mobile-nav {
+    display: flex;
+  }
+
+  .hero-slogan {
+    font-size: 3.6rem;
+  }
+
+  .sec-company .inner,
+  .sec-business .inner {
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  .sec-business .inner {
+    flex-direction: column;
+  }
+
+  .column-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .footer-top {
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  .side-cta {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  html {
+    font-size: 56%;
+  }
+
+  .container {
+    padding: 0 20px;
+  }
+
+  .header {
+    padding: 0 20px;
+  }
+
+  .header-inner {
+    height: 60px;
+  }
+
+  .hero {
+    min-height: 500px;
+  }
+
+  .hero-slogan {
+    font-size: 2.8rem;
+    padding: 0 20px;
+  }
+
+  .hero-slogan-en {
+    font-size: 1.3rem;
+  }
+
+  .sec-company,
+  .sec-business,
+  .sec-interview,
+  .sec-column {
+    padding: 80px 0;
+  }
+
+  .sec-company .inner,
+  .sec-business .inner {
+    padding: 0 20px;
+  }
+
+  .section-title-ja {
+    font-size: 2.2rem;
+  }
+
+  .interview-card {
+    flex: 0 0 260px;
+  }
+
+  .column-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .recruit-links {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .footer-nav {
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  .footer-backtop {
+    right: 20px;
+    bottom: 20px;
+  }
+}
+
+/* ========================================
+   CARD COLOR VARIATIONS
+   ======================================== */
+.interview-card:nth-child(1) .card-img { background: linear-gradient(135deg, #d4e0ed 0%, #b8c9de 100%); }
+.interview-card:nth-child(2) .card-img { background: linear-gradient(135deg, #dae2d8 0%, #c1cdbf 100%); }
+.interview-card:nth-child(3) .card-img { background: linear-gradient(135deg, #e4ddd4 0%, #d1c7ba 100%); }
+.interview-card:nth-child(4) .card-img { background: linear-gradient(135deg, #d4dce8 0%, #bac5d5 100%); }
+.interview-card:nth-child(5) .card-img { background: linear-gradient(135deg, #ddd4e0 0%, #c8bdd0 100%); }
+.interview-card:nth-child(6) .card-img { background: linear-gradient(135deg, #d4e3e0 0%, #b8cec9 100%); }
+</style>
+</head>
+<body>
+
+<!-- ======== HEADER ======== -->
+<header class="header" id="header">
+  <div class="header-inner">
+    <a href="#" class="header-logo">
+      <span class="header-logo-main">SAMPLE CORP.</span>
+      <span class="header-logo-sub">Recruiting Site</span>
+    </a>
+    <nav class="header-nav">
+      <a href="#top"><span class="en">Top</span><span class="ja">トップ</span></a>
+      <a href="#company"><span class="en">Company</span><span class="ja">会社情報</span></a>
+      <a href="#business"><span class="en">Business</span><span class="ja">事業紹介</span></a>
+      <a href="#interview"><span class="en">Interview</span><span class="ja">インタビュー</span></a>
+      <a href="#column"><span class="en">Column</span><span class="ja">先端技術</span></a>
+      <a href="#recruit"><span class="en">Recruit</span><span class="ja">採用情報</span></a>
+      <a href="#" class="nav-entry"><span class="en">Entry</span><span class="ja">エントリー</span></a>
+    </nav>
+    <div class="hamburger" id="hamburger" onclick="toggleMenu()">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+</header>
+
+<!-- Mobile Nav -->
+<div class="mobile-nav" id="mobileNav">
+  <a href="#top" onclick="closeMenu()">Top</a>
+  <a href="#company" onclick="closeMenu()">Company</a>
+  <a href="#business" onclick="closeMenu()">Business</a>
+  <a href="#interview" onclick="closeMenu()">Interview</a>
+  <a href="#column" onclick="closeMenu()">Column</a>
+  <a href="#recruit" onclick="closeMenu()">Recruit</a>
+  <a href="#" onclick="closeMenu()">Entry</a>
+</div>
+
+<!-- ======== HERO ======== -->
+<section class="hero" id="top">
+  <div class="hero-bg"></div>
+  <div class="hero-content">
+    <h1 class="hero-slogan">100年つづく、<br>笑顔を創ろう</h1>
+    <p class="hero-slogan-en en">Let's make a smile for 100 years.</p>
+    <div class="hero-cta">
+      <a href="#" class="en">ENTRY</a>
+    </div>
+  </div>
+  <div class="hero-scroll">
+    <span class="en">SCROLL</span>
+  </div>
+</section>
+
+<!-- ======== COMPANY ======== -->
+<section class="sec-company" id="company">
+  <div class="inner">
+    <div class="image-side fade-in-left">
+      <div class="img-wrap">
+        <div class="placeholder-img">Company Image</div>
+      </div>
+    </div>
+    <div class="text-side fade-in-right">
+      <p class="section-label">Company</p>
+      <h2 class="section-title-ja">100年つづく、<br>笑顔を創ろう</h2>
+      <p class="section-text">
+        人生100年時代と言われる今、「食べる」「話す」という健康や命に関わる分野として歯科医療が注目を集めています。私たちは歯科器材・機器のリーディングカンパニーとして医療現場でそれを使い、治療を受けられる歯科医師の方、患者の方に、いつも笑顔であってほしいと考えています。
+      </p>
+      <a href="#" class="btn-readmore"><span class="en">Read more</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- ======== BUSINESS ======== -->
+<section class="sec-business" id="business">
+  <div class="inner">
+    <div class="image-side fade-in-right">
+      <div class="img-wrap">
+        <div class="placeholder-img">Business Image</div>
+      </div>
+    </div>
+    <div class="text-side fade-in-left">
+      <p class="section-label">Business</p>
+      <h2 class="section-title-ja">開発から製造、販売まで。<br>一貫して行うから、<br>潜在的なニーズを形にできる。</h2>
+      <p class="section-text">
+        歯科器材、医療用器材の製造・販売・輸出入という専門性の高い分野の中で、創業以来40年以上にわたり独自の研究を重ね、世界でも確固たるポジションを築いてきました。
+      </p>
+      <a href="#" class="btn-readmore"><span class="en">Read more</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- ======== INTERVIEW ======== -->
+<section class="sec-interview" id="interview">
+  <div class="section-header fade-in">
+    <p class="section-label">Interview</p>
+    <h2 class="section-title-ja">歯科医師や患者の方の笑顔のために、<br>私たちが現場で今できること。</h2>
+  </div>
+  <div class="interview-slider">
+    <div class="interview-track" id="interviewTrack">
+      <!-- Card 1 -->
+      <div class="interview-card fade-in">
+        <div class="card-img">
+          <div class="placeholder-img">Photo</div>
+          <span class="card-tag">メディカル総合職</span>
+        </div>
+        <div class="card-body">
+          <p class="card-name">O.Y</p>
+          <p class="card-dept">国内営業部 / 2023年入社</p>
+          <p class="card-quote">「自信ある製品で営業の手応えをつかむ」</p>
+        </div>
+      </div>
+      <!-- Card 2 -->
+      <div class="interview-card fade-in">
+        <div class="card-img">
+          <div class="placeholder-img">Photo</div>
+          <span class="card-tag">メディカル総合職</span>
+        </div>
+        <div class="card-body">
+          <p class="card-name">S.S</p>
+          <p class="card-dept">海外営業部 / 2007年入社</p>
+          <p class="card-quote">「世界を舞台にビジネスを広げる」</p>
+        </div>
+      </div>
+      <!-- Card 3 -->
+      <div class="interview-card fade-in">
+        <div class="card-img">
+          <div class="placeholder-img">Photo</div>
+          <span class="card-tag">メディカル総合職</span>
+        </div>
+        <div class="card-body">
+          <p class="card-name">I.R</p>
+          <p class="card-dept">マーケティング部 / 2023年入社</p>
+          <p class="card-quote">「企業と顧客をつなぐ土台をつくる」</p>
+        </div>
+      </div>
+      <!-- Card 4 -->
+      <div class="interview-card fade-in">
+        <div class="card-img">
+          <div class="placeholder-img">Photo</div>
+          <span class="card-tag">メディカル総合職</span>
+        </div>
+        <div class="card-body">
+          <p class="card-name">S.E</p>
+          <p class="card-dept">プロダクトマネジメント部 / 2013年入社</p>
+          <p class="card-quote">「医療製品の企画から開発までを担う」</p>
+        </div>
+      </div>
+      <!-- Card 5 -->
+      <div class="interview-card fade-in">
+        <div class="card-img">
+          <div class="placeholder-img">Photo</div>
+          <span class="card-tag">技術職</span>
+        </div>
+        <div class="card-body">
+          <p class="card-name">S.A</p>
+          <p class="card-dept">つくば研究所 / 2016年入社</p>
+          <p class="card-quote">「自分の製品を世界に。研究と人生を両立」</p>
+        </div>
+      </div>
+      <!-- Card 6 -->
+      <div class="interview-card fade-in">
+        <div class="card-img">
+          <div class="placeholder-img">Photo</div>
+          <span class="card-tag">技術職</span>
+        </div>
+        <div class="card-body">
+          <p class="card-name">Y.T</p>
+          <p class="card-dept">鹿島工場 / 2019年入社</p>
+          <p class="card-quote">「量産まで支える技術の仕事」</p>
+        </div>
+      </div>
+    </div>
+    <div class="interview-nav">
+      <button onclick="scrollSlider(-1)" aria-label="前へ">&#8592;</button>
+      <button onclick="scrollSlider(1)" aria-label="次へ">&#8594;</button>
+    </div>
+  </div>
+  <div class="view-all">
+    <a href="#" class="btn-readmore"><span class="en">View all</span></a>
+  </div>
+</section>
+
+<!-- ======== COLUMN ======== -->
+<section class="sec-column" id="column">
+  <div class="container">
+    <div class="fade-in">
+      <p class="section-label">Column</p>
+      <h2 class="section-title-ja">先端技術コラム</h2>
+      <p class="section-text">
+        私たちは、歯科器材・機器の分野で画期的な製品を開発することで、リーディングカンパニーとしての地位を確立してきました。
+      </p>
+    </div>
+    <div class="column-grid">
+      <div class="column-card fade-in">
+        <div class="card-img">
+          <div class="placeholder-img">Column Image</div>
+        </div>
+        <div class="card-body">
+          <p class="card-num en">#01</p>
+          <p class="card-title">次世代の歯科材料技術</p>
+        </div>
+      </div>
+      <div class="column-card fade-in">
+        <div class="card-img">
+          <div class="placeholder-img">Column Image</div>
+        </div>
+        <div class="card-body">
+          <p class="card-num en">#02</p>
+          <p class="card-title">デジタル技術が変える歯科医療</p>
+        </div>
+      </div>
+      <div class="column-card fade-in">
+        <div class="card-img">
+          <div class="placeholder-img">Column Image</div>
+        </div>
+        <div class="card-body">
+          <p class="card-num en">#03</p>
+          <p class="card-title">グローバル展開と品質管理</p>
+        </div>
+      </div>
+    </div>
+    <div style="text-align: center;">
+      <a href="#" class="btn-readmore"><span class="en">Read more</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- ======== RECRUIT ======== -->
+<section class="sec-recruit" id="recruit">
+  <div class="container fade-in">
+    <p class="section-label">Recruit</p>
+    <h2 class="section-title-ja">募集要項はこちら</h2>
+    <div class="recruit-links">
+      <a href="#" class="recruit-link">新卒採用</a>
+      <a href="#" class="recruit-link">中途採用</a>
+    </div>
+  </div>
+</section>
+
+<!-- ======== SIDE CTA ======== -->
+<div class="side-cta">
+  <a href="#">いますぐ応募する</a>
+</div>
+
+<!-- ======== FOOTER ======== -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-logo-area">
+        <p class="footer-logo en">SAMPLE CORP.</p>
+        <p class="footer-logo-sub">株式会社サンプル企業</p>
+        <div class="footer-external" style="margin-top: 30px;">
+          <a href="#">コーポレートサイト</a>
+          <a href="#">個人情報保護方針</a>
+        </div>
+      </div>
+      <div class="footer-nav">
+        <div class="footer-nav-col">
+          <h4>会社情報</h4>
+          <ul>
+            <li><a href="#">社長メッセージ</a></li>
+            <li><a href="#">企業理念</a></li>
+            <li><a href="#">会社概要</a></li>
+            <li><a href="#">沿革</a></li>
+            <li><a href="#">グループ会社</a></li>
+          </ul>
+        </div>
+        <div class="footer-nav-col">
+          <h4>事業紹介</h4>
+          <ul>
+            <li><a href="#">事業説明</a></li>
+            <li><a href="#">製品・技術紹介</a></li>
+            <li><a href="#">製品ができるまで</a></li>
+          </ul>
+        </div>
+        <div class="footer-nav-col">
+          <h4>インタビュー</h4>
+          <ul>
+            <li><a href="#">技術職</a></li>
+            <li><a href="#">メディカル総合職</a></li>
+          </ul>
+        </div>
+        <div class="footer-nav-col">
+          <h4>採用情報</h4>
+          <ul>
+            <li><a href="#">新卒採用</a></li>
+            <li><a href="#">中途採用</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-copyright en">Copyright &copy; Sample Corporation All Rights Reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<!-- Back to top -->
+<button class="footer-backtop" id="backtop" onclick="window.scrollTo({top:0,behavior:'smooth'})">&#8593;</button>
+
+<!-- ======== SCRIPTS ======== -->
+<script>
+// Header scroll effect
+const header = document.getElementById('header');
+const backtop = document.getElementById('backtop');
+
+window.addEventListener('scroll', () => {
+  if (window.scrollY > 100) {
+    header.classList.add('scrolled');
+    backtop.classList.add('visible');
+  } else {
+    header.classList.remove('scrolled');
+    backtop.classList.remove('visible');
+  }
+});
+
+// Mobile menu
+function toggleMenu() {
+  document.getElementById('mobileNav').classList.toggle('active');
+}
+function closeMenu() {
+  document.getElementById('mobileNav').classList.remove('active');
+}
+
+// Interview slider
+function scrollSlider(dir) {
+  const track = document.getElementById('interviewTrack');
+  const cardWidth = 330;
+  track.scrollBy({ left: cardWidth * dir, behavior: 'smooth' });
+}
+
+// Scroll animations (Intersection Observer)
+const observerOptions = {
+  threshold: 0.15,
+  rootMargin: '0px 0px -50px 0px'
+};
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      observer.unobserve(entry.target);
+    }
+  });
+}, observerOptions);
+
+document.querySelectorAll('.fade-in, .fade-in-left, .fade-in-right').forEach(el => {
+  observer.observe(el);
+});
+</script>
+
+</body>
+</html>
