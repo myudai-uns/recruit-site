@@ -115,10 +115,10 @@ ul,ol{list-style:none}
 .top_company ._people_side ._cutout{width:220px;height:300px;border-radius:0;overflow:visible}
 
 /* ===== FLOW BG STRIP ===== */
-.top_flow_bg{width:100%;height:400px;position:relative;overflow:hidden;background:linear-gradient(135deg,#4d9ae0 0%,#6bb3f0 50%,#4d9ae0 100%);background-size:200% 100%;animation:flowBg 8s ease infinite}
-.top_flow_bg ._strip{position:absolute;top:0;left:0;width:200%;height:100%;display:flex;animation:flowStrip 40s linear infinite}
+.top_flow_bg{width:100%;height:400px;position:relative;overflow:hidden;background:url('https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=1400&h=400&fit=crop&crop=center') center/cover no-repeat}
+.top_flow_bg::after{content:'';position:absolute;top:0;left:0;width:100%;height:100%;background:rgba(77,154,224,.5)}
+.top_flow_bg ._strip{position:absolute;top:0;left:0;width:200%;height:100%;display:flex;animation:flowStrip 40s linear infinite;z-index:1}
 .top_flow_bg ._strip ._panel{flex:0 0 25%;height:100%}
-@keyframes flowBg{0%,100%{background-position:0 50%}50%{background-position:100% 50%}}
 @keyframes flowStrip{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
 
 /* ===== BUSINESS SECTION ===== */
@@ -404,12 +404,7 @@ ul,ol{list-style:none}
     <div class="_left anim-left">
       <div class="_img">
         <div class="_photo">
-          <div class="ph-biz" style="width:100%;height:100%;background:linear-gradient(180deg,#c4d5e3 0%,#8bafc8 30%,#6895b5 60%,#5580a0 100%);display:flex;align-items:center;justify-content:center;position:relative">
-            <!-- Simulate a photo with lab/office scene -->
-            <div style="position:absolute;top:15%;left:10%;width:35%;height:25%;background:rgba(255,255,255,.06);border-radius:4px"></div>
-            <div style="position:absolute;top:45%;left:20%;width:60%;height:30%;background:rgba(255,255,255,.04);border-radius:4px"></div>
-            <span style="color:rgba(255,255,255,.25);font-size:1.3rem;position:relative;z-index:1">Photo Placeholder</span>
-          </div>
+          <img class="ph-biz" src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=720&h=1000&fit=crop&crop=faces" alt="研究開発の様子" style="width:100%;height:100%;object-fit:cover">
         </div>
       </div>
       <div class="_people">
@@ -439,9 +434,7 @@ ul,ol{list-style:none}
       </p>
       <div class="_sub_img">
         <div class="_photo">
-          <div class="ph-biz" style="width:100%;height:100%;background:linear-gradient(135deg,#b8cfe6 0%,#8fb5d8 100%);border-radius:23px;display:flex;align-items:center;justify-content:center">
-            <span style="color:rgba(255,255,255,.3);font-size:1.1rem">Sub Photo</span>
-          </div>
+          <img class="ph-biz" src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=414&h=536&fit=crop&crop=center" alt="製品の様子" style="width:100%;height:100%;object-fit:cover;border-radius:23px">
         </div>
       </div>
     </div>
@@ -528,9 +521,23 @@ ul,ol{list-style:none}
 <!-- SCRIPTS -->
 <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
 <script>
-// ===== Generate puzzle photo grid (3 columns like original) =====
+// ===== Generate puzzle photo grid (3 columns with real photos) =====
 (function(){
-  const tileClasses = ['tile-1','tile-2','tile-3','tile-4','tile-5','tile-6','tile-7','tile-8','tile-9','tile-10','tile-11','tile-12'];
+  // Unsplash photos: office, lab, dental, people at work, teamwork
+  const photos = [
+    'photo-1581091226825-a6a2a5aee158','photo-1576091160399-112ba8d25d1d','photo-1582750433449-648ed127bb54',
+    'photo-1551836022-d5d88e9218df','photo-1581092795360-fd1ca04f0952','photo-1600880292203-757bb62b4baf',
+    'photo-1581092918056-0c4c3acd3789','photo-1573497620053-ea5300f94f21','photo-1581093588401-fbb62a02f120',
+    'photo-1560472355-536de3962603','photo-1581093450021-4a7360e9a6b5','photo-1600880292089-90a7e086ee0c',
+    'photo-1573496359142-b8d87734a5a2','photo-1581093458791-9d42e3c7e117','photo-1522071820081-009f0129c71c',
+    'photo-1573497491765-dccce02b29df','photo-1581091226033-d5c48150dbaa','photo-1600880292203-757bb62b4baf',
+    'photo-1581093588401-fbb62a02f120','photo-1573497620053-ea5300f94f21','photo-1551836022-d5d88e9218df',
+    'photo-1576091160550-2173dba999ef','photo-1581092795360-fd1ca04f0952','photo-1582750433449-648ed127bb54',
+    'photo-1560472355-536de3962603','photo-1573496359142-b8d87734a5a2','photo-1581093450021-4a7360e9a6b5',
+    'photo-1522071820081-009f0129c71c','photo-1581091226825-a6a2a5aee158','photo-1600880292089-90a7e086ee0c',
+    'photo-1573497491765-dccce02b29df','photo-1581092918056-0c4c3acd3789','photo-1581093458791-9d42e3c7e117',
+    'photo-1576091160399-112ba8d25d1d','photo-1551836022-d5d88e9218df','photo-1573497620053-ea5300f94f21',
+  ];
   const grid = document.getElementById('puzzleGrid');
   for(let c=0;c<3;c++){
     const col = document.createElement('div');
@@ -538,66 +545,54 @@ ul,ol{list-style:none}
     for(let i=0;i<12;i++){
       const tile = document.createElement('div');
       tile.className = '_tile';
-      const cls = tileClasses[(c*4+i)%tileClasses.length];
-      // Add subtle person silhouette to some tiles
-      let inner = '';
-      if((c+i)%3===0){
-        inner = '<div style="width:100%;height:100%;display:flex;align-items:flex-end;justify-content:center"><div style="width:50%;height:65%;background:rgba(255,255,255,.08);border-radius:40% 40% 0 0"></div></div>';
-      }
-      tile.innerHTML = '<div class="ph-tile '+cls+'">'+inner+'</div>';
+      const idx = (c*12+i) % photos.length;
+      tile.innerHTML = `<div class="ph-tile" style="background-image:url('https://images.unsplash.com/${photos[idx]}?w=400&h=400&fit=crop&crop=faces');background-size:cover;background-position:center;width:100%;height:100%"></div>`;
       col.appendChild(tile);
     }
     grid.appendChild(col);
   }
 })();
 
-// ===== Generate people strip for marquee =====
+// ===== Generate people strip for marquee (real photos) =====
 (function(){
   const strip = document.getElementById('peopleStrip');
-  const colors = ['rgba(77,154,224,.6)','rgba(123,104,238,.5)','rgba(100,149,237,.55)','rgba(70,130,180,.5)','rgba(147,112,219,.45)','rgba(91,143,217,.5)'];
+  // Portrait photos of business people
+  const portraits = [
+    'photo-1573497019940-1c28c88b4f3e','photo-1580489944761-15a19d654956',
+    'photo-1507003211169-0a1dd7228f2d','photo-1573496359142-b8d87734a5a2',
+    'photo-1560250097-0b93528c311a','photo-1573497620053-ea5300f94f21',
+  ];
   for(let set=0;set<2;set++){
-    for(let i=0;i<6;i++){
+    portraits.forEach((p,i)=>{
       const person = document.createElement('div');
       person.className = '_person';
-      const c = colors[i%colors.length];
-      const h = 220+Math.random()*40;
-      person.innerHTML = `
-        <div style="width:100%;height:${h}px;position:absolute;bottom:0;left:50%;transform:translateX(-50%)">
-          <div style="width:55px;height:55px;border-radius:50%;background:${c};margin:0 auto 6px"></div>
-          <div style="width:80px;height:${h-80}px;background:${c};border-radius:30% 30% 0 0;margin:0 auto"></div>
-        </div>`;
+      person.innerHTML = `<img src="https://images.unsplash.com/${p}?w=200&h=300&fit=crop&crop=faces" alt="" style="position:absolute;bottom:0;left:50%;transform:translateX(-50%);height:260px;width:auto;max-width:180px;object-fit:cover;object-position:top;mask-image:linear-gradient(to top,transparent 0%,black 8%,black 92%,transparent 100%);-webkit-mask-image:linear-gradient(to top,transparent 0%,black 8%,black 92%,transparent 100%)">`;
       strip.appendChild(person);
-    }
+    });
   }
 })();
 
-// ===== Generate company person cutout =====
+// ===== Company person cutout (real photo) =====
 (function(){
   const el = document.getElementById('companyCutout');
-  el.innerHTML = `<div style="width:250px;height:320px;position:relative">
-    <div style="width:65px;height:65px;border-radius:50%;background:rgba(77,154,224,.7);margin:0 auto 8px;position:relative;top:0"></div>
-    <div style="width:110px;height:245px;background:linear-gradient(180deg,rgba(77,154,224,.75),rgba(60,130,200,.8));border-radius:35% 35% 0 0;margin:0 auto"></div>
-  </div>`;
+  el.innerHTML = `<img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=300&h=400&fit=crop&crop=faces" alt="" style="width:220px;height:300px;object-fit:cover;object-position:top;border-radius:0;filter:drop-shadow(0 4px 12px rgba(0,0,0,.1))">`;
 })();
 
-// ===== Generate business person cutout =====
+// ===== Business person cutout (real photo) =====
 (function(){
   const el = document.getElementById('bizCutout');
-  el.innerHTML = `<div style="width:280px;height:420px;position:relative">
-    <div style="width:70px;height:70px;border-radius:50%;background:rgba(77,154,224,.65);margin:0 auto 8px"></div>
-    <div style="width:120px;height:340px;background:linear-gradient(180deg,rgba(77,154,224,.7),rgba(50,110,185,.75));border-radius:35% 35% 0 0;margin:0 auto"></div>
-  </div>`;
+  el.innerHTML = `<img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=320&h=480&fit=crop&crop=faces" alt="" style="width:280px;height:420px;object-fit:cover;object-position:top;filter:drop-shadow(0 6px 20px rgba(0,0,0,.12))">`;
 })();
 
-// ===== Generate interview cards =====
+// ===== Generate interview cards (real portrait photos) =====
 (function(){
   const data = [
-    {initial:'O.Y',dept:'国内営業部',year:'2023年入社',quote:'自信ある製品で\n営業の手応えをつかむ',cls:'_c1',bg:'linear-gradient(180deg,#7b68ee,#6a5acd)'},
-    {initial:'S.S',dept:'海外営業部',year:'2007年入社',quote:'世界を舞台に\nビジネスを広げる',cls:'_c2',bg:'linear-gradient(180deg,#4d9ae0,#4178b5)'},
-    {initial:'I.R',dept:'マーケティング部',year:'2023年入社',quote:'企業と顧客を\nつなぐ土台をつくる',cls:'_c4',bg:'linear-gradient(180deg,#9370db,#7b68ee)'},
-    {initial:'S.E',dept:'プロダクト\nマネジメント部',year:'2013年入社',quote:'医療製品の企画から\n開発までを担う',cls:'_c3',bg:'linear-gradient(180deg,#5b8fd9,#4a7bc0)'},
-    {initial:'S.A',dept:'つくば研究所',year:'2016年入社',quote:'自分の製品を世界に。\n研究と人生を両立',cls:'_c1',bg:'linear-gradient(180deg,#7b68ee,#6a5acd)'},
-    {initial:'Y.T',dept:'鹿島工場',year:'2019年入社',quote:'量産まで支える\n技術の仕事',cls:'_c6',bg:'linear-gradient(180deg,#4682b4,#3a6f9a)'},
+    {initial:'O.Y',dept:'国内営業部',year:'2023年入社',quote:'自信ある製品で\n営業の手応えをつかむ',cls:'_c1',photo:'photo-1573497019940-1c28c88b4f3e'},
+    {initial:'S.S',dept:'海外営業部',year:'2007年入社',quote:'世界を舞台に\nビジネスを広げる',cls:'_c2',photo:'photo-1507003211169-0a1dd7228f2d'},
+    {initial:'I.R',dept:'マーケティング部',year:'2023年入社',quote:'企業と顧客を\nつなぐ土台をつくる',cls:'_c4',photo:'photo-1580489944761-15a19d654956'},
+    {initial:'S.E',dept:'プロダクト\nマネジメント部',year:'2013年入社',quote:'医療製品の企画から\n開発までを担う',cls:'_c3',photo:'photo-1560250097-0b93528c311a'},
+    {initial:'S.A',dept:'つくば研究所',year:'2016年入社',quote:'自分の製品を世界に。\n研究と人生を両立',cls:'_c1',photo:'photo-1573496359142-b8d87734a5a2'},
+    {initial:'Y.T',dept:'鹿島工場',year:'2019年入社',quote:'量産まで支える\n技術の仕事',cls:'_c6',photo:'photo-1573497620053-ea5300f94f21'},
   ];
   const wrapper = document.getElementById('interviewSlides');
   data.forEach(d=>{
@@ -615,47 +610,23 @@ ul,ol{list-style:none}
           <p class="_bottom_text">${quoteHtml}</p>
         </div>
         <div class="_img">
-          <div class="_portrait" style="background:${d.bg};display:flex;align-items:flex-end;justify-content:center;padding:0">
-            <div style="width:50%;height:60%;background:rgba(255,255,255,.08);border-radius:40% 40% 0 0"></div>
-          </div>
+          <img class="_portrait" src="https://images.unsplash.com/${d.photo}?w=630&h=1140&fit=crop&crop=faces" alt="${d.initial}" style="object-fit:cover;object-position:top center">
         </div>
       </a>`;
     wrapper.appendChild(slide);
   });
 })();
 
-// ===== Generate interview deco person =====
+// ===== Interview deco person (real photo) =====
 (function(){
   const el = document.getElementById('interviewDeco');
-  el.innerHTML = `<div style="width:180px;height:250px;position:relative">
-    <div style="width:50px;height:50px;border-radius:50%;background:rgba(77,154,224,.35);margin:0 auto 6px"></div>
-    <div style="width:85px;height:190px;background:rgba(77,154,224,.3);border-radius:35% 35% 0 0;margin:0 auto"></div>
-  </div>`;
+  el.innerHTML = `<img src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?w=200&h=300&fit=crop&crop=faces" alt="" style="width:180px;height:250px;object-fit:cover;object-position:top;opacity:.5;mask-image:linear-gradient(to top,transparent 0%,black 15%,black 85%,transparent 100%);-webkit-mask-image:linear-gradient(to top,transparent 0%,black 15%,black 85%,transparent 100%)">`;
 })();
 
-// ===== Generate running people for column section =====
+// ===== Column section photo (real photo of people running/active) =====
 (function(){
   const el = document.getElementById('runPeople');
-  el.innerHTML = `<svg viewBox="0 0 391 264" xmlns="http://www.w3.org/2000/svg" style="width:100%">
-    <g opacity="0.45">
-      <circle cx="100" cy="40" r="18" fill="#4d9ae0"/>
-      <path d="M85,60 L80,120 L70,190 L82,192 L95,130 L105,130 L115,195 L127,193 L118,120 L115,60 Z" fill="#4d9ae0"/>
-      <path d="M82,70 L50,100" stroke="#4d9ae0" stroke-width="8" stroke-linecap="round"/>
-      <path d="M116,68 L148,55" stroke="#4d9ae0" stroke-width="8" stroke-linecap="round"/>
-    </g>
-    <g opacity="0.3" transform="translate(140,30)">
-      <circle cx="80" cy="35" r="15" fill="#7b68ee"/>
-      <path d="M68,52 L64,105 L55,165 L65,167 L77,112 L85,112 L94,170 L104,168 L100,105 L97,52 Z" fill="#7b68ee"/>
-      <path d="M66,62 L40,88" stroke="#7b68ee" stroke-width="7" stroke-linecap="round"/>
-      <path d="M98,60 L124,48" stroke="#7b68ee" stroke-width="7" stroke-linecap="round"/>
-    </g>
-    <g opacity="0.2" transform="translate(270,55) scale(0.75)">
-      <circle cx="80" cy="35" r="15" fill="#4d9ae0"/>
-      <path d="M68,52 L64,105 L55,165 L65,167 L77,112 L85,112 L94,170 L104,168 L100,105 L97,52 Z" fill="#4d9ae0"/>
-      <path d="M66,62 L40,88" stroke="#4d9ae0" stroke-width="7" stroke-linecap="round"/>
-      <path d="M98,60 L124,48" stroke="#4d9ae0" stroke-width="7" stroke-linecap="round"/>
-    </g>
-  </svg>`;
+  el.innerHTML = `<img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=400&h=270&fit=crop&crop=center" alt="チームワーク" style="width:100%;border-radius:12px;opacity:.7;filter:drop-shadow(0 4px 15px rgba(0,0,0,.08))">`;
 })();
 
 // ===== Generate flow background panels =====
