@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 48" fill="none">
+  <rect width="48" height="48" rx="8" fill="#1a3a5c"/>
+  <text x="24" y="20" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" font-weight="700" fill="#2aace3">AISIN</text>
+  <text x="24" y="32" text-anchor="middle" font-family="Arial, sans-serif" font-size="7" font-weight="600" fill="#fff">TAKAOKA</text>
+  <text x="24" y="42" text-anchor="middle" font-family="Arial, sans-serif" font-size="6" fill="#5bc4f0">TOHOKU</text>
+  <text x="60" y="22" font-family="'Noto Sans JP', Arial, sans-serif" font-size="14" font-weight="700" fill="#1a3a5c">アイシン高丘東北</text>
+  <text x="60" y="38" font-family="Arial, sans-serif" font-size="9" font-weight="500" fill="#607d8b" letter-spacing="0.5">AISIN TAKAOKA TOHOKU</text>
+</svg>
