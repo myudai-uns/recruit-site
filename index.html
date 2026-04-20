@@ -67,8 +67,8 @@ ul,ol{list-style:none}
 .hero ._puzzle ._tile{width:100%;aspect-ratio:1/1;flex-shrink:0;overflow:hidden}
 .hero ._puzzle ._tile img{width:100%;height:100%;object-fit:cover}
 .hero::after{content:'';position:absolute;top:0;left:0;width:100%;height:100%;background:rgba(30,100,60,.5);z-index:5;pointer-events:none}
-.hero ._main{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);z-index:10;text-align:center;color:var(--white);width:90%;max-width:850px}
-.hero ._catch{font-size:7.8rem;font-weight:900;letter-spacing:.06em;line-height:1.3;margin-bottom:30px;opacity:0;transform:translateY(30px) rotate(-6deg);animation:fuRot 1s .5s forwards;text-shadow:0 4px 30px rgba(0,0,0,.25);display:inline-block;padding:0 10px}
+.hero ._main{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);z-index:10;text-align:center;color:var(--white);width:100%;padding:0 2vw}
+.hero ._catch{font-size:clamp(4.5rem,10.5vw,16rem);font-weight:900;letter-spacing:.02em;line-height:1.2;margin-bottom:30px;opacity:0;transform:translateY(30px) rotate(-6deg);animation:fuRot 1s .5s forwards;text-shadow:0 4px 30px rgba(0,0,0,.3);display:block;white-space:nowrap}
 .hero ._catch ._accent{color:var(--yellow)}
 @keyframes fuRot{to{opacity:1;transform:translateY(0) rotate(-6deg)}}
 .hero ._sub{font-size:1.8rem;font-weight:400;letter-spacing:.08em;opacity:0;transform:translateY(20px);animation:fu 1s .9s forwards}
@@ -219,7 +219,6 @@ ul,ol{list-style:none}
 /* ===== RESPONSIVE ===== */
 @media(max-width:1024px){
   .ham{display:flex}#header ._entry{display:none}
-  .hero ._catch{font-size:5.4rem}
   .hero ._puzzle ._col:nth-child(n+4){display:none}
   .sec-biz .content{flex-direction:column}
   .sec-biz ._left{width:100%}
@@ -236,7 +235,6 @@ ul,ol{list-style:none}
   .content{padding:0 20px}
   #header{padding:12px 20px}
   .hero{min-height:500px}
-  .hero ._catch{font-size:3.6rem;padding:0 15px}
   .hero ._sub{font-size:1.4rem}
   .hero ._puzzle ._col:nth-child(n+3){display:none}
   .marquee{height:180px}
@@ -322,20 +320,20 @@ ul,ol{list-style:none}
       <p class="_more"><a href="#" class="fj">会社を詳しく知る <span class="cta-arrow"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="10" viewBox="0 0 18.693 16.245"><path d="M17.358,6.071,11.423.136a.662.662,0,0,0-.742,0L9.2,1.471a.662.662,0,0,0,0,.742l3.709,3.709a.517.517,0,0,1-.3.89H.445C.148,6.664,0,6.961,0,7.257V9.186a.393.393,0,0,0,.445.445H12.462a.517.517,0,0,1,.3.89L9.2,14.082a.662.662,0,0,0,0,.742l1.335,1.335a.662.662,0,0,0,.742,0l6.973-6.973a1.434,1.434,0,0,0,0-2.077Z" fill="#fff"/></svg></span></a></p>
     </div>
     <div class="_photo">
-      <img src="images/building-exterior.jpg" alt="工場外観">
+      <img src="images/sns/01_factory_exterior.jpg" alt="工場外観">
     </div>
   </div>
 </section>
 
 <!-- FLOW BG -->
-<div class="flow-bg"><img src="images/factory-inside.jpg" alt="工場内部"></div>
+<div class="flow-bg"><img src="images/sns/13_clean_factory_wide.png" alt="工場内部"></div>
 
 <!-- BUSINESS -->
 <section class="sec-biz" id="business">
   <div class="content">
     <div class="_left al">
-      <div class="_photo-main"><img src="images/casting-hands.jpg" alt="鋳造作業"></div>
-      <div class="_photo-person"><img src="images/young-worker.jpg" alt="若手社員"></div>
+      <div class="_photo-main"><img src="images/sns/02_machine_operation.jpg" alt="機械加工"></div>
+      <div class="_photo-person"><img src="images/sns/08_young_worker_smile.png" alt="若手社員"></div>
     </div>
     <div class="_right ar">
       <p class="_label fj">Work</p>
@@ -346,7 +344,7 @@ ul,ol{list-style:none}
         未経験でも安心の教育体制。先輩がそばにいる環境で、確実にスキルが身につきます。
       </p>
       <p class="_more"><a href="#" class="fj">仕事の流れを見る <span class="cta-arrow"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="10" viewBox="0 0 18.693 16.245"><path d="M17.358,6.071,11.423.136a.662.662,0,0,0-.742,0L9.2,1.471a.662.662,0,0,0,0,.742l3.709,3.709a.517.517,0,0,1-.3.89H.445C.148,6.664,0,6.961,0,7.257V9.186a.393.393,0,0,0,.445.445H12.462a.517.517,0,0,1,.3.89L9.2,14.082a.662.662,0,0,0,0,.742l1.335,1.335a.662.662,0,0,0,.742,0l6.973-6.973a1.434,1.434,0,0,0,0-2.077Z" fill="#fff"/></svg></span></a></p>
-      <div class="_photo-sub"><img src="images/product-closeup.jpg" alt="製品"></div>
+      <div class="_photo-sub"><img src="images/sns/16_brake_parts_closeup.png" alt="ブレーキ部品"></div>
     </div>
   </div>
 </section>
@@ -458,18 +456,18 @@ ul,ol{list-style:none}
 // Puzzle grid with SSE photos
 (function(){
   const imgs = [
-    'images/factory-exterior.jpg','images/work-hero.jpg','images/equipment-operation.jpg',
-    'images/people-hero.jpg','images/production-line.jpg','images/morning-meeting.jpg',
-    'images/fresh-hero.jpg','images/hands-closeup.jpg','images/inspection-check.jpg',
-    'images/casting-hands.jpg','images/young-worker-factory.jpg','images/team-talk.jpg',
-    'images/engineering.jpg','images/meeting.jpg','images/person-1.jpg',
-    'images/factory-floor-clean.jpg','images/maintenance.jpg','images/senpai-teaching.jpg',
-    'images/recruit-hero.jpg','images/office-work.jpg','images/product.jpg',
-    'images/cafeteria.jpg','images/break-room.jpg','images/growth-kaizen.jpg',
-    'images/stability.jpg','images/person-2.jpg','images/person-3.jpg',
-    'images/building-exterior.jpg','images/pc-work.jpg','images/product-closeup.jpg',
-    'images/young-worker.jpg','images/person-4.jpg','images/person-5.jpg',
-    'images/factory-inside.jpg','images/factory-exterior.jpg','images/work-hero.jpg',
+    'images/sns/01_factory_exterior.jpg','images/sns/08_young_worker_smile.png','images/sns/02_machine_operation.jpg',
+    'images/sns/09_young_workers_group.png','images/sns/03_quality_inspection.jpg','images/sns/10_young_break_smartphone.png',
+    'images/sns/04_cafeteria_break.jpg','images/sns/11_young_cafeteria_lunch.png','images/sns/05_ojt_training.jpg',
+    'images/sns/14_young_ojt_teaching.png','images/sns/06_morning_assembly.jpg','images/sns/13_clean_factory_wide.png',
+    'images/sns/07_young_worker_machine.jpg','images/sns/15_office_worker.png','images/sns/16_brake_parts_closeup.png',
+    'images/sns/12_miyagi_scenery.png','images/sns/08_young_worker_smile.png','images/sns/02_machine_operation.jpg',
+    'images/sns/09_young_workers_group.png','images/sns/05_ojt_training.jpg','images/sns/10_young_break_smartphone.png',
+    'images/sns/11_young_cafeteria_lunch.png','images/sns/03_quality_inspection.jpg','images/sns/14_young_ojt_teaching.png',
+    'images/sns/06_morning_assembly.jpg','images/sns/13_clean_factory_wide.png','images/sns/07_young_worker_machine.jpg',
+    'images/sns/15_office_worker.png','images/sns/16_brake_parts_closeup.png','images/sns/12_miyagi_scenery.png',
+    'images/sns/01_factory_exterior.jpg','images/sns/04_cafeteria_break.jpg','images/sns/08_young_worker_smile.png',
+    'images/sns/02_machine_operation.jpg','images/sns/09_young_workers_group.png','images/sns/05_ojt_training.jpg',
   ];
   const g=document.getElementById('pzl');
   for(let c=0;c<3;c++){
@@ -488,12 +486,12 @@ ul,ol{list-style:none}
 // Interview cards
 (function(){
   const data=[
-    {ini:'K.S',dept:'生産技能職',yr:'2022年入社',q:'手を動かすたびに\n「できた」が増える',cls:'_g1',img:'images/person-1.jpg'},
-    {ini:'T.M',dept:'生産技術',yr:'2019年入社',q:'設備を改善するたび\n工場が進化していく',cls:'_y1',img:'images/person-2.jpg'},
-    {ini:'A.H',dept:'総務・人事',yr:'2021年入社',q:'現場を支える仕事に\nやりがいを感じる',cls:'_g2',img:'images/person-3.jpg'},
-    {ini:'R.Y',dept:'品質保証',yr:'2020年入社',q:'自分が通した製品が\n道を走っている',cls:'_g3',img:'images/person-4.jpg'},
-    {ini:'M.O',dept:'生産技能職',yr:'2023年入社',q:'未経験でも安心\n先輩がずっとそばにいる',cls:'_y2',img:'images/person-5.jpg'},
-    {ini:'S.I',dept:'生産技能職',yr:'2018年入社',q:'地元で世界に\nつながるものづくり',cls:'_g1',img:'images/young-worker-factory.jpg'},
+    {ini:'K.S',dept:'生産技能職',yr:'2022年入社',q:'手を動かすたびに\n「できた」が増える',cls:'_g1',img:'images/sns/08_young_worker_smile.png'},
+    {ini:'T.M',dept:'生産技術',yr:'2019年入社',q:'設備を改善するたび\n工場が進化していく',cls:'_y1',img:'images/sns/07_young_worker_machine.jpg'},
+    {ini:'A.H',dept:'総務・人事',yr:'2021年入社',q:'現場を支える仕事に\nやりがいを感じる',cls:'_g2',img:'images/sns/15_office_worker.png'},
+    {ini:'R.Y',dept:'品質保証',yr:'2020年入社',q:'自分が通した製品が\n道を走っている',cls:'_g3',img:'images/sns/03_quality_inspection.jpg'},
+    {ini:'M.O',dept:'生産技能職',yr:'2023年入社',q:'未経験でも安心\n先輩がずっとそばにいる',cls:'_y2',img:'images/sns/14_young_ojt_teaching.png'},
+    {ini:'S.I',dept:'生産技能職',yr:'2018年入社',q:'地元で世界に\nつながるものづくり',cls:'_g1',img:'images/sns/09_young_workers_group.png'},
   ];
   const w=document.getElementById('itvSlides');
   data.forEach(d=>{
