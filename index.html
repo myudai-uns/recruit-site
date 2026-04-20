@@ -132,8 +132,10 @@ ul,ol{list-style:none}
 .sec-numbers ._label{font-family:'Josefin Sans',sans-serif;font-size:1.5rem;font-weight:600;letter-spacing:.15em;color:rgba(255,255,255,.6);margin-bottom:15px}
 .sec-numbers ._ttl{font-size:2.4rem;font-weight:700;margin-bottom:50px}
 .numbers-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:30px;max-width:1000px;margin:0 auto;padding:0 30px}
-.num-card{background:rgba(255,255,255,.08);border-radius:16px;padding:30px 15px;transition:transform .3s}
+.num-card{background:rgba(255,255,255,.08);border-radius:16px;padding:28px 15px 24px;transition:transform .3s;position:relative}
 .num-card:hover{transform:translateY(-3px)}
+.num-card ._ico{width:38px;height:38px;margin:0 auto 10px;display:flex;align-items:center;justify-content:center;background:rgba(245,197,24,.12);border-radius:50%}
+.num-card ._ico svg{width:22px;height:22px;stroke:var(--yellow);fill:none;stroke-width:1.8}
 .num-card ._val{font-family:'Josefin Sans',sans-serif;font-size:4.5rem;font-weight:700;color:var(--yellow);line-height:1.1;margin-bottom:5px}
 .num-card ._val ._unit{font-size:2rem;font-weight:400}
 .num-card ._desc{font-size:1.3rem;color:rgba(255,255,255,.8)}
@@ -172,6 +174,13 @@ ul,ol{list-style:none}
 .sec-recruit ._bg{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-family:'Josefin Sans',sans-serif;font-size:13rem;font-weight:700;color:transparent;-webkit-text-stroke:1px rgba(46,139,87,.08);white-space:nowrap;pointer-events:none}
 .sec-recruit h2{font-size:2.2rem;font-weight:700;margin-bottom:10px;position:relative;z-index:1}
 .sec-recruit ._sub{font-size:1.3rem;color:#666;margin-bottom:35px;position:relative;z-index:1}
+.rec-steps{display:flex;justify-content:center;align-items:stretch;gap:0;max-width:900px;margin:0 auto 45px;position:relative;z-index:1;flex-wrap:wrap}
+.rec-step{flex:1;min-width:180px;background:#fff;padding:24px 18px;position:relative;border-radius:10px;margin:0 6px;box-shadow:0 2px 10px rgba(46,139,87,.08)}
+.rec-step ._no{font-family:'Josefin Sans',sans-serif;font-size:1.2rem;font-weight:600;color:var(--yellow);letter-spacing:.1em;margin-bottom:6px}
+.rec-step ._ttl{font-size:1.5rem;font-weight:700;color:var(--green-dark);margin-bottom:6px}
+.rec-step ._txt{font-size:1.15rem;color:#666;line-height:1.7}
+.rec-step::after{content:'▶';position:absolute;right:-14px;top:50%;transform:translateY(-50%);color:var(--green);font-size:1.4rem;z-index:2}
+.rec-step:last-child::after{display:none}
 .rec-links{display:flex;justify-content:center;gap:25px;position:relative;z-index:1}
 .rec-link{display:flex;align-items:center;justify-content:center;gap:10px;width:280px;padding:22px 35px;background:var(--green-dark);color:#fff;font-size:1.6rem;font-weight:600;letter-spacing:.06em;border-radius:8px;transition:.3s}
 .rec-link:hover{background:var(--green);opacity:1;transform:translateY(-3px);box-shadow:0 8px 25px rgba(46,139,87,.25)}
@@ -236,6 +245,9 @@ ul,ol{list-style:none}
   .sec-itv{padding:60px 0 0}
   .sec-biz ._right ._ttl,.sec-itv ._ttl{font-size:2rem}
   .rec-links{flex-direction:column;align-items:center}
+  .rec-steps{flex-direction:column;gap:15px}
+  .rec-step{margin:0}
+  .rec-step::after{display:none}
   .numbers-grid{grid-template-columns:1fr 1fr;gap:15px}
   .footer-nav{flex-direction:column;gap:20px}
   .itv-swiper .swiper-slide{width:240px !important}
@@ -306,7 +318,7 @@ ul,ol{list-style:none}
         地元にいながら、世界の道を走るクルマに自分の仕事が届く。<br class="pc">
         その実感が、ここにはあります。
       </p>
-      <p class="_more"><a href="#" class="fj">Read more <span class="cta-arrow"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="10" viewBox="0 0 18.693 16.245"><path d="M17.358,6.071,11.423.136a.662.662,0,0,0-.742,0L9.2,1.471a.662.662,0,0,0,0,.742l3.709,3.709a.517.517,0,0,1-.3.89H.445C.148,6.664,0,6.961,0,7.257V9.186a.393.393,0,0,0,.445.445H12.462a.517.517,0,0,1,.3.89L9.2,14.082a.662.662,0,0,0,0,.742l1.335,1.335a.662.662,0,0,0,.742,0l6.973-6.973a1.434,1.434,0,0,0,0-2.077Z" fill="#fff"/></svg></span></a></p>
+      <p class="_more"><a href="#" class="fj">会社を詳しく知る <span class="cta-arrow"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="10" viewBox="0 0 18.693 16.245"><path d="M17.358,6.071,11.423.136a.662.662,0,0,0-.742,0L9.2,1.471a.662.662,0,0,0,0,.742l3.709,3.709a.517.517,0,0,1-.3.89H.445C.148,6.664,0,6.961,0,7.257V9.186a.393.393,0,0,0,.445.445H12.462a.517.517,0,0,1,.3.89L9.2,14.082a.662.662,0,0,0,0,.742l1.335,1.335a.662.662,0,0,0,.742,0l6.973-6.973a1.434,1.434,0,0,0,0-2.077Z" fill="#fff"/></svg></span></a></p>
     </div>
     <div class="_photo">
       <img src="images/building-exterior.jpg" alt="工場外観">
@@ -332,7 +344,7 @@ ul,ol{list-style:none}
         AT-Tでは、ひとつの工場の中でものづくりの全工程を経験できます。<br>
         未経験でも安心の教育体制。先輩がそばにいる環境で、確実にスキルが身につきます。
       </p>
-      <p class="_more"><a href="#" class="fj">Read more <span class="cta-arrow"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="10" viewBox="0 0 18.693 16.245"><path d="M17.358,6.071,11.423.136a.662.662,0,0,0-.742,0L9.2,1.471a.662.662,0,0,0,0,.742l3.709,3.709a.517.517,0,0,1-.3.89H.445C.148,6.664,0,6.961,0,7.257V9.186a.393.393,0,0,0,.445.445H12.462a.517.517,0,0,1,.3.89L9.2,14.082a.662.662,0,0,0,0,.742l1.335,1.335a.662.662,0,0,0,.742,0l6.973-6.973a1.434,1.434,0,0,0,0-2.077Z" fill="#fff"/></svg></span></a></p>
+      <p class="_more"><a href="#" class="fj">仕事の流れを見る <span class="cta-arrow"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="10" viewBox="0 0 18.693 16.245"><path d="M17.358,6.071,11.423.136a.662.662,0,0,0-.742,0L9.2,1.471a.662.662,0,0,0,0,.742l3.709,3.709a.517.517,0,0,1-.3.89H.445C.148,6.664,0,6.961,0,7.257V9.186a.393.393,0,0,0,.445.445H12.462a.517.517,0,0,1,.3.89L9.2,14.082a.662.662,0,0,0,0,.742l1.335,1.335a.662.662,0,0,0,.742,0l6.973-6.973a1.434,1.434,0,0,0,0-2.077Z" fill="#fff"/></svg></span></a></p>
       <div class="_photo-sub"><img src="images/product-closeup.jpg" alt="製品"></div>
     </div>
   </div>
@@ -344,14 +356,38 @@ ul,ol{list-style:none}
     <p class="_label fj">Data</p>
     <h2 class="_ttl">数字で見る AT-T</h2>
     <div class="numbers-grid">
-      <div class="num-card"><p class="_val">121<span class="_unit">日</span></p><p class="_desc">年間休日</p></div>
-      <div class="num-card"><p class="_val">91<span class="_unit">%</span></p><p class="_desc">有給取得率</p></div>
-      <div class="num-card"><p class="_val">4.7<span class="_unit">ヶ月</span></p><p class="_desc">賞与実績</p></div>
-      <div class="num-card"><p class="_val">0<span class="_unit">回</span></p><p class="_desc">転勤</p></div>
-      <div class="num-card"><p class="_val">340<span class="_unit">名</span></p><p class="_desc">従業員数</p></div>
-      <div class="num-card"><p class="_val">71.8<span class="_unit">億</span></p><p class="_desc">売上高</p></div>
-      <div class="num-card"><p class="_val">2009<span class="_unit">年</span></p><p class="_desc">設立</p></div>
-      <div class="num-card"><p class="_val">17.3<span class="_unit">日</span></p><p class="_desc">平均有給取得日数</p></div>
+      <div class="num-card">
+        <div class="_ico"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 9h18M8 3v4M16 3v4"/></svg></div>
+        <p class="_val">121<span class="_unit">日</span></p><p class="_desc">年間休日</p>
+      </div>
+      <div class="num-card">
+        <div class="_ico"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M5 13l4 4L19 7"/></svg></div>
+        <p class="_val">91<span class="_unit">%</span></p><p class="_desc">有給取得率</p>
+      </div>
+      <div class="num-card">
+        <div class="_ico"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="9"/><path d="M12 7v10M9 10h4.5a2 2 0 010 4H9"/></svg></div>
+        <p class="_val">4.7<span class="_unit">ヶ月</span></p><p class="_desc">賞与実績</p>
+      </div>
+      <div class="num-card">
+        <div class="_ico"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 11l9-8 9 8"/><path d="M5 10v10h14V10"/><path d="M10 20v-6h4v6"/></svg></div>
+        <p class="_val">0<span class="_unit">回</span></p><p class="_desc">転勤</p>
+      </div>
+      <div class="num-card">
+        <div class="_ico"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><circle cx="9" cy="8" r="3"/><path d="M3 20c0-3 3-5 6-5s6 2 6 5"/><circle cx="17" cy="9" r="2.5"/><path d="M15 20c0-2.5 2-4 4-4s3 1 3 3"/></svg></div>
+        <p class="_val">340<span class="_unit">名</span></p><p class="_desc">従業員数</p>
+      </div>
+      <div class="num-card">
+        <div class="_ico"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 20h18"/><path d="M5 20V8l7-4 7 4v12"/><path d="M10 20v-5h4v5"/><path d="M9 9h.01M12 9h.01M15 9h.01M9 12h.01M15 12h.01"/></svg></div>
+        <p class="_val">71.8<span class="_unit">億</span></p><p class="_desc">売上高</p>
+      </div>
+      <div class="num-card">
+        <div class="_ico"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 3v18M3 12h18"/><circle cx="12" cy="12" r="9"/></svg></div>
+        <p class="_val">2009<span class="_unit">年</span></p><p class="_desc">設立</p>
+      </div>
+      <div class="num-card">
+        <div class="_ico"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div>
+        <p class="_val">17.3<span class="_unit">日</span></p><p class="_desc">平均有給取得日数</p>
+      </div>
     </div>
   </div>
 </section>
@@ -371,7 +407,7 @@ ul,ol{list-style:none}
       <button class="inext" aria-label="次へ">&#8594;</button>
     </div>
   </div>
-  <div class="more-center"><a href="#" class="fj">View all <span class="cta-arrow"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="10" viewBox="0 0 18.693 16.245"><path d="M17.358,6.071,11.423.136a.662.662,0,0,0-.742,0L9.2,1.471a.662.662,0,0,0,0,.742l3.709,3.709a.517.517,0,0,1-.3.89H.445C.148,6.664,0,6.961,0,7.257V9.186a.393.393,0,0,0,.445.445H12.462a.517.517,0,0,1,.3.89L9.2,14.082a.662.662,0,0,0,0,.742l1.335,1.335a.662.662,0,0,0,.742,0l6.973-6.973a1.434,1.434,0,0,0,0-2.077Z" fill="#fff"/></svg></span></a></div>
+  <div class="more-center"><a href="#" class="fj">社員インタビュー一覧 <span class="cta-arrow"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="10" viewBox="0 0 18.693 16.245"><path d="M17.358,6.071,11.423.136a.662.662,0,0,0-.742,0L9.2,1.471a.662.662,0,0,0,0,.742l3.709,3.709a.517.517,0,0,1-.3.89H.445C.148,6.664,0,6.961,0,7.257V9.186a.393.393,0,0,0,.445.445H12.462a.517.517,0,0,1,.3.89L9.2,14.082a.662.662,0,0,0,0,.742l1.335,1.335a.662.662,0,0,0,.742,0l6.973-6.973a1.434,1.434,0,0,0,0-2.077Z" fill="#fff"/></svg></span></a></div>
 </section>
 
 <!-- RECRUIT -->
@@ -380,6 +416,12 @@ ul,ol{list-style:none}
   <div class="content an">
     <h2>あなたのエントリーを待っています</h2>
     <p class="_sub">まずは募集要項をチェック。会社見学も随時受付中です。</p>
+    <div class="rec-steps">
+      <div class="rec-step"><p class="_no fj">STEP 01</p><p class="_ttl">エントリー</p><p class="_txt">WEBから簡単応募</p></div>
+      <div class="rec-step"><p class="_no fj">STEP 02</p><p class="_ttl">会社見学</p><p class="_txt">工場を直接体感</p></div>
+      <div class="rec-step"><p class="_no fj">STEP 03</p><p class="_ttl">面接</p><p class="_txt">1〜2回の面接</p></div>
+      <div class="rec-step"><p class="_no fj">STEP 04</p><p class="_ttl">内定</p><p class="_txt">入社まで丁寧サポート</p></div>
+    </div>
     <div class="rec-links">
       <a href="#" class="rec-link">新卒採用 &#8594;</a>
       <a href="#" class="rec-link _yellow">中途採用 &#8594;</a>
