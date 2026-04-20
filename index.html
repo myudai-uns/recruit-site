@@ -129,17 +129,19 @@ ul,ol{list-style:none}
 .sec-biz ._right ._photo-sub img{width:100%;aspect-ratio:414/536;object-fit:cover;border-radius:23px}
 
 /* ===== NUMBERS ===== */
-.sec-numbers{padding:80px 0;background:var(--green-dark);color:var(--white);text-align:center}
-.sec-numbers ._label{font-family:'Josefin Sans',sans-serif;font-size:1.5rem;font-weight:600;letter-spacing:.15em;color:rgba(255,255,255,.6);margin-bottom:15px}
-.sec-numbers ._ttl{font-size:2.4rem;font-weight:700;margin-bottom:50px}
-.numbers-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:30px;max-width:1000px;margin:0 auto;padding:0 30px}
-.num-card{background:rgba(255,255,255,.08);border-radius:16px;padding:28px 15px 24px;transition:transform .3s;position:relative}
-.num-card:hover{transform:translateY(-3px)}
-.num-card ._ico{width:38px;height:38px;margin:0 auto 10px;display:flex;align-items:center;justify-content:center;background:rgba(245,197,24,.12);border-radius:50%}
-.num-card ._ico svg{width:22px;height:22px;stroke:var(--yellow);fill:none;stroke-width:1.8}
-.num-card ._val{font-family:'Josefin Sans',sans-serif;font-size:4.5rem;font-weight:700;color:var(--yellow);line-height:1.1;margin-bottom:5px}
-.num-card ._val ._unit{font-size:2rem;font-weight:400}
-.num-card ._desc{font-size:1.3rem;color:rgba(255,255,255,.8)}
+.sec-numbers{padding:120px 0 110px;background:var(--green-dark);color:var(--white);text-align:center;position:relative;overflow:hidden}
+.sec-numbers ._bg-txt{position:absolute;top:48%;left:50%;transform:translate(-50%,-50%);font-family:'Josefin Sans',sans-serif;font-size:clamp(14rem,24vw,30rem);font-weight:900;color:rgba(245,197,24,.05);white-space:nowrap;pointer-events:none;z-index:0;letter-spacing:-.03em}
+.sec-numbers .content{position:relative;z-index:1}
+.sec-numbers ._label{font-family:'Josefin Sans',sans-serif;font-size:1.4rem;font-weight:600;letter-spacing:.35em;color:var(--yellow);margin-bottom:28px}
+.sec-numbers ._ttl{font-size:clamp(4rem,8.5vw,10.5rem);font-weight:900;letter-spacing:.01em;line-height:1.15;margin-bottom:22px;transform:rotate(-5deg);display:inline-block;text-shadow:0 4px 25px rgba(0,0,0,.3)}
+.sec-numbers ._ttl ._y{color:var(--yellow)}
+.sec-numbers ._sub{font-size:1.5rem;color:rgba(255,255,255,.7);letter-spacing:.05em;margin-bottom:75px;margin-top:10px}
+.numbers-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;max-width:1180px;margin:0 auto;padding:0 30px}
+.num-card{background:rgba(255,255,255,.06);border-radius:18px;padding:42px 15px 30px;transition:transform .3s,background .3s;position:relative;overflow:hidden;border:1px solid rgba(255,255,255,.08)}
+.num-card:hover{transform:translateY(-4px);background:rgba(255,255,255,.1)}
+.num-card ._val{font-family:'Josefin Sans',sans-serif;font-size:clamp(5.5rem,8vw,9rem);font-weight:700;color:var(--yellow);line-height:.95;margin-bottom:10px;letter-spacing:-.03em}
+.num-card ._val ._unit{font-size:.3em;font-weight:500;margin-left:3px;letter-spacing:0}
+.num-card ._desc{font-size:1.45rem;color:rgba(255,255,255,.88);font-weight:500;letter-spacing:.03em}
 
 /* ===== INTERVIEW ===== */
 .sec-itv{position:relative;overflow:hidden;padding:100px 0 0;background:linear-gradient(180deg,var(--green) 0%,rgba(46,139,87,0) 84%)}
@@ -351,42 +353,20 @@ ul,ol{list-style:none}
 
 <!-- NUMBERS -->
 <section class="sec-numbers" id="numbers">
+  <div class="_bg-txt fj">NUMBERS</div>
   <div class="content an">
-    <p class="_label fj">Data</p>
-    <h2 class="_ttl">数字で見る AT-T</h2>
+    <p class="_label fj">NUMBERS</p>
+    <h2 class="_ttl">数字は、<br><span class="_y">ウソをつかない。</span></h2>
+    <p class="_sub">― うちの、ほんとの数字を。</p>
     <div class="numbers-grid">
-      <div class="num-card">
-        <div class="_ico"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 9h18M8 3v4M16 3v4"/></svg></div>
-        <p class="_val">121<span class="_unit">日</span></p><p class="_desc">年間休日</p>
-      </div>
-      <div class="num-card">
-        <div class="_ico"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M5 13l4 4L19 7"/></svg></div>
-        <p class="_val">91<span class="_unit">%</span></p><p class="_desc">有給取得率</p>
-      </div>
-      <div class="num-card">
-        <div class="_ico"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="9"/><path d="M12 7v10M9 10h4.5a2 2 0 010 4H9"/></svg></div>
-        <p class="_val">4.7<span class="_unit">ヶ月</span></p><p class="_desc">賞与実績</p>
-      </div>
-      <div class="num-card">
-        <div class="_ico"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 11l9-8 9 8"/><path d="M5 10v10h14V10"/><path d="M10 20v-6h4v6"/></svg></div>
-        <p class="_val">0<span class="_unit">回</span></p><p class="_desc">転勤</p>
-      </div>
-      <div class="num-card">
-        <div class="_ico"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><circle cx="9" cy="8" r="3"/><path d="M3 20c0-3 3-5 6-5s6 2 6 5"/><circle cx="17" cy="9" r="2.5"/><path d="M15 20c0-2.5 2-4 4-4s3 1 3 3"/></svg></div>
-        <p class="_val">340<span class="_unit">名</span></p><p class="_desc">従業員数</p>
-      </div>
-      <div class="num-card">
-        <div class="_ico"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 20h18"/><path d="M5 20V8l7-4 7 4v12"/><path d="M10 20v-5h4v5"/><path d="M9 9h.01M12 9h.01M15 9h.01M9 12h.01M15 12h.01"/></svg></div>
-        <p class="_val">71.8<span class="_unit">億</span></p><p class="_desc">売上高</p>
-      </div>
-      <div class="num-card">
-        <div class="_ico"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 3v18M3 12h18"/><circle cx="12" cy="12" r="9"/></svg></div>
-        <p class="_val">2009<span class="_unit">年</span></p><p class="_desc">設立</p>
-      </div>
-      <div class="num-card">
-        <div class="_ico"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div>
-        <p class="_val">17.3<span class="_unit">日</span></p><p class="_desc">平均有給取得日数</p>
-      </div>
+      <div class="num-card"><p class="_val">121<span class="_unit">日</span></p><p class="_desc">年間休日</p></div>
+      <div class="num-card"><p class="_val">91<span class="_unit">%</span></p><p class="_desc">有給取得率</p></div>
+      <div class="num-card"><p class="_val">4.7<span class="_unit">ヶ月</span></p><p class="_desc">賞与実績</p></div>
+      <div class="num-card"><p class="_val">0<span class="_unit">回</span></p><p class="_desc">転勤</p></div>
+      <div class="num-card"><p class="_val">340<span class="_unit">名</span></p><p class="_desc">従業員数</p></div>
+      <div class="num-card"><p class="_val">71.8<span class="_unit">億</span></p><p class="_desc">売上高</p></div>
+      <div class="num-card"><p class="_val">2009<span class="_unit">年</span></p><p class="_desc">設立</p></div>
+      <div class="num-card"><p class="_val">17.3<span class="_unit">日</span></p><p class="_desc">平均有給取得日数</p></div>
     </div>
   </div>
 </section>
