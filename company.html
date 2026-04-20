@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>会社を知る | アイシン高丘東北株式会社 採用サイト</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700;900&family=Josefin+Sans:wght@300;400;500;600;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --green:#2e8b57;--green-light:#3a9d6a;--green-dark:#1a5c38;--green-bg:#f5f8f5;
+  --yellow:#f5c518;--yellow-light:#ffd700;--yellow-glow:rgba(245,197,24,.15);
+  --dark:#1a3a2a;--text:#333;--white:#fff;
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{font-size:62.5%;scroll-behavior:smooth}
+body{font-family:'Noto Sans JP','Helvetica Neue',Arial,sans-serif;font-size:1.5rem;line-height:1.8;color:var(--text);background:var(--white);overflow-x:hidden}
+a{text-decoration:none;color:inherit;transition:opacity .3s}a:hover{opacity:.7}
+img{max-width:100%;height:auto;display:block}
+ul,ol{list-style:none}
+.fj{font-family:'Josefin Sans',sans-serif}
+.fr{font-family:'Roboto',sans-serif}
+.pc{display:inline}.sp{display:none}
+.content{max-width:1200px;margin:0 auto;padding:0 50px}
+
+/* ===== HEADER ===== */
+#header{position:fixed;top:0;left:0;width:100%;z-index:1000;display:flex;align-items:center;justify-content:space-between;padding:18px 40px;transition:background .4s,padding .4s;background:rgba(255,255,255,.97);box-shadow:0 2px 15px rgba(0,0,0,.08)}
+#header ._logo a{display:flex;align-items:center;gap:12px;color:var(--green-dark)}
+#header ._logo ._company{font-family:'Noto Sans JP',sans-serif;font-size:1.6rem;font-weight:700;letter-spacing:.03em}
+#header ._logo ._text{font-family:'Roboto',sans-serif;font-size:1rem;font-weight:400;letter-spacing:.12em;opacity:.85}
+#header ._logo ._logo-img{height:32px;width:auto}
+#header ._ctrls{display:flex;align-items:center;gap:12px}
+#header ._entry a{display:inline-block;padding:10px 28px;background:var(--yellow);color:var(--dark);font-size:1.3rem;font-weight:700;letter-spacing:.08em;border-radius:6px;transition:all .3s}
+#header ._entry a:hover{background:var(--yellow-light);opacity:1;transform:translateY(-1px)}
+.ham{display:none;background:none;border:none;cursor:pointer;flex-direction:column;gap:5px;padding:8px}
+.ham span{display:block;width:26px;height:2px;background:var(--dark);transition:.3s}
+
+/* Mobile Nav */
+.mnav{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(26,60,56,.97);z-index:1100;display:flex;flex-direction:column;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity .4s}
+.mnav.active{opacity:1;pointer-events:all}
+.mnav ._list{display:flex;flex-direction:column;align-items:center;gap:22px}
+.mnav ._list a{color:#fff;font-size:1.6rem;display:flex;flex-direction:column;align-items:center;gap:3px}
+.mnav ._list ._h{font-family:'Josefin Sans',sans-serif;font-size:1.3rem;font-weight:600}
+.mnav ._list ._m{font-size:1rem;opacity:.7}
+.mnav ._x{position:absolute;top:20px;right:35px;background:none;border:none;color:#fff;font-size:3rem;cursor:pointer}
+
+/* Side CTA */
+.side-cta{position:fixed;right:0;top:50%;transform:translateY(-50%);z-index:900;writing-mode:vertical-rl}
+.side-cta a{display:flex;align-items:center;gap:8px;background:var(--yellow);color:var(--dark);padding:18px 12px;font-size:1.2rem;font-weight:700;letter-spacing:.12em;border-radius:8px 0 0 8px;transition:background .3s;box-shadow:-2px 0 10px rgba(0,0,0,.1)}
+.cta-arrow{display:inline-flex;align-items:center;justify-content:center;width:32px;height:32px;border-radius:50%;background:var(--green-dark);flex-shrink:0}
+.cta-arrow svg{width:12px;height:auto}
+
+/* ===== PAGE HERO ===== */
+.page-hero{position:relative;height:48vh;min-height:360px;overflow:hidden;background:var(--green-dark);margin-top:0}
+.page-hero ._bg{position:absolute;inset:0;z-index:1}
+.page-hero ._bg img{width:100%;height:100%;object-fit:cover;opacity:.55}
+.page-hero::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(26,92,56,.3) 0%,rgba(26,92,56,.6) 100%);z-index:2}
+.page-hero ._main{position:absolute;left:50%;top:60%;transform:translate(-50%,-50%);z-index:3;text-align:center;color:#fff;width:100%;padding:0 20px}
+.page-hero ._label{font-family:'Josefin Sans',sans-serif;font-size:1.5rem;font-weight:500;letter-spacing:.3em;color:var(--yellow);margin-bottom:12px;opacity:.95}
+.page-hero ._ttl{font-size:4.8rem;font-weight:900;letter-spacing:.08em;line-height:1.2}
+.page-hero ._sub{font-family:'Josefin Sans',sans-serif;font-size:1.1rem;letter-spacing:.25em;color:rgba(255,255,255,.6);margin-top:14px}
+
+/* Breadcrumb */
+.breadcrumb{background:var(--green-bg);padding:15px 0;border-bottom:1px solid rgba(46,139,87,.08)}
+.breadcrumb ul{display:flex;gap:8px;align-items:center;font-size:1.2rem;color:#666}
+.breadcrumb li::after{content:'>';margin-left:8px;color:#aaa}
+.breadcrumb li:last-child::after{display:none}
+.breadcrumb a{color:var(--green-dark)}
+
+/* ===== VISION ===== */
+.sec-vision{padding:100px 0 80px;text-align:center}
+.sec-vision ._label{font-family:'Josefin Sans',sans-serif;font-size:1.5rem;font-weight:600;letter-spacing:.15em;color:var(--green);margin-bottom:18px}
+.sec-vision ._ttl{font-size:3.8rem;font-weight:900;line-height:1.55;margin-bottom:30px}
+.sec-vision ._ttl ._accent{color:var(--green)}
+.sec-vision ._body{max-width:720px;margin:0 auto 60px;font-size:1.5rem;line-height:2.2;color:#555}
+.value-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:30px;max-width:1000px;margin:0 auto}
+.val-card{background:var(--green-bg);border-radius:16px;padding:40px 24px;text-align:left;transition:transform .3s,box-shadow .3s;border:1px solid transparent}
+.val-card:hover{transform:translateY(-4px);box-shadow:0 10px 30px rgba(46,139,87,.12);border-color:rgba(46,139,87,.15)}
+.val-card ._no{font-family:'Josefin Sans',sans-serif;font-size:1.2rem;color:var(--yellow);font-weight:700;letter-spacing:.15em;margin-bottom:12px}
+.val-card ._h{font-size:2rem;font-weight:700;color:var(--green-dark);margin-bottom:14px;line-height:1.5}
+.val-card ._t{font-size:1.35rem;color:#555;line-height:1.9}
+
+/* ===== MESSAGE ===== */
+.sec-msg{position:relative;padding:100px 0;background:var(--green-bg);overflow:hidden}
+.sec-msg ._bg{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-family:'Josefin Sans',sans-serif;font-size:18rem;font-weight:700;color:transparent;-webkit-text-stroke:1px rgba(46,139,87,.08);white-space:nowrap;pointer-events:none;z-index:0}
+.sec-msg .content{display:flex;gap:60px;align-items:center;position:relative;z-index:1}
+.sec-msg ._photo{flex:0 0 40%}
+.sec-msg ._photo img{width:100%;aspect-ratio:3/4;object-fit:cover;border-radius:18px;box-shadow:0 15px 40px rgba(0,0,0,.12)}
+.sec-msg ._txt{flex:1}
+.sec-msg ._label{font-family:'Josefin Sans',sans-serif;font-size:1.5rem;font-weight:600;letter-spacing:.15em;color:var(--green);margin-bottom:15px}
+.sec-msg ._ttl{font-size:2.8rem;font-weight:900;line-height:1.5;margin-bottom:30px}
+.sec-msg ._body{font-size:1.45rem;line-height:2.2;color:#444;margin-bottom:25px}
+.sec-msg ._sign{display:flex;align-items:center;gap:15px;font-size:1.3rem;color:#666}
+.sec-msg ._sign ._nm{font-size:1.8rem;font-weight:700;color:var(--green-dark)}
+
+/* ===== OVERVIEW ===== */
+.sec-ov{padding:100px 0;background:#fff}
+.sec-ov ._head{text-align:center;margin-bottom:50px}
+.sec-ov ._label{font-family:'Josefin Sans',sans-serif;font-size:1.5rem;font-weight:600;letter-spacing:.15em;color:var(--green);margin-bottom:12px}
+.sec-ov ._ttl{font-size:3rem;font-weight:900;color:var(--green-dark)}
+.ov-table{max-width:900px;margin:0 auto;border-top:1px solid rgba(46,139,87,.15)}
+.ov-table dl{display:flex;border-bottom:1px solid rgba(46,139,87,.1);padding:22px 0}
+.ov-table dt{flex:0 0 220px;font-weight:700;color:var(--green-dark);font-size:1.4rem;padding-right:20px}
+.ov-table dd{flex:1;color:#444;font-size:1.4rem;line-height:1.9}
+
+/* ===== HISTORY ===== */
+.sec-hist{padding:100px 0;background:var(--green-dark);color:#fff;position:relative;overflow:hidden}
+.sec-hist ._head{text-align:center;margin-bottom:60px}
+.sec-hist ._label{font-family:'Josefin Sans',sans-serif;font-size:1.5rem;font-weight:600;letter-spacing:.15em;color:var(--yellow);margin-bottom:12px}
+.sec-hist ._ttl{font-size:3rem;font-weight:900}
+.timeline{max-width:800px;margin:0 auto;position:relative;padding-left:40px}
+.timeline::before{content:'';position:absolute;left:7px;top:10px;bottom:10px;width:2px;background:rgba(245,197,24,.35)}
+.tl-item{position:relative;padding-bottom:40px}
+.tl-item::before{content:'';position:absolute;left:-38px;top:5px;width:16px;height:16px;border-radius:50%;background:var(--yellow);box-shadow:0 0 0 5px rgba(245,197,24,.18)}
+.tl-item:last-child{padding-bottom:0}
+.tl-year{font-family:'Josefin Sans',sans-serif;font-size:2.4rem;font-weight:700;color:var(--yellow);margin-bottom:6px;line-height:1}
+.tl-txt{font-size:1.45rem;line-height:1.9;color:rgba(255,255,255,.85)}
+.tl-txt ._m{color:rgba(255,255,255,.6);font-size:1.2rem;margin-right:8px}
+
+/* ===== ACCESS ===== */
+.sec-acc{padding:100px 0;background:var(--green-bg)}
+.sec-acc ._head{text-align:center;margin-bottom:50px}
+.sec-acc ._label{font-family:'Josefin Sans',sans-serif;font-size:1.5rem;font-weight:600;letter-spacing:.15em;color:var(--green);margin-bottom:12px}
+.sec-acc ._ttl{font-size:3rem;font-weight:900;color:var(--green-dark)}
+.acc-wrap{display:grid;grid-template-columns:1fr 1fr;gap:40px;max-width:1100px;margin:0 auto;align-items:stretch}
+.acc-info{background:#fff;border-radius:16px;padding:35px 30px}
+.acc-info h3{font-size:2rem;font-weight:700;color:var(--green-dark);margin-bottom:20px;border-left:4px solid var(--yellow);padding-left:12px}
+.acc-info dl{margin-bottom:18px}
+.acc-info dt{font-size:1.2rem;color:#888;margin-bottom:4px;letter-spacing:.05em}
+.acc-info dd{font-size:1.5rem;color:#333;line-height:1.8}
+.acc-map{background:var(--green);border-radius:16px;min-height:400px;overflow:hidden;position:relative;display:flex;align-items:center;justify-content:center}
+.acc-map iframe{width:100%;height:100%;min-height:400px;border:0;display:block}
+
+/* ===== CTA BOTTOM ===== */
+.cta-bottom{padding:80px 0;background:var(--green);color:#fff;text-align:center;position:relative;overflow:hidden}
+.cta-bottom ._ttl{font-size:2.6rem;font-weight:900;margin-bottom:12px}
+.cta-bottom ._sub{font-size:1.4rem;color:rgba(255,255,255,.85);margin-bottom:32px}
+.cta-bottom ._btns{display:flex;justify-content:center;gap:20px;flex-wrap:wrap}
+.cta-bottom ._btns a{display:inline-flex;align-items:center;gap:10px;padding:18px 40px;background:var(--yellow);color:var(--dark);font-size:1.5rem;font-weight:700;border-radius:50px;transition:.3s;box-shadow:0 4px 15px rgba(245,197,24,.3)}
+.cta-bottom ._btns a._outline{background:transparent;color:#fff;border:2px solid rgba(255,255,255,.6);box-shadow:none}
+.cta-bottom ._btns a:hover{transform:translateY(-2px);opacity:1}
+
+/* ===== FOOTER ===== */
+.footer{background:var(--dark);color:#fff;padding:65px 0 0}
+.footer-inner{max-width:1100px;margin:0 auto;padding:0 40px}
+.footer-top{display:flex;gap:55px;padding-bottom:45px;border-bottom:1px solid rgba(255,255,255,.1)}
+.footer-logo-area{min-width:220px}
+.footer-logo{font-size:1.8rem;font-weight:700;margin-bottom:6px}
+.footer-logo-sub{font-size:1rem;color:rgba(255,255,255,.5)}
+.footer-ext{display:flex;flex-direction:column;gap:8px;margin-top:22px}
+.footer-ext a{font-size:1.1rem;color:rgba(255,255,255,.5);border-bottom:1px solid rgba(255,255,255,.15);padding-bottom:2px;display:inline-block}
+.footer-nav{display:flex;gap:40px;flex:1;flex-wrap:wrap}
+.footer-nav-col h4{font-size:1.2rem;font-weight:600;margin-bottom:10px}
+.footer-nav-col li{margin-bottom:6px}
+.footer-nav-col a{font-size:1.1rem;color:rgba(255,255,255,.55)}
+.footer-bottom{padding:20px 0;text-align:center}
+.footer-cp{font-family:'Josefin Sans',sans-serif;font-size:1rem;color:rgba(255,255,255,.35)}
+.backtop{position:fixed;bottom:25px;right:25px;z-index:800;width:50px;height:50px;border-radius:50%;background:var(--green-dark);color:#fff;font-size:1.8rem;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:.4s}
+.backtop.v{opacity:1;pointer-events:all}
+.backtop:hover{background:var(--green);transform:translateY(-3px)}
+
+/* ===== ANIM ===== */
+.an{opacity:0;transform:translateY(30px);transition:opacity .7s,transform .7s}
+.an.v{opacity:1;transform:translateY(0)}
+
+/* ===== RESPONSIVE ===== */
+@media(max-width:1024px){
+  .ham{display:flex}#header ._entry{display:none}
+  .page-hero ._ttl{font-size:3.6rem}
+  .value-grid{grid-template-columns:1fr;max-width:500px}
+  .sec-msg .content{flex-direction:column}
+  .sec-msg ._photo{flex:0 0 auto;width:80%;max-width:400px;margin:0 auto}
+  .ov-table dl{flex-direction:column;gap:4px}
+  .ov-table dt{flex:none}
+  .acc-wrap{grid-template-columns:1fr}
+  .side-cta{display:none}
+  .footer-top{flex-direction:column;gap:35px}
+}
+@media(max-width:768px){
+  html{font-size:56%}
+  .pc{display:none}.sp{display:inline}
+  .content{padding:0 20px}
+  #header{padding:12px 20px}
+  .page-hero{height:38vh;min-height:260px}
+  .page-hero ._ttl{font-size:2.6rem}
+  .sec-vision ._ttl{font-size:2.4rem}
+  .sec-msg ._ttl,.sec-ov ._ttl,.sec-hist ._ttl,.sec-acc ._ttl{font-size:2.2rem}
+  .sec-msg ._bg{font-size:9rem}
+  .cta-bottom ._btns{flex-direction:column;align-items:center}
+  .footer-nav{flex-direction:column;gap:20px}
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header id="header">
+  <p class="_logo">
+    <a href="index.html">
+      <img src="images/logo.svg" alt="AT-T" class="_logo-img" style="height:28px">
+      <span class="_company">アイシン高丘東北</span>
+      <span class="_text fr">RECRUITING SITE</span>
+    </a>
+  </p>
+  <div class="_ctrls">
+    <p class="_entry"><a href="entry.html">ENTRY</a></p>
+    <button class="ham" onclick="document.getElementById('mn').classList.toggle('active')"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<!-- Mobile Nav -->
+<div class="mnav" id="mn">
+  <ul class="_list">
+    <li><a href="index.html"><span class="_h fj">Top</span><span class="_m">トップ</span></a></li>
+    <li><a href="company.html"><span class="_h fj">About</span><span class="_m">会社を知る</span></a></li>
+    <li><a href="work.html"><span class="_h fj">Work</span><span class="_m">仕事を知る</span></a></li>
+    <li><a href="index.html#numbers"><span class="_h fj">Data</span><span class="_m">数字で見る</span></a></li>
+    <li><a href="people.html"><span class="_h fj">People</span><span class="_m">社員紹介</span></a></li>
+    <li><a href="recruit.html"><span class="_h fj">Recruit</span><span class="_m">採用情報</span></a></li>
+  </ul>
+  <button class="_x" onclick="this.closest('.mnav').classList.remove('active')">&times;</button>
+</div>
+
+<!-- Side CTA -->
+<p class="side-cta"><a href="entry.html"><span>エントリーする</span><span class="cta-arrow"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="10" viewBox="0 0 18.693 16.245"><path d="M17.358,6.071,11.423.136a.662.662,0,0,0-.742,0L9.2,1.471a.662.662,0,0,0,0,.742l3.709,3.709a.517.517,0,0,1-.3.89H.445C.148,6.664,0,6.961,0,7.257V9.186a.393.393,0,0,0,.445.445H12.462a.517.517,0,0,1,.3.89L9.2,14.082a.662.662,0,0,0,0,.742l1.335,1.335a.662.662,0,0,0,.742,0l6.973-6.973a1.434,1.434,0,0,0,0-2.077Z" fill="#fff"/></svg></span></a></p>
+
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <div class="_bg"><img src="images/sns/01_factory_exterior.jpg" alt=""></div>
+  <div class="_main">
+    <p class="_label fj">About Us</p>
+    <h1 class="_ttl">会社を知る</h1>
+    <p class="_sub fj">ー Who we are ー</p>
+  </div>
+</section>
+
+<!-- BREADCRUMB -->
+<div class="breadcrumb">
+  <div class="content">
+    <ul>
+      <li><a href="index.html">TOP</a></li>
+      <li>会社を知る</li>
+    </ul>
+  </div>
+</div>
+
+<!-- VISION -->
+<section class="sec-vision">
+  <div class="content an">
+    <p class="_label fj">Our Vision</p>
+    <h2 class="_ttl">「<span class="_accent">良い明日</span>」を、<br>自分の手でつくる会社。</h2>
+    <p class="_body">
+      私たちアイシン高丘東北は、クルマの安全と快適を支える鋳鉄部品をつくっています。<br>
+      宮城県大衡村から、トヨタ・SUBARU・日野のラインへ。<br>
+      地元にいながら、世界の道を走るクルマに自分の仕事が届く。<br>
+      その実感を、次の世代に引き継ぐ会社でありたい。
+    </p>
+    <div class="value-grid">
+      <div class="val-card">
+        <p class="_no fj">VALUE 01</p>
+        <h3 class="_h">確かな技術を、<br>未来へつなぐ</h3>
+        <p class="_t">鋳造から加工、検査までの一貫生産。アイシングループ品質を、この地から。</p>
+      </div>
+      <div class="val-card">
+        <p class="_no fj">VALUE 02</p>
+        <h3 class="_h">地域とともに<br>成長する</h3>
+        <p class="_t">大衡村工場のみ、転勤なし。地元に根ざし、地元と歩む企業であり続けます。</p>
+      </div>
+      <div class="val-card">
+        <p class="_no fj">VALUE 03</p>
+        <h3 class="_h">一人ひとりの<br>成長を信じる</h3>
+        <p class="_t">未経験OK、充実の教育体制。ひとの成長こそ、会社の未来だと考えます。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MESSAGE -->
+<section class="sec-msg">
+  <div class="_bg fj">MESSAGE</div>
+  <div class="content an">
+    <div class="_photo">
+      <img src="images/sns/15_office_worker.png" alt="代表メッセージ">
+    </div>
+    <div class="_txt">
+      <p class="_label fj">Message</p>
+      <h2 class="_ttl">あなたの"手"が、<br>未来の道をつくる。</h2>
+      <p class="_body">
+        自動車産業は、100年に一度の変革期を迎えています。EV化、軽量化、脱炭素。<br>
+        変化の波は、部品メーカーである私たちにも確実に押し寄せています。<br><br>
+        それでも変わらないのは、「確かなものをつくる」という誇りです。<br>
+        目に見えない部品でも、安全に関わるからこそ、一つひとつ丁寧に。<br>
+        その姿勢は、どんな時代でも人の手が生み出すものだと信じています。<br><br>
+        あなたの"手"が、明日の道をつくる。私たちは、そんな仲間をお待ちしています。
+      </p>
+      <p class="_sign">代表取締役社長 <span class="_nm">〇〇 〇〇</span></p>
+    </div>
+  </div>
+</section>
+
+<!-- OVERVIEW -->
+<section class="sec-ov">
+  <div class="content an">
+    <div class="_head">
+      <p class="_label fj">Overview</p>
+      <h2 class="_ttl">会社概要</h2>
+    </div>
+    <div class="ov-table">
+      <dl><dt>会社名</dt><dd>アイシン高丘東北株式会社（略称：AT-T）</dd></dl>
+      <dl><dt>所在地</dt><dd>〒981-3625 宮城県黒川郡大衡村大瓜字青木83-2</dd></dl>
+      <dl><dt>設立</dt><dd>2009年1月22日</dd></dl>
+      <dl><dt>資本金</dt><dd>4.9億円（アイシン高丘株式会社 100%出資）</dd></dl>
+      <dl><dt>代表者</dt><dd>代表取締役社長 〇〇 〇〇</dd></dl>
+      <dl><dt>従業員数</dt><dd>340名（2025年4月現在／男性328名 女性12名）</dd></dl>
+      <dl><dt>売上高</dt><dd>71.8億円（2024年度）</dd></dl>
+      <dl><dt>事業内容</dt><dd>自動車部品（鋳鉄部品）の鋳造・機械加工・検査</dd></dl>
+      <dl><dt>主要製品</dt><dd>ブレーキディスク、ステアリングナックル、クランクキャップほか</dd></dl>
+      <dl><dt>主要取引先</dt><dd>トヨタ自動車東日本、トヨタ自動車北海道、SUBARU、日野自動車</dd></dl>
+      <dl><dt>関連会社</dt><dd>アイシン高丘株式会社（親会社）／アイシングループ</dd></dl>
+    </div>
+  </div>
+</section>
+
+<!-- HISTORY -->
+<section class="sec-hist">
+  <div class="content an">
+    <div class="_head">
+      <p class="_label fj">History</p>
+      <h2 class="_ttl">沿革</h2>
+    </div>
+    <div class="timeline">
+      <div class="tl-item">
+        <p class="tl-year fj">2009</p>
+        <p class="tl-txt"><span class="_m">1月</span>アイシン高丘東北株式会社設立</p>
+        <p class="tl-txt"><span class="_m">秋</span>宮城県大衡村に工場竣工・操業開始</p>
+      </div>
+      <div class="tl-item">
+        <p class="tl-year fj">2011</p>
+        <p class="tl-txt">東日本大震災からの早期復旧、生産ライン再稼働</p>
+      </div>
+      <div class="tl-item">
+        <p class="tl-year fj">2014</p>
+        <p class="tl-txt">生産能力増強、設備投資を本格化</p>
+      </div>
+      <div class="tl-item">
+        <p class="tl-year fj">2018</p>
+        <p class="tl-txt">従業員300名体制へ拡大、教育訓練センター整備</p>
+      </div>
+      <div class="tl-item">
+        <p class="tl-year fj">2022</p>
+        <p class="tl-txt">EV向け新製品生産ライン稼働</p>
+      </div>
+      <div class="tl-item">
+        <p class="tl-year fj">2025</p>
+        <p class="tl-txt">従業員340名、売上高71.8億円を達成</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ACCESS -->
+<section class="sec-acc">
+  <div class="content an">
+    <div class="_head">
+      <p class="_label fj">Access</p>
+      <h2 class="_ttl">アクセス</h2>
+    </div>
+    <div class="acc-wrap">
+      <div class="acc-info">
+        <h3>本社・工場</h3>
+        <dl><dt>住所</dt><dd>〒981-3625<br>宮城県黒川郡大衡村大瓜字青木83-2</dd></dl>
+        <dl><dt>お車でお越しの場合</dt><dd>東北自動車道「大和IC」より車で約15分</dd></dl>
+        <dl><dt>電車でお越しの場合</dt><dd>JR仙台駅から車で約45分<br>※工場見学時は最寄り駅送迎あり（事前予約制）</dd></dl>
+        <dl><dt>駐車場</dt><dd>敷地内 専用駐車場あり</dd></dl>
+      </div>
+      <div class="acc-map">
+        <iframe src="https://www.google.com/maps?q=宮城県黒川郡大衡村大瓜字青木83-2&output=embed" allowfullscreen loading="lazy"></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA BOTTOM -->
+<section class="cta-bottom">
+  <div class="content">
+    <h2 class="_ttl">もっと私たちを知ってください</h2>
+    <p class="_sub">仕事・人・働く環境 — 気になるところから読み進めてみてください。</p>
+    <div class="_btns">
+      <a href="work.html">仕事を知る &#8594;</a>
+      <a href="people.html" class="_outline">社員インタビュー &#8594;</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-logo-area">
+        <p class="footer-logo">アイシン高丘東北</p>
+        <p class="footer-logo-sub">AISIN TAKAOKA TOHOKU</p>
+        <div class="footer-ext"><a href="https://www.at-tohoku.co.jp/" target="_blank">コーポレートサイト</a><a href="#">個人情報保護方針</a></div>
+      </div>
+      <div class="footer-nav">
+        <div class="footer-nav-col"><h4>会社を知る</h4><ul><li><a href="company.html#vision">企業理念</a></li><li><a href="company.html#overview">会社概要</a></li><li><a href="company.html#history">沿革</a></li><li><a href="company.html#access">アクセス</a></li></ul></div>
+        <div class="footer-nav-col"><h4>仕事を知る</h4><ul><li><a href="work.html">事業紹介</a></li><li><a href="work.html">製品紹介</a></li><li><a href="work.html">働く環境</a></li></ul></div>
+        <div class="footer-nav-col"><h4>社員紹介</h4><ul><li><a href="people.html">生産技能職</a></li><li><a href="people.html">生産技術</a></li><li><a href="people.html">総合職</a></li></ul></div>
+        <div class="footer-nav-col"><h4>採用情報</h4><ul><li><a href="recruit.html">新卒採用</a></li><li><a href="recruit.html">中途採用</a></li><li><a href="recruit.html#faq">よくある質問</a></li></ul></div>
+      </div>
+    </div>
+    <div class="footer-bottom"><p class="footer-cp fj">Copyright &copy; AISIN TAKAOKA TOHOKU All Rights Reserved.</p></div>
+  </div>
+</footer>
+
+<button class="backtop" id="bt" onclick="window.scrollTo({top:0,behavior:'smooth'})">&#8593;</button>
+
+<script>
+const bt=document.getElementById('bt');
+window.addEventListener('scroll',()=>{bt.classList.toggle('v',scrollY>300)});
+const obs=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('v');obs.unobserve(e.target)}})},{threshold:.1,rootMargin:'0px 0px -30px 0px'});
+document.querySelectorAll('.an').forEach(el=>obs.observe(el));
+</script>
+</body>
+</html>
