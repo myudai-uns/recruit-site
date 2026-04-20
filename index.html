@@ -72,9 +72,13 @@ ul,ol{list-style:none}
 .hero ._catch ._accent{color:var(--yellow)}
 @keyframes fuRot{to{opacity:1;transform:translateY(0) rotate(-6deg)}}
 .hero ._sub{font-size:1.8rem;font-weight:400;letter-spacing:.08em;opacity:0;transform:translateY(20px);animation:fu 1s .9s forwards}
-.hero ._cta-hero{margin-top:45px;opacity:0;transform:translateY(20px);animation:fu 1s 1.2s forwards}
-.hero ._cta-hero a{display:inline-flex;align-items:center;gap:10px;background:var(--yellow);color:var(--dark);padding:16px 45px;border-radius:50px;font-size:1.5rem;font-weight:700;letter-spacing:.08em;transition:all .3s;box-shadow:0 4px 15px rgba(245,197,24,.3)}
-.hero ._cta-hero a:hover{background:var(--yellow-light);opacity:1;transform:translateY(-2px);box-shadow:0 6px 25px rgba(245,197,24,.4)}
+.hero ._cta-hero{margin-top:55px;opacity:0;transform:translateY(20px);animation:fu 1s 1.2s forwards;display:flex;gap:20px;justify-content:center;flex-wrap:wrap}
+.hero ._cta-hero ._btn{position:relative;display:flex;align-items:center;justify-content:center;width:280px;height:90px;border-radius:12px;overflow:hidden;transition:all .3s;box-shadow:0 10px 30px rgba(0,0,0,.3);text-decoration:none}
+.hero ._cta-hero ._btn._btn-p{background:var(--yellow);color:var(--dark)}
+.hero ._cta-hero ._btn._btn-s{background:#fff;color:var(--green-dark)}
+.hero ._cta-hero ._btn:hover{transform:translateY(-4px);opacity:1;box-shadow:0 15px 40px rgba(0,0,0,.4)}
+.hero ._cta-hero ._btn ._lbl{display:inline-block;font-size:5.6rem;font-weight:900;letter-spacing:.04em;transform:rotate(-8deg);white-space:nowrap;line-height:1;padding:0 8px}
+.hero ._cta-hero ._btn ._mini{position:absolute;right:10px;bottom:6px;font-family:'Josefin Sans',sans-serif;font-size:1.05rem;font-weight:600;letter-spacing:.15em;opacity:.7;transform:rotate(-8deg)}
 .hero ._scroll{position:absolute;bottom:35px;left:50%;transform:translateX(-50%);z-index:10;display:flex;flex-direction:column;align-items:center;gap:6px;color:rgba(255,255,255,.7);font-family:'Josefin Sans',sans-serif;font-size:.9rem;letter-spacing:.15em}
 .hero ._scroll::after{content:'';display:block;width:1px;height:35px;background:rgba(255,255,255,.5);animation:scrl 1.5s ease-in-out infinite}
 @keyframes pzl1{0%{transform:translateY(0)}100%{transform:translateY(-50%)}}
@@ -237,6 +241,9 @@ ul,ol{list-style:none}
   .content{padding:0 20px}
   #header{padding:12px 20px}
   .hero{min-height:500px}
+  .hero ._cta-hero{flex-direction:column;gap:14px;align-items:center;margin-top:40px}
+  .hero ._cta-hero ._btn{width:260px;height:76px}
+  .hero ._cta-hero ._btn ._lbl{font-size:4.6rem}
   .hero ._sub{font-size:1.4rem}
   .hero ._puzzle ._col:nth-child(n+3){display:none}
   .marquee{height:180px}
@@ -295,7 +302,10 @@ ul,ol{list-style:none}
   <div class="_main">
     <h1 class="_catch">その手から、<br><span class="_accent">明日</span>が走り出す。</h1>
     <p class="_sub">クルマの心臓部を、宮城から世界へ届ける仕事。</p>
-    <div class="_cta-hero"><a href="#recruit">募集要項を見る &#8594;</a></div>
+    <div class="_cta-hero">
+      <a href="recruit.html#new" class="_btn _btn-p"><span class="_lbl">新卒採用</span><span class="_mini">NEW GRAD &#8594;</span></a>
+      <a href="recruit.html#mid" class="_btn _btn-s"><span class="_lbl">中途採用</span><span class="_mini">CAREER &#8594;</span></a>
+    </div>
   </div>
   <div class="_scroll"><span class="fj">SCROLL</span></div>
 </section>
