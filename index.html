@@ -139,8 +139,8 @@ ul,ol{list-style:none}
 .sec-numbers ._label{font-family:'Josefin Sans',sans-serif;font-size:1.8rem;font-weight:600;letter-spacing:.35em;color:var(--yellow);margin-bottom:32px}
 .sec-numbers ._ttl{font-size:clamp(4rem,7.5vw,9.5rem);font-weight:900;letter-spacing:.02em;line-height:1.18;margin-bottom:90px;transform:rotate(-5deg);display:inline-block;text-shadow:0 4px 25px rgba(0,0,0,.3)}
 .sec-numbers ._ttl ._y{color:var(--yellow)}
-.numbers-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:30px 18px;max-width:1200px;margin:0 auto;padding:30px 30px}
-.num-card{--y:0px;padding:48px 10px 38px;transition:transform .4s cubic-bezier(.2,.9,.3,1.3);position:relative;transform:rotate(-6deg) translateY(var(--y))}
+.numbers-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:50px 10px;max-width:1240px;margin:0 auto;padding:40px 25px}
+.num-card{--y:0px;padding:38px 6px 30px;transition:transform .4s cubic-bezier(.2,.9,.3,1.3);position:relative;transform:rotate(-6deg) translateY(var(--y))}
 .num-card:hover{transform:rotate(-6deg) translateY(calc(var(--y) - 10px))}
 .num-card:nth-child(1){--y:-14px}
 .num-card:nth-child(2){--y:22px}
@@ -150,10 +150,10 @@ ul,ol{list-style:none}
 .num-card:nth-child(6){--y:-18px}
 .num-card:nth-child(7){--y:26px}
 .num-card:nth-child(8){--y:-10px}
-.num-card ._val{font-family:'Josefin Sans',sans-serif;font-size:clamp(7rem,10.5vw,12rem);font-weight:700;color:var(--yellow);line-height:.9;margin-bottom:2px;letter-spacing:-.03em;display:block;white-space:nowrap}
-.num-card ._val ._unit{font-size:.3em;font-weight:500;margin-left:3px;letter-spacing:0}
-.num-card ._desc{font-size:clamp(4rem,4.6vw,5.6rem);color:#fff;font-weight:700;letter-spacing:.05em;display:block;line-height:1.2;white-space:nowrap}
-.num-card:nth-child(8) ._desc{font-size:clamp(3rem,3.4vw,4rem);letter-spacing:.02em}
+.num-card ._val{font-family:'Josefin Sans',sans-serif;font-size:clamp(5.5rem,8.5vw,10rem);font-weight:700;color:var(--yellow);line-height:.9;margin-bottom:2px;letter-spacing:-.04em;display:block;white-space:nowrap}
+.num-card ._val ._unit{font-size:.32em;font-weight:500;margin-left:3px;letter-spacing:0}
+.num-card ._desc{font-size:clamp(2.8rem,4vw,5rem);color:#fff;font-weight:700;letter-spacing:.02em;display:block;line-height:1.2;white-space:nowrap}
+.num-card:nth-child(8) ._desc{font-size:clamp(2rem,2.5vw,3.2rem);letter-spacing:0}
 
 /* ===== INTERVIEW ===== */
 .sec-itv{position:relative;overflow:hidden;padding:100px 0 0;background:linear-gradient(180deg,var(--green) 0%,rgba(46,139,87,0) 84%)}
@@ -196,11 +196,12 @@ ul,ol{list-style:none}
 .rec-step ._txt{font-size:1.15rem;color:#666;line-height:1.7}
 .rec-step::after{content:'▶';position:absolute;right:-14px;top:50%;transform:translateY(-50%);color:var(--green);font-size:1.4rem;z-index:2}
 .rec-step:last-child::after{display:none}
-.rec-links{display:flex;justify-content:center;gap:25px;position:relative;z-index:1}
-.rec-link{display:flex;align-items:center;justify-content:center;gap:10px;width:280px;padding:22px 35px;background:var(--green-dark);color:#fff;font-size:1.6rem;font-weight:600;letter-spacing:.06em;border-radius:8px;transition:.3s}
-.rec-link:hover{background:var(--green);opacity:1;transform:translateY(-3px);box-shadow:0 8px 25px rgba(46,139,87,.25)}
-.rec-link._yellow{background:var(--yellow);color:var(--dark)}
-.rec-link._yellow:hover{background:var(--yellow-light);box-shadow:0 8px 25px rgba(245,197,24,.3)}
+.rec-links{display:flex;justify-content:center;gap:20px;position:relative;z-index:1;flex-wrap:wrap}
+.rec-link{position:relative;display:flex;align-items:center;justify-content:center;width:280px;height:90px;border-radius:12px;overflow:hidden;transition:all .3s;box-shadow:0 10px 30px rgba(0,0,0,.2);text-decoration:none;background:var(--yellow);color:var(--dark)}
+.rec-link._alt{background:var(--green-dark);color:#fff}
+.rec-link:hover{transform:translateY(-4px);opacity:1;box-shadow:0 15px 40px rgba(0,0,0,.3)}
+.rec-link ._lbl{display:inline-block;font-size:5.6rem;font-weight:900;letter-spacing:.04em;transform:rotate(-8deg);white-space:nowrap;line-height:1;padding:0 8px}
+.rec-link ._mini{position:absolute;right:10px;bottom:6px;font-family:'Josefin Sans',sans-serif;font-size:1.05rem;font-weight:600;letter-spacing:.15em;opacity:.7;transform:rotate(-8deg)}
 
 /* ===== FOOTER ===== */
 .footer{background:var(--dark);color:#fff;padding:65px 0 0}
@@ -419,8 +420,8 @@ ul,ol{list-style:none}
       <div class="rec-step"><p class="_no fj">STEP 04</p><p class="_ttl">内定</p><p class="_txt">入社まで丁寧サポート</p></div>
     </div>
     <div class="rec-links">
-      <a href="#" class="rec-link">新卒採用 &#8594;</a>
-      <a href="#" class="rec-link _yellow">中途採用 &#8594;</a>
+      <a href="recruit.html#new" class="rec-link"><span class="_lbl">新卒採用</span><span class="_mini">NEW GRAD &#8594;</span></a>
+      <a href="recruit.html#mid" class="rec-link _alt"><span class="_lbl">中途採用</span><span class="_mini">CAREER &#8594;</span></a>
     </div>
   </div>
 </section>
