@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>社員を知る | アイシン高丘東北株式会社 採用サイト</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700;900&family=Josefin+Sans:wght@300;400;500;600;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --green:#2e8b57;--green-light:#3a9d6a;--green-dark:#1a5c38;--green-bg:#f5f8f5;
+  --yellow:#f5c518;--yellow-light:#ffd700;--yellow-glow:rgba(245,197,24,.15);
+  --dark:#1a3a2a;--text:#333;--white:#fff;
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{font-size:62.5%;scroll-behavior:smooth}
+body{font-family:'Noto Sans JP','Helvetica Neue',Arial,sans-serif;font-size:1.5rem;line-height:1.8;color:var(--text);background:var(--white);overflow-x:hidden}
+a{text-decoration:none;color:inherit;transition:opacity .3s}a:hover{opacity:.7}
+img{max-width:100%;height:auto;display:block}
+ul,ol{list-style:none}
+.fj{font-family:'Josefin Sans',sans-serif}
+.fr{font-family:'Roboto',sans-serif}
+.pc{display:inline}.sp{display:none}
+.content{max-width:1200px;margin:0 auto;padding:0 50px}
+
+#header{position:fixed;top:0;left:0;width:100%;z-index:1000;display:flex;align-items:center;justify-content:space-between;padding:18px 40px;transition:background .4s,padding .4s;background:rgba(255,255,255,.97);box-shadow:0 2px 15px rgba(0,0,0,.08)}
+#header ._logo a{display:flex;align-items:center;gap:12px;color:var(--green-dark)}
+#header ._logo ._company{font-family:'Noto Sans JP',sans-serif;font-size:1.6rem;font-weight:700;letter-spacing:.03em}
+#header ._logo ._text{font-family:'Roboto',sans-serif;font-size:1rem;font-weight:400;letter-spacing:.12em;opacity:.85}
+#header ._logo ._logo-img{height:32px;width:auto}
+#header ._ctrls{display:flex;align-items:center;gap:12px}
+#header ._entry a{display:inline-block;padding:10px 28px;background:var(--yellow);color:var(--dark);font-size:1.3rem;font-weight:700;letter-spacing:.08em;border-radius:6px;transition:all .3s}
+#header ._entry a:hover{background:var(--yellow-light);opacity:1;transform:translateY(-1px)}
+.ham{display:none;background:none;border:none;cursor:pointer;flex-direction:column;gap:5px;padding:8px}
+.ham span{display:block;width:26px;height:2px;background:var(--dark);transition:.3s}
+.mnav{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(26,60,56,.97);z-index:1100;display:flex;flex-direction:column;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity .4s}
+.mnav.active{opacity:1;pointer-events:all}
+.mnav ._list{display:flex;flex-direction:column;align-items:center;gap:22px}
+.mnav ._list a{color:#fff;font-size:1.6rem;display:flex;flex-direction:column;align-items:center;gap:3px}
+.mnav ._list ._h{font-family:'Josefin Sans',sans-serif;font-size:1.3rem;font-weight:600}
+.mnav ._list ._m{font-size:1rem;opacity:.7}
+.mnav ._x{position:absolute;top:20px;right:35px;background:none;border:none;color:#fff;font-size:3rem;cursor:pointer}
+.side-cta{position:fixed;right:0;top:50%;transform:translateY(-50%);z-index:900;writing-mode:vertical-rl}
+.side-cta a{display:flex;align-items:center;gap:8px;background:var(--yellow);color:var(--dark);padding:18px 12px;font-size:1.2rem;font-weight:700;letter-spacing:.12em;border-radius:8px 0 0 8px;transition:background .3s;box-shadow:-2px 0 10px rgba(0,0,0,.1)}
+.cta-arrow{display:inline-flex;align-items:center;justify-content:center;width:32px;height:32px;border-radius:50%;background:var(--green-dark);flex-shrink:0}
+.cta-arrow svg{width:12px;height:auto}
+
+/* PAGE HERO */
+.page-hero{position:relative;height:48vh;min-height:360px;overflow:hidden;background:var(--green-dark);margin-top:0}
+.page-hero ._bg{position:absolute;inset:0;z-index:1}
+.page-hero ._bg img{width:100%;height:100%;object-fit:cover;opacity:.55}
+.page-hero::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(26,92,56,.3) 0%,rgba(26,92,56,.6) 100%);z-index:2}
+.page-hero ._main{position:absolute;left:50%;top:60%;transform:translate(-50%,-50%);z-index:3;text-align:center;color:#fff;width:100%;padding:0 20px}
+.page-hero ._label{font-family:'Josefin Sans',sans-serif;font-size:1.5rem;font-weight:500;letter-spacing:.3em;color:var(--yellow);margin-bottom:12px;opacity:.95}
+.page-hero ._ttl{font-size:4.8rem;font-weight:900;letter-spacing:.08em;line-height:1.2}
+.page-hero ._sub{font-family:'Josefin Sans',sans-serif;font-size:1.1rem;letter-spacing:.25em;color:rgba(255,255,255,.6);margin-top:14px}
+
+.breadcrumb{background:var(--green-bg);padding:15px 0;border-bottom:1px solid rgba(46,139,87,.08)}
+.breadcrumb ul{display:flex;gap:8px;align-items:center;font-size:1.2rem;color:#666}
+.breadcrumb li::after{content:'>';margin-left:8px;color:#aaa}
+.breadcrumb li:last-child::after{display:none}
+.breadcrumb a{color:var(--green-dark)}
+
+/* INTRO */
+.sec-intro{padding:100px 0 60px;text-align:center}
+.sec-intro ._label{font-family:'Josefin Sans',sans-serif;font-size:1.5rem;font-weight:600;letter-spacing:.15em;color:var(--green);margin-bottom:18px}
+.sec-intro ._ttl{font-size:3.6rem;font-weight:900;line-height:1.5;margin-bottom:26px}
+.sec-intro ._ttl ._accent{color:var(--green)}
+.sec-intro ._body{max-width:720px;margin:0 auto;font-size:1.45rem;line-height:2.2;color:#555}
+
+/* FILTER */
+.filter{padding:20px 0 40px;text-align:center}
+.filter ._list{display:inline-flex;gap:10px;flex-wrap:wrap;justify-content:center}
+.filter ._btn{padding:10px 24px;background:#fff;border:2px solid rgba(46,139,87,.2);border-radius:50px;font-size:1.3rem;font-weight:700;color:#666;cursor:pointer;transition:.3s}
+.filter ._btn.active,.filter ._btn:hover{background:var(--green);color:#fff;border-color:var(--green)}
+
+/* PEOPLE GRID */
+.sec-people{padding:20px 0 100px}
+.pg-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:34px;max-width:1180px;margin:0 auto}
+.pg-card{background:#fff;border-radius:18px;overflow:hidden;box-shadow:0 6px 24px rgba(0,0,0,.08);transition:transform .3s,box-shadow .3s;position:relative;cursor:pointer}
+.pg-card:hover{transform:translateY(-8px);box-shadow:0 14px 40px rgba(46,139,87,.16)}
+.pg-card ._photo{aspect-ratio:4/5;overflow:hidden;position:relative}
+.pg-card ._photo img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+.pg-card:hover ._photo img{transform:scale(1.05)}
+.pg-card ._tag{position:absolute;top:14px;left:14px;padding:6px 14px;background:var(--yellow);color:var(--dark);font-size:1.1rem;font-weight:700;border-radius:50px;letter-spacing:.05em}
+.pg-card ._body{padding:26px 22px 28px}
+.pg-card ._no{font-family:'Josefin Sans',sans-serif;font-size:1.2rem;color:var(--green);font-weight:600;letter-spacing:.1em;margin-bottom:6px}
+.pg-card ._catch{font-size:1.8rem;font-weight:900;color:var(--green-dark);line-height:1.5;margin-bottom:14px;min-height:5.4rem}
+.pg-card ._meta{display:flex;flex-direction:column;gap:3px;font-size:1.25rem;color:#666;padding-top:14px;border-top:1px solid rgba(46,139,87,.1)}
+.pg-card ._meta ._nm{font-size:1.5rem;font-weight:700;color:var(--dark)}
+.pg-card ._meta ._dep{font-size:1.2rem;color:#888}
+.pg-card ._more{display:inline-flex;align-items:center;gap:6px;margin-top:14px;color:var(--green);font-size:1.2rem;font-weight:700;letter-spacing:.08em}
+
+/* QUOTES */
+.sec-quotes{padding:80px 0;background:var(--green-bg);position:relative;overflow:hidden}
+.sec-quotes ._head{text-align:center;margin-bottom:50px}
+.sec-quotes ._label{font-family:'Josefin Sans',sans-serif;font-size:1.5rem;font-weight:600;letter-spacing:.15em;color:var(--green);margin-bottom:12px}
+.sec-quotes ._ttl{font-size:3rem;font-weight:900;color:var(--green-dark)}
+.q-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:26px;max-width:1060px;margin:0 auto}
+.q-card{background:#fff;padding:32px 30px;border-radius:16px;position:relative;border-left:5px solid var(--yellow);box-shadow:0 4px 16px rgba(0,0,0,.05)}
+.q-card ._mark{position:absolute;top:18px;right:22px;font-family:'Josefin Sans',sans-serif;font-size:4.2rem;color:var(--green);opacity:.18;font-weight:700;line-height:1}
+.q-card ._txt{font-size:1.5rem;line-height:1.9;color:#333;margin-bottom:16px;font-weight:500}
+.q-card ._meta{display:flex;align-items:center;gap:12px;font-size:1.2rem;color:#777}
+.q-card ._meta ._nm{font-size:1.35rem;font-weight:700;color:var(--green-dark)}
+
+/* CTA BOTTOM */
+.cta-bottom{padding:80px 0;background:var(--green);color:#fff;text-align:center;position:relative;overflow:hidden}
+.cta-bottom ._ttl{font-size:2.6rem;font-weight:900;margin-bottom:12px}
+.cta-bottom ._sub{font-size:1.4rem;color:rgba(255,255,255,.85);margin-bottom:32px}
+.cta-bottom ._btns{display:flex;justify-content:center;gap:20px;flex-wrap:wrap}
+.cta-bottom ._btns a{display:inline-flex;align-items:center;gap:10px;padding:18px 40px;background:var(--yellow);color:var(--dark);font-size:1.5rem;font-weight:700;border-radius:50px;transition:.3s;box-shadow:0 4px 15px rgba(245,197,24,.3)}
+.cta-bottom ._btns a._outline{background:transparent;color:#fff;border:2px solid rgba(255,255,255,.6);box-shadow:none}
+.cta-bottom ._btns a:hover{transform:translateY(-2px);opacity:1}
+
+/* FOOTER */
+.footer{background:var(--dark);color:#fff;padding:65px 0 0}
+.footer-inner{max-width:1100px;margin:0 auto;padding:0 40px}
+.footer-top{display:flex;gap:55px;padding-bottom:45px;border-bottom:1px solid rgba(255,255,255,.1)}
+.footer-logo-area{min-width:220px}
+.footer-logo{font-size:1.8rem;font-weight:700;margin-bottom:6px}
+.footer-logo-sub{font-size:1rem;color:rgba(255,255,255,.5)}
+.footer-ext{display:flex;flex-direction:column;gap:8px;margin-top:22px}
+.footer-ext a{font-size:1.1rem;color:rgba(255,255,255,.5);border-bottom:1px solid rgba(255,255,255,.15);padding-bottom:2px;display:inline-block}
+.footer-nav{display:flex;gap:40px;flex:1;flex-wrap:wrap}
+.footer-nav-col h4{font-size:1.2rem;font-weight:600;margin-bottom:10px}
+.footer-nav-col li{margin-bottom:6px}
+.footer-nav-col a{font-size:1.1rem;color:rgba(255,255,255,.55)}
+.footer-bottom{padding:20px 0;text-align:center}
+.footer-cp{font-family:'Josefin Sans',sans-serif;font-size:1rem;color:rgba(255,255,255,.35)}
+.backtop{position:fixed;bottom:25px;right:25px;z-index:800;width:50px;height:50px;border-radius:50%;background:var(--green-dark);color:#fff;font-size:1.8rem;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:.4s}
+.backtop.v{opacity:1;pointer-events:all}
+.backtop:hover{background:var(--green);transform:translateY(-3px)}
+
+.an{opacity:0;transform:translateY(30px);transition:opacity .7s,transform .7s}
+.an.v{opacity:1;transform:translateY(0)}
+
+@media(max-width:1024px){
+  .ham{display:flex}#header ._entry{display:none}
+  .page-hero ._ttl{font-size:3.6rem}
+  .pg-grid{grid-template-columns:repeat(2,1fr)}
+  .q-grid{grid-template-columns:1fr}
+  .side-cta{display:none}
+  .footer-top{flex-direction:column;gap:35px}
+}
+@media(max-width:768px){
+  html{font-size:56%}
+  .pc{display:none}.sp{display:inline}
+  .content{padding:0 20px}
+  #header{padding:12px 20px}
+  .page-hero{height:38vh;min-height:260px}
+  .page-hero ._ttl{font-size:2.6rem}
+  .sec-intro ._ttl{font-size:2.4rem}
+  .sec-quotes ._ttl{font-size:2.2rem}
+  .pg-grid{grid-template-columns:1fr}
+  .cta-bottom ._btns{flex-direction:column;align-items:center}
+  .footer-nav{flex-direction:column;gap:20px}
+}
+</style>
+</head>
+<body>
+
+<header id="header">
+  <p class="_logo">
+    <a href="index.html">
+      <img src="images/logo.svg" alt="AT-T" class="_logo-img" style="height:28px">
+      <span class="_company">アイシン高丘東北</span>
+      <span class="_text fr">RECRUITING SITE</span>
+    </a>
+  </p>
+  <div class="_ctrls">
+    <p class="_entry"><a href="entry.html">ENTRY</a></p>
+    <button class="ham" onclick="document.getElementById('mn').classList.toggle('active')"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<div class="mnav" id="mn">
+  <ul class="_list">
+    <li><a href="index.html"><span class="_h fj">Top</span><span class="_m">トップ</span></a></li>
+    <li><a href="company.html"><span class="_h fj">About</span><span class="_m">会社を知る</span></a></li>
+    <li><a href="work.html"><span class="_h fj">Work</span><span class="_m">仕事を知る</span></a></li>
+    <li><a href="index.html#numbers"><span class="_h fj">Data</span><span class="_m">数字で見る</span></a></li>
+    <li><a href="people.html"><span class="_h fj">People</span><span class="_m">社員紹介</span></a></li>
+    <li><a href="recruit.html"><span class="_h fj">Recruit</span><span class="_m">採用情報</span></a></li>
+  </ul>
+  <button class="_x" onclick="this.closest('.mnav').classList.remove('active')">&times;</button>
+</div>
+
+<p class="side-cta"><a href="entry.html"><span>エントリーする</span><span class="cta-arrow"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="10" viewBox="0 0 18.693 16.245"><path d="M17.358,6.071,11.423.136a.662.662,0,0,0-.742,0L9.2,1.471a.662.662,0,0,0,0,.742l3.709,3.709a.517.517,0,0,1-.3.89H.445C.148,6.664,0,6.961,0,7.257V9.186a.393.393,0,0,0,.445.445H12.462a.517.517,0,0,1,.3.89L9.2,14.082a.662.662,0,0,0,0,.742l1.335,1.335a.662.662,0,0,0,.742,0l6.973-6.973a1.434,1.434,0,0,0,0-2.077Z" fill="#fff"/></svg></span></a></p>
+
+<section class="page-hero">
+  <div class="_bg"><img src="images/sns/09_young_workers_group.png" alt=""></div>
+  <div class="_main">
+    <p class="_label fj">People</p>
+    <h1 class="_ttl">社員を知る</h1>
+    <p class="_sub fj">ー Voices from our team ー</p>
+  </div>
+</section>
+
+<div class="breadcrumb">
+  <div class="content">
+    <ul>
+      <li><a href="index.html">TOP</a></li>
+      <li>社員を知る</li>
+    </ul>
+  </div>
+</div>
+
+<section class="sec-intro">
+  <div class="content an">
+    <p class="_label fj">Interviews</p>
+    <h2 class="_ttl">ここで働く<span class="_accent">"ひと"</span>を、<br>もっと深く。</h2>
+    <p class="_body">
+      現場で汗を流す先輩から、ラインを設計する技術職、オフィスで会社を支える総合職まで。<br>
+      年齢も、入社経路も、キャリアもさまざま。<br>
+      その一人ひとりの"ことば"から、アイシン高丘東北の姿が見えてきます。
+    </p>
+  </div>
+</section>
+
+<div class="filter">
+  <div class="content">
+    <div class="_list">
+      <button class="_btn active" data-f="all">ALL</button>
+      <button class="_btn" data-f="skill">生産技能職</button>
+      <button class="_btn" data-f="tech">生産技術</button>
+      <button class="_btn" data-f="qa">品質保証</button>
+      <button class="_btn" data-f="office">総合職</button>
+      <button class="_btn" data-f="se">社内SE</button>
+    </div>
+  </div>
+</div>
+
+<section class="sec-people">
+  <div class="content">
+    <div class="pg-grid">
+      <a href="#" class="pg-card an" data-c="skill">
+        <div class="_photo"><span class="_tag">生産技能職</span><img src="images/sns/07_young_worker_machine.jpg" alt=""></div>
+        <div class="_body">
+          <p class="_no fj">INTERVIEW 01</p>
+          <h3 class="_catch">「手に職」って、<br>カッコイイ。</h3>
+          <div class="_meta">
+            <span class="_nm">佐藤 健太</span>
+            <span class="_dep">製造部 鋳造課 / 入社4年目（高卒）</span>
+          </div>
+          <span class="_more fj">READ MORE &#8594;</span>
+        </div>
+      </a>
+
+      <a href="#" class="pg-card an" data-c="tech">
+        <div class="_photo"><span class="_tag">生産技術</span><img src="images/sns/14_young_ojt_teaching.png" alt=""></div>
+        <div class="_body">
+          <p class="_no fj">INTERVIEW 02</p>
+          <h3 class="_catch">ラインを変える、<br>それは世界を変えること。</h3>
+          <div class="_meta">
+            <span class="_nm">鈴木 翔太</span>
+            <span class="_dep">生産技術部 / 入社7年目（中途）</span>
+          </div>
+          <span class="_more fj">READ MORE &#8594;</span>
+        </div>
+      </a>
+
+      <a href="#" class="pg-card an" data-c="qa">
+        <div class="_photo"><span class="_tag">品質保証</span><img src="images/sns/03_quality_inspection.jpg" alt=""></div>
+        <div class="_body">
+          <p class="_no fj">INTERVIEW 03</p>
+          <h3 class="_catch">見逃さない目が、<br>命を守る。</h3>
+          <div class="_meta">
+            <span class="_nm">高橋 美咲</span>
+            <span class="_dep">品質保証部 / 入社6年目（大卒）</span>
+          </div>
+          <span class="_more fj">READ MORE &#8594;</span>
+        </div>
+      </a>
+
+      <a href="#" class="pg-card an" data-c="office">
+        <div class="_photo"><span class="_tag">総合職</span><img src="images/sns/15_office_worker.png" alt=""></div>
+        <div class="_body">
+          <p class="_no fj">INTERVIEW 04</p>
+          <h3 class="_catch">会社の"明日"を、<br>数字で描く。</h3>
+          <div class="_meta">
+            <span class="_nm">田中 陽介</span>
+            <span class="_dep">経理部 / 入社5年目（中途）</span>
+          </div>
+          <span class="_more fj">READ MORE &#8594;</span>
+        </div>
+      </a>
+
+      <a href="#" class="pg-card an" data-c="se">
+        <div class="_photo"><span class="_tag">社内SE</span><img src="images/sns/10_young_break_smartphone.png" alt=""></div>
+        <div class="_body">
+          <p class="_no fj">INTERVIEW 05</p>
+          <h3 class="_catch">工場に、<br>ITの風を吹かせる。</h3>
+          <div class="_meta">
+            <span class="_nm">伊藤 翼</span>
+            <span class="_dep">情報システム課 / 入社3年目（中途）</span>
+          </div>
+          <span class="_more fj">READ MORE &#8594;</span>
+        </div>
+      </a>
+
+      <a href="#" class="pg-card an" data-c="skill">
+        <div class="_photo"><span class="_tag">生産技能職</span><img src="images/sns/02_machine_operation.jpg" alt=""></div>
+        <div class="_body">
+          <p class="_no fj">INTERVIEW 06</p>
+          <h3 class="_catch">未経験スタート、<br>今は後輩を育てる側。</h3>
+          <div class="_meta">
+            <span class="_nm">渡辺 大輝</span>
+            <span class="_dep">製造部 機械加工課 / 入社9年目（高卒）</span>
+          </div>
+          <span class="_more fj">READ MORE &#8594;</span>
+        </div>
+      </a>
+
+      <a href="#" class="pg-card an" data-c="tech">
+        <div class="_photo"><span class="_tag">生産技術</span><img src="images/sns/05_ojt_training.jpg" alt=""></div>
+        <div class="_body">
+          <p class="_no fj">INTERVIEW 07</p>
+          <h3 class="_catch">設計図を、<br>現場と一緒に磨く。</h3>
+          <div class="_meta">
+            <span class="_nm">山本 拓真</span>
+            <span class="_dep">生産技術部 / 入社11年目（中途）</span>
+          </div>
+          <span class="_more fj">READ MORE &#8594;</span>
+        </div>
+      </a>
+
+      <a href="#" class="pg-card an" data-c="office">
+        <div class="_photo"><span class="_tag">総合職</span><img src="images/sns/08_young_worker_smile.png" alt=""></div>
+        <div class="_body">
+          <p class="_no fj">INTERVIEW 08</p>
+          <h3 class="_catch">採用も、教育も、<br>"人"のための仕事。</h3>
+          <div class="_meta">
+            <span class="_nm">小林 愛</span>
+            <span class="_dep">人事総務部 / 入社8年目（大卒）</span>
+          </div>
+          <span class="_more fj">READ MORE &#8594;</span>
+        </div>
+      </a>
+
+      <a href="#" class="pg-card an" data-c="qa">
+        <div class="_photo"><span class="_tag">品質保証</span><img src="images/sns/06_morning_assembly.jpg" alt=""></div>
+        <div class="_body">
+          <p class="_no fj">INTERVIEW 09</p>
+          <h3 class="_catch">チームで守る、<br>アイシングループの品質。</h3>
+          <div class="_meta">
+            <span class="_nm">加藤 啓介</span>
+            <span class="_dep">品質保証部 / 入社14年目</span>
+          </div>
+          <span class="_more fj">READ MORE &#8594;</span>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="sec-quotes">
+  <div class="content">
+    <div class="_head an">
+      <p class="_label fj">Real Voices</p>
+      <h2 class="_ttl">働く仲間の、リアルな声。</h2>
+    </div>
+    <div class="q-grid">
+      <div class="q-card an">
+        <span class="_mark fj">&#8220;</span>
+        <p class="_txt">休みがしっかり取れるから、家族との時間も趣味の時間も大事にできる。「工場＝休めない」は、昔の話だと思う。</p>
+        <p class="_meta"><span class="_nm">20代・男性</span><span>／ 製造部</span></p>
+      </div>
+      <div class="q-card an">
+        <span class="_mark fj">&#8220;</span>
+        <p class="_txt">中途で未経験から入りましたが、OJTがすごく丁寧で、半年で一人前扱いしてもらえました。年齢関係なく聞ける雰囲気が好きです。</p>
+        <p class="_meta"><span class="_nm">30代・男性</span><span>／ 機械加工課</span></p>
+      </div>
+      <div class="q-card an">
+        <span class="_mark fj">&#8220;</span>
+        <p class="_txt">社員食堂のご飯がおいしくて、朝来るのが楽しみになるレベル。シャワールームもあるので、退勤時に気持ちよく帰れます。</p>
+        <p class="_meta"><span class="_nm">20代・女性</span><span>／ 品質保証部</span></p>
+      </div>
+      <div class="q-card an">
+        <span class="_mark fj">&#8220;</span>
+        <p class="_txt">地元で、転勤なく、世界に届くクルマに関わる仕事ができる。宮城を離れたくなかった自分にはピッタリの会社でした。</p>
+        <p class="_meta"><span class="_nm">20代・男性</span><span>／ 生産技術部</span></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-bottom">
+  <div class="content">
+    <h2 class="_ttl">次はあなたが、ここに並びます。</h2>
+    <p class="_sub">先輩たちの声に、少しでも重なったら — エントリーへどうぞ。</p>
+    <div class="_btns">
+      <a href="entry.html">エントリーする &#8594;</a>
+      <a href="recruit.html" class="_outline">募集要項を見る &#8594;</a>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-logo-area">
+        <p class="footer-logo">アイシン高丘東北</p>
+        <p class="footer-logo-sub">AISIN TAKAOKA TOHOKU</p>
+        <div class="footer-ext"><a href="https://www.at-tohoku.co.jp/" target="_blank">コーポレートサイト</a><a href="#">個人情報保護方針</a></div>
+      </div>
+      <div class="footer-nav">
+        <div class="footer-nav-col"><h4>会社を知る</h4><ul><li><a href="company.html#vision">企業理念</a></li><li><a href="company.html#overview">会社概要</a></li><li><a href="company.html#history">沿革</a></li><li><a href="company.html#access">アクセス</a></li></ul></div>
+        <div class="footer-nav-col"><h4>仕事を知る</h4><ul><li><a href="work.html">事業紹介</a></li><li><a href="work.html">製品紹介</a></li><li><a href="work.html">働く環境</a></li></ul></div>
+        <div class="footer-nav-col"><h4>社員紹介</h4><ul><li><a href="people.html">生産技能職</a></li><li><a href="people.html">生産技術</a></li><li><a href="people.html">総合職</a></li></ul></div>
+        <div class="footer-nav-col"><h4>採用情報</h4><ul><li><a href="recruit.html">新卒採用</a></li><li><a href="recruit.html">中途採用</a></li><li><a href="recruit.html#faq">よくある質問</a></li></ul></div>
+      </div>
+    </div>
+    <div class="footer-bottom"><p class="footer-cp fj">Copyright &copy; AISIN TAKAOKA TOHOKU All Rights Reserved.</p></div>
+  </div>
+</footer>
+
+<button class="backtop" id="bt" onclick="window.scrollTo({top:0,behavior:'smooth'})">&#8593;</button>
+
+<script>
+const bt=document.getElementById('bt');
+window.addEventListener('scroll',()=>{bt.classList.toggle('v',scrollY>300)});
+const obs=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('v');obs.unobserve(e.target)}})},{threshold:.1,rootMargin:'0px 0px -30px 0px'});
+document.querySelectorAll('.an').forEach(el=>obs.observe(el));
+document.querySelectorAll('.filter ._btn').forEach(b=>{
+  b.addEventListener('click',()=>{
+    document.querySelectorAll('.filter ._btn').forEach(x=>x.classList.remove('active'));
+    b.classList.add('active');
+    const f=b.dataset.f;
+    document.querySelectorAll('.pg-card').forEach(c=>{
+      c.style.display=(f==='all'||c.dataset.c===f)?'':'none';
+    });
+  });
+});
+</script>
+</body>
+</html>

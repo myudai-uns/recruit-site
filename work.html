@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>仕事を知る | アイシン高丘東北株式会社 採用サイト</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700;900&family=Josefin+Sans:wght@300;400;500;600;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{--green:#2e8b57;--green-light:#3a9d6a;--green-dark:#1a5c38;--green-bg:#f5f8f5;--yellow:#f5c518;--yellow-light:#ffd700;--dark:#1a3a2a;--text:#333;--white:#fff}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{font-size:62.5%;scroll-behavior:smooth}
+body{font-family:'Noto Sans JP','Helvetica Neue',Arial,sans-serif;font-size:1.5rem;line-height:1.8;color:var(--text);background:var(--white);overflow-x:hidden}
+a{text-decoration:none;color:inherit;transition:opacity .3s}a:hover{opacity:.7}
+img{max-width:100%;height:auto;display:block}
+ul,ol{list-style:none}
+.fj{font-family:'Josefin Sans',sans-serif}
+.fr{font-family:'Roboto',sans-serif}
+.pc{display:inline}.sp{display:none}
+.content{max-width:1200px;margin:0 auto;padding:0 50px}
+#header{position:fixed;top:0;left:0;width:100%;z-index:1000;display:flex;align-items:center;justify-content:space-between;padding:18px 40px;background:rgba(255,255,255,.97);box-shadow:0 2px 15px rgba(0,0,0,.08)}
+#header ._logo a{display:flex;align-items:center;gap:12px;color:var(--green-dark)}
+#header ._logo ._company{font-size:1.6rem;font-weight:700;letter-spacing:.03em}
+#header ._logo ._text{font-family:'Roboto',sans-serif;font-size:1rem;letter-spacing:.12em;opacity:.85}
+#header ._logo ._logo-img{height:32px;width:auto}
+#header ._ctrls{display:flex;align-items:center;gap:12px}
+#header ._entry a{display:inline-block;padding:10px 28px;background:var(--yellow);color:var(--dark);font-size:1.3rem;font-weight:700;letter-spacing:.08em;border-radius:6px}
+.ham{display:none;background:none;border:none;cursor:pointer;flex-direction:column;gap:5px;padding:8px}
+.ham span{display:block;width:26px;height:2px;background:var(--dark)}
+.mnav{position:fixed;inset:0;background:rgba(26,60,56,.97);z-index:1100;display:flex;flex-direction:column;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity .4s}
+.mnav.active{opacity:1;pointer-events:all}
+.mnav ._list{display:flex;flex-direction:column;align-items:center;gap:22px}
+.mnav ._list a{color:#fff;font-size:1.6rem;display:flex;flex-direction:column;align-items:center;gap:3px}
+.mnav ._list ._h{font-family:'Josefin Sans',sans-serif;font-size:1.3rem;font-weight:600}
+.mnav ._list ._m{font-size:1rem;opacity:.7}
+.mnav ._x{position:absolute;top:20px;right:35px;background:none;border:none;color:#fff;font-size:3rem;cursor:pointer}
+.side-cta{position:fixed;right:0;top:50%;transform:translateY(-50%);z-index:900;writing-mode:vertical-rl}
+.side-cta a{display:flex;align-items:center;gap:8px;background:var(--yellow);color:var(--dark);padding:18px 12px;font-size:1.2rem;font-weight:700;letter-spacing:.12em;border-radius:8px 0 0 8px}
+.cta-arrow{display:inline-flex;align-items:center;justify-content:center;width:32px;height:32px;border-radius:50%;background:var(--green-dark);flex-shrink:0}
+.cta-arrow svg{width:12px;height:auto}
+
+.page-hero{position:relative;height:48vh;min-height:360px;overflow:hidden;background:var(--green-dark)}
+.page-hero ._bg{position:absolute;inset:0;z-index:1}
+.page-hero ._bg img{width:100%;height:100%;object-fit:cover;opacity:.5}
+.page-hero::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(26,92,56,.3) 0%,rgba(26,92,56,.6) 100%);z-index:2}
+.page-hero ._main{position:absolute;left:50%;top:60%;transform:translate(-50%,-50%);z-index:3;text-align:center;color:#fff;width:100%;padding:0 20px}
+.page-hero ._label{font-family:'Josefin Sans',sans-serif;font-size:1.5rem;font-weight:500;letter-spacing:.3em;color:var(--yellow);margin-bottom:12px}
+.page-hero ._ttl{font-size:4.8rem;font-weight:900;letter-spacing:.08em;line-height:1.2}
+.page-hero ._sub{font-family:'Josefin Sans',sans-serif;font-size:1.1rem;letter-spacing:.25em;color:rgba(255,255,255,.6);margin-top:14px}
+.breadcrumb{background:var(--green-bg);padding:15px 0;border-bottom:1px solid rgba(46,139,87,.08)}
+.breadcrumb ul{display:flex;gap:8px;align-items:center;font-size:1.2rem;color:#666}
+.breadcrumb li::after{content:'>';margin-left:8px;color:#aaa}
+.breadcrumb li:last-child::after{display:none}
+.breadcrumb a{color:var(--green-dark)}
+
+/* INTRO */
+.sec-intro{padding:100px 0 60px;text-align:center}
+.sec-intro ._label{font-family:'Josefin Sans',sans-serif;font-size:1.5rem;font-weight:600;letter-spacing:.15em;color:var(--green);margin-bottom:18px}
+.sec-intro ._ttl{font-size:3.4rem;font-weight:900;line-height:1.5;margin-bottom:30px}
+.sec-intro ._ttl ._accent{color:var(--green)}
+.sec-intro ._body{max-width:780px;margin:0 auto;font-size:1.5rem;line-height:2.2;color:#555}
+
+/* 3工程 */
+.sec-flow{padding:60px 0 100px;background:var(--green-bg);position:relative;overflow:hidden}
+.flow-item{display:flex;gap:60px;align-items:center;margin-bottom:80px}
+.flow-item:last-child{margin-bottom:0}
+.flow-item._rev{flex-direction:row-reverse}
+.flow-item ._photo{flex:0 0 48%;border-radius:20px;overflow:hidden;box-shadow:0 15px 40px rgba(0,0,0,.1);position:relative}
+.flow-item ._photo img{width:100%;aspect-ratio:4/3;object-fit:cover;transition:transform .5s}
+.flow-item:hover ._photo img{transform:scale(1.04)}
+.flow-item ._photo ._no{position:absolute;top:18px;left:18px;background:var(--yellow);color:var(--dark);width:62px;height:62px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Josefin Sans',sans-serif;font-size:2rem;font-weight:700;box-shadow:0 5px 15px rgba(245,197,24,.4)}
+.flow-item ._txt{flex:1}
+.flow-item ._label{font-family:'Josefin Sans',sans-serif;font-size:1.3rem;font-weight:600;letter-spacing:.15em;color:var(--green);margin-bottom:12px}
+.flow-item ._h{font-size:3rem;font-weight:900;color:var(--green-dark);margin-bottom:22px;line-height:1.4}
+.flow-item ._t{font-size:1.45rem;line-height:2.1;color:#444;margin-bottom:20px}
+.flow-item ._tag{display:inline-block;background:#fff;color:var(--green-dark);padding:6px 16px;border-radius:30px;font-size:1.2rem;font-weight:600;margin:3px 6px 3px 0;border:1px solid rgba(46,139,87,.2)}
+
+/* 職種 */
+.sec-jobs{padding:100px 0;background:#fff}
+.sec-jobs ._head{text-align:center;margin-bottom:60px}
+.sec-jobs ._label{font-family:'Josefin Sans',sans-serif;font-size:1.5rem;font-weight:600;letter-spacing:.15em;color:var(--green);margin-bottom:12px}
+.sec-jobs ._ttl{font-size:3rem;font-weight:900;color:var(--green-dark)}
+.jobs-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:25px;max-width:1100px;margin:0 auto}
+.job-card{background:var(--green-bg);border-radius:16px;padding:32px 26px;transition:transform .3s,box-shadow .3s;border-top:4px solid var(--green)}
+.job-card:hover{transform:translateY(-5px);box-shadow:0 12px 30px rgba(0,0,0,.08)}
+.job-card ._no{font-family:'Josefin Sans',sans-serif;font-size:1.1rem;color:var(--yellow);font-weight:700;letter-spacing:.15em;margin-bottom:10px}
+.job-card ._h{font-size:2rem;font-weight:700;color:var(--green-dark);margin-bottom:10px;line-height:1.5}
+.job-card ._type{display:inline-block;background:var(--green);color:#fff;padding:4px 12px;font-size:1.1rem;font-weight:600;border-radius:20px;margin-bottom:14px}
+.job-card ._t{font-size:1.35rem;color:#555;line-height:1.9}
+
+/* 働く環境 */
+.sec-env{padding:100px 0;background:var(--green-dark);color:#fff;position:relative;overflow:hidden}
+.sec-env ._head{text-align:center;margin-bottom:55px}
+.sec-env ._label{font-family:'Josefin Sans',sans-serif;font-size:1.5rem;font-weight:600;letter-spacing:.15em;color:var(--yellow);margin-bottom:12px}
+.sec-env ._ttl{font-size:3rem;font-weight:900}
+.env-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:30px;max-width:1000px;margin:0 auto}
+.env-card{background:rgba(255,255,255,.07);border-radius:14px;padding:28px 26px;transition:background .3s}
+.env-card:hover{background:rgba(255,255,255,.12)}
+.env-card ._h{font-size:1.9rem;font-weight:700;margin-bottom:10px;color:var(--yellow)}
+.env-card ._t{font-size:1.4rem;line-height:1.9;color:rgba(255,255,255,.85)}
+
+/* CTA */
+.cta-bottom{padding:80px 0;background:var(--green);color:#fff;text-align:center}
+.cta-bottom ._ttl{font-size:2.6rem;font-weight:900;margin-bottom:12px}
+.cta-bottom ._sub{font-size:1.4rem;color:rgba(255,255,255,.85);margin-bottom:32px}
+.cta-bottom ._btns{display:flex;justify-content:center;gap:20px;flex-wrap:wrap}
+.cta-bottom ._btns a{display:inline-flex;align-items:center;gap:10px;padding:18px 40px;background:var(--yellow);color:var(--dark);font-size:1.5rem;font-weight:700;border-radius:50px}
+.cta-bottom ._btns a._outline{background:transparent;color:#fff;border:2px solid rgba(255,255,255,.6)}
+
+/* FOOTER */
+.footer{background:var(--dark);color:#fff;padding:65px 0 0}
+.footer-inner{max-width:1100px;margin:0 auto;padding:0 40px}
+.footer-top{display:flex;gap:55px;padding-bottom:45px;border-bottom:1px solid rgba(255,255,255,.1)}
+.footer-logo-area{min-width:220px}
+.footer-logo{font-size:1.8rem;font-weight:700;margin-bottom:6px}
+.footer-logo-sub{font-size:1rem;color:rgba(255,255,255,.5)}
+.footer-ext{display:flex;flex-direction:column;gap:8px;margin-top:22px}
+.footer-ext a{font-size:1.1rem;color:rgba(255,255,255,.5);border-bottom:1px solid rgba(255,255,255,.15);padding-bottom:2px;display:inline-block}
+.footer-nav{display:flex;gap:40px;flex:1;flex-wrap:wrap}
+.footer-nav-col h4{font-size:1.2rem;font-weight:600;margin-bottom:10px}
+.footer-nav-col li{margin-bottom:6px}
+.footer-nav-col a{font-size:1.1rem;color:rgba(255,255,255,.55)}
+.footer-bottom{padding:20px 0;text-align:center}
+.footer-cp{font-family:'Josefin Sans',sans-serif;font-size:1rem;color:rgba(255,255,255,.35)}
+.backtop{position:fixed;bottom:25px;right:25px;z-index:800;width:50px;height:50px;border-radius:50%;background:var(--green-dark);color:#fff;font-size:1.8rem;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:.4s}
+.backtop.v{opacity:1;pointer-events:all}
+
+.an{opacity:0;transform:translateY(30px);transition:opacity .7s,transform .7s}
+.an.v{opacity:1;transform:translateY(0)}
+
+@media(max-width:1024px){
+  .ham{display:flex}#header ._entry{display:none}
+  .page-hero ._ttl{font-size:3.6rem}
+  .flow-item,.flow-item._rev{flex-direction:column;gap:30px}
+  .flow-item ._photo{width:100%}
+  .jobs-grid{grid-template-columns:repeat(2,1fr)}
+  .env-grid{grid-template-columns:1fr}
+  .side-cta{display:none}
+  .footer-top{flex-direction:column;gap:35px}
+}
+@media(max-width:768px){
+  html{font-size:56%}
+  .pc{display:none}.sp{display:inline}
+  .content{padding:0 20px}
+  #header{padding:12px 20px}
+  .page-hero{height:38vh;min-height:260px}
+  .page-hero ._ttl{font-size:2.6rem}
+  .sec-intro ._ttl{font-size:2.4rem}
+  .flow-item ._h,.sec-jobs ._ttl,.sec-env ._ttl{font-size:2.2rem}
+  .jobs-grid{grid-template-columns:1fr}
+  .footer-nav{flex-direction:column;gap:20px}
+}
+</style>
+</head>
+<body>
+
+<header id="header">
+  <p class="_logo"><a href="index.html"><img src="images/logo.svg" alt="AT-T" class="_logo-img" style="height:28px"><span class="_company">アイシン高丘東北</span><span class="_text fr">RECRUITING SITE</span></a></p>
+  <div class="_ctrls">
+    <p class="_entry"><a href="entry.html">ENTRY</a></p>
+    <button class="ham" onclick="document.getElementById('mn').classList.toggle('active')"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<div class="mnav" id="mn">
+  <ul class="_list">
+    <li><a href="index.html"><span class="_h fj">Top</span><span class="_m">トップ</span></a></li>
+    <li><a href="company.html"><span class="_h fj">About</span><span class="_m">会社を知る</span></a></li>
+    <li><a href="work.html"><span class="_h fj">Work</span><span class="_m">仕事を知る</span></a></li>
+    <li><a href="index.html#numbers"><span class="_h fj">Data</span><span class="_m">数字で見る</span></a></li>
+    <li><a href="people.html"><span class="_h fj">People</span><span class="_m">社員紹介</span></a></li>
+    <li><a href="recruit.html"><span class="_h fj">Recruit</span><span class="_m">採用情報</span></a></li>
+  </ul>
+  <button class="_x" onclick="this.closest('.mnav').classList.remove('active')">&times;</button>
+</div>
+
+<p class="side-cta"><a href="entry.html"><span>エントリーする</span><span class="cta-arrow"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="10" viewBox="0 0 18.693 16.245"><path d="M17.358,6.071,11.423.136a.662.662,0,0,0-.742,0L9.2,1.471a.662.662,0,0,0,0,.742l3.709,3.709a.517.517,0,0,1-.3.89H.445C.148,6.664,0,6.961,0,7.257V9.186a.393.393,0,0,0,.445.445H12.462a.517.517,0,0,1,.3.89L9.2,14.082a.662.662,0,0,0,0,.742l1.335,1.335a.662.662,0,0,0,.742,0l6.973-6.973a1.434,1.434,0,0,0,0-2.077Z" fill="#fff"/></svg></span></a></p>
+
+<section class="page-hero">
+  <div class="_bg"><img src="images/sns/02_machine_operation.jpg" alt=""></div>
+  <div class="_main">
+    <p class="_label fj">Work</p>
+    <h1 class="_ttl">仕事を知る</h1>
+    <p class="_sub fj">ー What we do ー</p>
+  </div>
+</section>
+
+<div class="breadcrumb"><div class="content"><ul><li><a href="index.html">TOP</a></li><li>仕事を知る</li></ul></div></div>
+
+<section class="sec-intro">
+  <div class="content an">
+    <p class="_label fj">Our Work</p>
+    <h2 class="_ttl">鋳造から加工、検査まで。<br><span class="_accent">一貫生産</span>だから、自分の成長が見える。</h2>
+    <p class="_body">
+      AT-Tのものづくりは、溶けた鉄を型に流し込む「鋳造」から始まり、精密に削り出す「機械加工」、そして一つひとつ品質を確かめる「検査」まで、すべての工程を一つの工場で完結させます。<br>
+      工程を通して見えるから、自分の手が何を生み出しているのか、すべて分かる。それが、ここで働く誇りです。
+    </p>
+  </div>
+</section>
+
+<section class="sec-flow">
+  <div class="content">
+    <div class="flow-item an">
+      <div class="_photo"><img src="images/sns/02_machine_operation.jpg" alt="鋳造"><span class="_no fj">01</span></div>
+      <div class="_txt">
+        <p class="_label fj">Process 01</p>
+        <h3 class="_h">鋳造 — 1500℃の鉄を、ミリ単位の形に。</h3>
+        <p class="_t">高温で溶かした鉄を、精密な金型に流し込み、冷やして固める。力仕事に見えて、実は温度・速度・タイミングをmm単位でコントロールする繊細な工程です。熟練者の技と最新設備で、世界基準の部品を生み出します。</p>
+        <span class="_tag">鋳造技能</span><span class="_tag">設備オペレーション</span><span class="_tag">品質管理</span>
+      </div>
+    </div>
+    <div class="flow-item _rev an">
+      <div class="_photo"><img src="images/sns/07_young_worker_machine.jpg" alt="機械加工"><span class="_no fj">02</span></div>
+      <div class="_txt">
+        <p class="_label fj">Process 02</p>
+        <h3 class="_h">機械加工 — ミクロン単位で、削り出す。</h3>
+        <p class="_t">鋳造で形になった部品を、0.01mm単位で削って仕上げます。CNCマシンや自動化ラインを駆使した高精度加工。数字の世界だからこそ、機械を操る人の判断が結果を左右します。</p>
+        <span class="_tag">機械加工</span><span class="_tag">CNCオペレーション</span><span class="_tag">工程設計</span>
+      </div>
+    </div>
+    <div class="flow-item an">
+      <div class="_photo"><img src="images/sns/03_quality_inspection.jpg" alt="検査"><span class="_no fj">03</span></div>
+      <div class="_txt">
+        <p class="_label fj">Process 03</p>
+        <h3 class="_h">検査 — 命を預ける部品だから、見逃さない。</h3>
+        <p class="_t">ブレーキディスクは、クルマの安全に直結する部品。寸法検査・外観検査・強度試験を何重にもかけて、ひとつでも基準を満たさないものは世に出しません。この工程が、私たちの誇りです。</p>
+        <span class="_tag">寸法検査</span><span class="_tag">品質保証</span><span class="_tag">測定技術</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec-jobs">
+  <div class="content an">
+    <div class="_head">
+      <p class="_label fj">Job Categories</p>
+      <h2 class="_ttl">職種紹介</h2>
+    </div>
+    <div class="jobs-grid">
+      <div class="job-card"><p class="_no fj">JOB 01</p><p class="_type">生産技能職</p><h3 class="_h">ものづくりの現場を動かす</h3><p class="_t">鋳造・機械加工・検査の各現場で、実際に製品を生み出す中核メンバー。高校卒から技能を磨き、リーダー・班長へとキャリアアップ。</p></div>
+      <div class="job-card"><p class="_no fj">JOB 02</p><p class="_type">生産技術</p><h3 class="_h">工場を進化させる</h3><p class="_t">設備の改善・新ライン立上げ・自動化推進など、工場全体の生産性を設計する技術職。機械・電気・制御の知識を活かせます。</p></div>
+      <div class="job-card"><p class="_no fj">JOB 03</p><p class="_type">品質保証</p><h3 class="_h">世界基準の品質を守る</h3><p class="_t">お客様に渡る全製品の品質を保証する最後の砦。測定・試験・不具合解析を通じて、AT-Tブランドを支えます。</p></div>
+      <div class="job-card"><p class="_no fj">JOB 04</p><p class="_type">総合職(事務)</p><h3 class="_h">会社を支える</h3><p class="_t">総務・人事・経理・調達など、事業運営を支えるバックオフィス。アイシングループ全体との連携もあり、視野が広がります。</p></div>
+      <div class="job-card"><p class="_no fj">JOB 05</p><p class="_type">社内SE</p><h3 class="_h">DXで現場を強くする</h3><p class="_t">工場の生産管理システム、データ活用、社内ITインフラの運用まで。ものづくり企業のDX推進を担う専門職。</p></div>
+      <div class="job-card"><p class="_no fj">JOB 06</p><p class="_type">設備保全</p><h3 class="_h">24時間365日、工場を止めない</h3><p class="_t">生産設備の予防保全、故障対応、改善改造を担当。機械に強くなりたい、手を動かす専門性を極めたい人に。</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec-env">
+  <div class="content an">
+    <div class="_head">
+      <p class="_label fj">Environment</p>
+      <h2 class="_ttl">働く環境</h2>
+    </div>
+    <div class="env-grid">
+      <div class="env-card"><h3 class="_h">充実の教育体制</h3><p class="_t">未経験入社でも安心。座学+OJTで技能を身につけ、階層別・職種別の研修で継続的に成長できます。アイシングループ全体の教育制度も活用可能。</p></div>
+      <div class="env-card"><h3 class="_h">最新設備</h3><p class="_t">アイシングループの投資力で、毎年のように最新機械が入る工場。CNCマシン、ロボット、自動化ラインなど、最先端の設備で働けます。</p></div>
+      <div class="env-card"><h3 class="_h">安全第一</h3><p class="_t">全員で「ゼロ災」を目指す安全文化。保護具・環境整備・KY活動・安全衛生委員会まで、仕組みと文化の両面で支えています。</p></div>
+      <div class="env-card"><h3 class="_h">福利厚生</h3><p class="_t">社員寮・食堂・シャワールーム完備。年間休日121日・有給取得率91%・賞与4.7ヶ月・転勤なし。プライベートも大切にできます。</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-bottom">
+  <div class="content">
+    <h2 class="_ttl">働く人たちの声を聞いてみる</h2>
+    <p class="_sub">実際に働いている社員のインタビューや、採用情報もチェックしてください。</p>
+    <div class="_btns"><a href="people.html">社員インタビュー &#8594;</a><a href="recruit.html" class="_outline">募集要項 &#8594;</a></div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-logo-area">
+        <p class="footer-logo">アイシン高丘東北</p>
+        <p class="footer-logo-sub">AISIN TAKAOKA TOHOKU</p>
+        <div class="footer-ext"><a href="https://www.at-tohoku.co.jp/" target="_blank">コーポレートサイト</a><a href="#">個人情報保護方針</a></div>
+      </div>
+      <div class="footer-nav">
+        <div class="footer-nav-col"><h4>会社を知る</h4><ul><li><a href="company.html#vision">企業理念</a></li><li><a href="company.html#overview">会社概要</a></li><li><a href="company.html#history">沿革</a></li><li><a href="company.html#access">アクセス</a></li></ul></div>
+        <div class="footer-nav-col"><h4>仕事を知る</h4><ul><li><a href="work.html">事業紹介</a></li><li><a href="work.html">製品紹介</a></li><li><a href="work.html">働く環境</a></li></ul></div>
+        <div class="footer-nav-col"><h4>社員紹介</h4><ul><li><a href="people.html">生産技能職</a></li><li><a href="people.html">生産技術</a></li><li><a href="people.html">総合職</a></li></ul></div>
+        <div class="footer-nav-col"><h4>採用情報</h4><ul><li><a href="recruit.html">新卒採用</a></li><li><a href="recruit.html">中途採用</a></li><li><a href="recruit.html#faq">よくある質問</a></li></ul></div>
+      </div>
+    </div>
+    <div class="footer-bottom"><p class="footer-cp fj">Copyright &copy; AISIN TAKAOKA TOHOKU All Rights Reserved.</p></div>
+  </div>
+</footer>
+
+<button class="backtop" id="bt" onclick="window.scrollTo({top:0,behavior:'smooth'})">&#8593;</button>
+
+<script>
+const bt=document.getElementById('bt');
+window.addEventListener('scroll',()=>{bt.classList.toggle('v',scrollY>300)});
+const obs=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('v');obs.unobserve(e.target)}})},{threshold:.1,rootMargin:'0px 0px -30px 0px'});
+document.querySelectorAll('.an').forEach(el=>obs.observe(el));
+</script>
+</body>
+</html>
