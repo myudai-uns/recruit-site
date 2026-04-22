@@ -79,12 +79,12 @@ ul,ol{list-style:none}
 @keyframes fad{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
 
 /* JOB CARDS */
-.job-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px;max-width:1100px;margin:0 auto 50px}
-.job-card{background:var(--green-bg);border-radius:14px;padding:26px 22px;border-left:4px solid var(--green);text-align:left;transition:.3s}
-.job-card:hover{transform:translateY(-4px);box-shadow:0 10px 30px rgba(46,139,87,.12)}
-.job-card ._no{font-family:'Josefin Sans',sans-serif;font-size:1.1rem;color:var(--yellow);font-weight:700;letter-spacing:.15em;margin-bottom:6px;-webkit-text-stroke:1px var(--green-dark)}
-.job-card ._h{font-size:1.8rem;font-weight:900;color:var(--green-dark);line-height:1.4;margin-bottom:10px}
-.job-card ._t{font-size:1.3rem;color:#555;line-height:1.8}
+.job-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:28px;max-width:1160px;margin:0 auto 60px;padding:30px 10px}
+.job-card{background:#fff;border-radius:18px;padding:36px 30px 30px;border:2px solid var(--green-bg);text-align:left;transition:transform .4s cubic-bezier(.2,.9,.3,1.2),box-shadow .3s,border-color .3s;position:relative;overflow:hidden;transform:rotate(-2deg)}
+.job-card:hover{transform:rotate(-2deg) translateY(-8px);box-shadow:0 18px 40px rgba(46,139,87,.16);border-color:var(--yellow)}
+.job-card::after{content:attr(data-num);position:absolute;bottom:-36px;right:-12px;font-family:'Josefin Sans',sans-serif;font-size:11rem;font-weight:900;color:transparent;-webkit-text-stroke:1.5px rgba(46,139,87,.1);line-height:.85;pointer-events:none;letter-spacing:-.04em}
+.job-card ._h{display:block;font-size:clamp(2.4rem,2.8vw,3rem);font-weight:900;color:var(--green-dark);line-height:1.2;margin-bottom:14px;letter-spacing:-.015em;position:relative;z-index:2}
+.job-card ._t{font-size:1.5rem;color:#444;line-height:2;font-weight:500;position:relative;z-index:2;padding-left:14px;border-left:3px solid var(--yellow)}
 
 /* SPEC TABLE */
 .spec-wrap{max-width:980px;margin:0 auto}
@@ -97,37 +97,52 @@ ul,ol{list-style:none}
 .spec-table dd li{padding-left:18px;position:relative;margin-bottom:4px;font-size:1.35rem}
 .spec-table dd li::before{content:'';position:absolute;left:0;top:13px;width:8px;height:8px;background:var(--yellow);border-radius:50%}
 
-/* FLOW */
+/* FLOW — index.html STEP pattern */
 .sec-flow{padding:90px 0;background:var(--green-bg);position:relative;overflow:hidden}
-.sec-flow ._head{text-align:center;margin-bottom:50px}
+.sec-flow::before{content:'FLOW';position:absolute;top:30px;left:50%;transform:translateX(-50%) rotate(-2deg);font-family:'Josefin Sans',sans-serif;font-size:clamp(12rem,20vw,24rem);font-weight:900;color:transparent;-webkit-text-stroke:2px rgba(46,139,87,.08);line-height:.85;letter-spacing:-.04em;pointer-events:none;z-index:0;white-space:nowrap}
+.sec-flow ._head{text-align:center;margin-bottom:50px;position:relative;z-index:1}
 .sec-flow ._label{font-family:'Josefin Sans',sans-serif;font-size:1.5rem;font-weight:600;letter-spacing:.15em;color:var(--green);margin-bottom:12px}
 .sec-flow ._ttl{font-size:3rem;font-weight:900;color:var(--green-dark)}
-.flow-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;max-width:1100px;margin:0 auto;position:relative}
-.flow-step{background:#fff;border-radius:14px;padding:26px 16px;text-align:center;position:relative;box-shadow:0 4px 14px rgba(0,0,0,.05)}
-.flow-step:not(:last-child)::after{content:'';position:absolute;top:50%;right:-14px;width:24px;height:2px;background:var(--green);z-index:2}
-.flow-step:not(:last-child)::before{content:'';position:absolute;top:calc(50% - 6px);right:-12px;width:0;height:0;border-top:6px solid transparent;border-bottom:6px solid transparent;border-left:10px solid var(--green);z-index:3}
-.flow-step ._no{font-family:'Josefin Sans',sans-serif;font-size:1.1rem;color:var(--yellow);font-weight:700;margin-bottom:8px;-webkit-text-stroke:.5px var(--green-dark)}
-.flow-step ._icon{width:54px;height:54px;border-radius:50%;background:var(--green);color:#fff;display:inline-flex;align-items:center;justify-content:center;font-family:'Josefin Sans',sans-serif;font-size:2rem;font-weight:700;margin-bottom:12px}
-.flow-step ._h{font-size:1.5rem;font-weight:900;color:var(--green-dark);margin-bottom:6px;line-height:1.4}
-.flow-step ._t{font-size:1.15rem;color:#666;line-height:1.7}
+.flow-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:40px 20px;max-width:1180px;margin:0 auto;padding:40px 20px;position:relative;z-index:1}
+.flow-step{padding:20px 8px;text-align:center;transition:transform .4s cubic-bezier(.2,.9,.3,1.3);position:relative;transform:rotate(-6deg)}
+.flow-step:hover{transform:rotate(-6deg) translateY(-10px)}
+.flow-step ._no{font-family:'Josefin Sans',sans-serif;font-size:clamp(4.5rem,6.5vw,7.5rem);font-weight:900;color:transparent;-webkit-text-stroke:2px var(--green);line-height:.85;margin-bottom:10px;letter-spacing:-.02em;display:block;white-space:nowrap}
+.flow-step ._h{font-size:clamp(2rem,2.6vw,2.8rem);font-weight:900;color:var(--green-dark);margin-bottom:8px;line-height:1.15;white-space:nowrap}
+.flow-step ._t{font-size:clamp(1.2rem,1.25vw,1.4rem);color:#555;font-weight:600;line-height:1.5;letter-spacing:.02em}
+.flow-step::after{content:'';position:absolute;top:50%;right:-14px;transform:translateY(-50%) rotate(6deg);width:0;height:0;border-top:14px solid transparent;border-bottom:14px solid transparent;border-left:20px solid var(--yellow);display:block;z-index:2;filter:drop-shadow(0 2px 4px rgba(46,139,87,.2))}
+.flow-step:last-child::after{display:none}
 
-/* FAQ */
-.sec-faq{padding:90px 0}
-.sec-faq ._head{text-align:center;margin-bottom:40px}
+/* FAQ — innovative borderless accordion */
+.sec-faq{padding:90px 0;position:relative;overflow:hidden}
+.sec-faq::before{content:'FAQ';position:absolute;top:50px;right:-30px;font-family:'Josefin Sans',sans-serif;font-size:clamp(14rem,26vw,30rem);font-weight:900;color:transparent;-webkit-text-stroke:2px rgba(46,139,87,.07);line-height:.85;letter-spacing:-.04em;pointer-events:none;z-index:0;transform:rotate(-6deg)}
+.sec-faq ._head{text-align:center;margin-bottom:60px;position:relative;z-index:1}
 .sec-faq ._label{font-family:'Josefin Sans',sans-serif;font-size:1.5rem;font-weight:600;letter-spacing:.15em;color:var(--green);margin-bottom:12px}
 .sec-faq ._ttl{font-size:3rem;font-weight:900;color:var(--green-dark)}
-.faq-list{max-width:860px;margin:0 auto}
-.faq-item{background:var(--green-bg);border-radius:12px;margin-bottom:14px;overflow:hidden;transition:.3s}
-.faq-q{padding:22px 28px;display:flex;gap:16px;cursor:pointer;align-items:flex-start;font-size:1.55rem;font-weight:700;color:var(--green-dark);transition:.3s}
-.faq-q ._q{font-family:'Josefin Sans',sans-serif;font-size:2.2rem;color:var(--yellow);line-height:1;flex-shrink:0;-webkit-text-stroke:1px var(--green-dark)}
-.faq-q ._txt{flex:1}
-.faq-q ._plus{font-size:2rem;color:var(--green);transition:transform .3s}
-.faq-item.open .faq-q ._plus{transform:rotate(45deg)}
-.faq-a{max-height:0;overflow:hidden;transition:max-height .4s,padding .4s;padding:0 28px}
-.faq-item.open .faq-a{max-height:400px;padding:0 28px 22px 28px}
-.faq-a ._inner{display:flex;gap:16px;padding-left:4px;align-items:flex-start}
-.faq-a ._a{font-family:'Josefin Sans',sans-serif;font-size:2.2rem;color:var(--green);line-height:1;flex-shrink:0}
-.faq-a ._txt{flex:1;font-size:1.4rem;color:#444;line-height:1.9;padding-left:42px;margin-left:-42px}
+.faq-list{max-width:920px;margin:0 auto;position:relative;z-index:1}
+.faq-item{border-bottom:2px solid rgba(46,139,87,.12);transition:border-color .4s}
+.faq-item:first-child{border-top:2px solid rgba(46,139,87,.12)}
+.faq-item.open{border-bottom-color:var(--yellow)}
+.faq-q{padding:26px 10px 26px 0;display:flex;gap:22px;cursor:pointer;align-items:center;transition:transform .4s cubic-bezier(.2,.9,.3,1.2),padding .3s}
+.faq-item:hover .faq-q{transform:translateX(8px)}
+.faq-item.open .faq-q{padding-bottom:18px}
+.faq-q ._q{font-family:'Josefin Sans',sans-serif;font-size:clamp(3.2rem,4.2vw,4.8rem);font-weight:900;color:transparent;-webkit-text-stroke:1.5px var(--green);line-height:.85;flex-shrink:0;letter-spacing:-.03em;transition:all .4s;transform:rotate(-6deg);transform-origin:center}
+.faq-item.open .faq-q ._q{color:var(--yellow);-webkit-text-stroke:1.5px var(--green-dark);transform:rotate(-6deg) scale(1.1)}
+.faq-q ._txt{flex:1;font-size:clamp(1.6rem,1.7vw,1.85rem);font-weight:700;color:var(--green-dark);line-height:1.5}
+.faq-q ._plus{width:42px;height:42px;border:2px solid var(--green);border-radius:50%;flex-shrink:0;position:relative;transition:all .5s cubic-bezier(.2,.9,.3,1.3)}
+.faq-q ._plus::before,.faq-q ._plus::after{content:'';position:absolute;top:50%;left:50%;background:var(--green);transition:all .5s cubic-bezier(.2,.9,.3,1.3)}
+.faq-q ._plus::before{width:16px;height:2px;transform:translate(-50%,-50%)}
+.faq-q ._plus::after{width:2px;height:16px;transform:translate(-50%,-50%)}
+.faq-item.open .faq-q ._plus{background:var(--yellow);border-color:var(--yellow);transform:rotate(180deg)}
+.faq-item.open .faq-q ._plus::before{background:var(--green-dark);width:18px}
+.faq-item.open .faq-q ._plus::after{height:0}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .5s cubic-bezier(.4,0,.2,1),opacity .4s,padding .4s;opacity:0;padding:0 10px 0 calc(clamp(3.2rem,4.2vw,4.8rem) + 22px)}
+.faq-item.open .faq-a{max-height:400px;opacity:1;padding:4px 10px 32px calc(clamp(3.2rem,4.2vw,4.8rem) + 22px)}
+.faq-a ._inner{display:flex;gap:22px;align-items:flex-start;position:relative}
+.faq-a ._inner::before{content:'';position:absolute;left:-calc(clamp(3.2rem,4.2vw,4.8rem) + 22px);top:-14px;width:3px;height:100%;background:linear-gradient(180deg,var(--yellow) 0%,transparent 100%);border-radius:2px;transform:scaleY(0);transform-origin:top;transition:transform .6s .1s cubic-bezier(.2,.9,.3,1.2)}
+.faq-item.open .faq-a ._inner::before{transform:scaleY(1)}
+.faq-a ._a{display:none}
+.faq-a ._txt{flex:1;font-size:1.5rem;color:#444;line-height:2;font-weight:500;transform:translateY(12px);transition:transform .5s .15s cubic-bezier(.2,.9,.3,1.2)}
+.faq-item.open .faq-a ._txt{transform:translateY(0)}
 
 /* CTA BOTTOM */
 .cta-bottom{padding:80px 0;background:var(--green);color:#fff;text-align:center;position:relative;overflow:hidden}
@@ -162,8 +177,9 @@ ul,ol{list-style:none}
 @media(max-width:1024px){
   .ham{display:flex}#header ._entry{display:none}
   .page-hero ._ttl{font-size:3.6rem}
-  .flow-grid{grid-template-columns:repeat(2,1fr)}
-  .flow-step:not(:last-child)::after,.flow-step:not(:last-child)::before{display:none}
+  .flow-grid{grid-template-columns:repeat(2,1fr);gap:50px 30px}
+  .flow-step::after{display:none}
+  .job-grid{grid-template-columns:repeat(2,1fr);gap:32px}
   .side-cta{display:none}
   .footer-top{flex-direction:column;gap:35px}
   .tabs{top:60px}
@@ -179,7 +195,13 @@ ul,ol{list-style:none}
   .sec-flow ._ttl,.sec-faq ._ttl{font-size:2.2rem}
   .spec-table dl{flex-direction:column;gap:4px}
   .spec-table dt{flex:none}
-  .flow-grid{grid-template-columns:1fr}
+  .flow-grid{grid-template-columns:1fr;gap:30px}
+  .flow-step ._h,.flow-step ._no{white-space:normal}
+  .job-grid{grid-template-columns:1fr;padding:20px 10px}
+  .job-card ._h{font-size:2.2rem}
+  .faq-q{gap:14px}
+  .faq-a{padding:0 10px 0 calc(3rem + 14px)}
+  .faq-item.open .faq-a{padding:4px 10px 24px calc(3rem + 14px)}
   .cta-bottom ._btns{flex-direction:column;align-items:center}
   .footer-nav{flex-direction:column;gap:20px}
   .tabs ._btn{padding:12px 24px;font-size:1.3rem}
@@ -249,7 +271,7 @@ ul,ol{list-style:none}
   <div class="content an">
     <div class="_head">
       <p class="_label fj">New Graduate</p>
-      <h2 class="_ttl">新卒採用 <span class="_y">2026</span></h2>
+      <h2 class="_ttl">新卒採用</h2>
       <p class="_intro">
         高卒・大卒ともに、毎年新しい仲間を募集しています。<br>
         充実したOJTと教育プログラムで、未経験から一人前のプロへ。
@@ -257,9 +279,9 @@ ul,ol{list-style:none}
     </div>
 
     <div class="job-grid">
-      <div class="job-card"><p class="_no fj">JOB 01</p><h3 class="_h">生産技能職（高卒）</h3><p class="_t">鋳造・機械加工・検査の各工程で、ものづくりの最前線を担当します。</p></div>
-      <div class="job-card"><p class="_no fj">JOB 02</p><h3 class="_h">総合職（大卒）</h3><p class="_t">経理・人事・購買・生産管理など、会社を支える中核職。</p></div>
-      <div class="job-card"><p class="_no fj">JOB 03</p><h3 class="_h">技術職（大卒）</h3><p class="_t">生産技術・品質保証。ラインの改善と品質を技術で支えます。</p></div>
+      <div class="job-card" data-num="01"><h3 class="_h">生産技能職<br><span style="font-size:.7em;opacity:.8">（高卒）</span></h3><p class="_t">鋳造・機械加工・検査の各工程で、ものづくりの最前線を担当します。</p></div>
+      <div class="job-card" data-num="02"><h3 class="_h">総合職<br><span style="font-size:.7em;opacity:.8">（大卒）</span></h3><p class="_t">経理・人事・購買・生産管理など、会社を支える中核職。</p></div>
+      <div class="job-card" data-num="03"><h3 class="_h">技術職<br><span style="font-size:.7em;opacity:.8">（大卒）</span></h3><p class="_t">生産技術・品質保証。ラインの改善と品質を技術で支えます。</p></div>
     </div>
 
     <div class="spec-wrap">
@@ -303,7 +325,7 @@ ul,ol{list-style:none}
   <div class="content an">
     <div class="_head">
       <p class="_label fj">Mid-Career</p>
-      <h2 class="_ttl">中途採用 <span class="_y">CAREER</span></h2>
+      <h2 class="_ttl">中途採用</h2>
       <p class="_intro">
         経験を活かすも、新しい分野に挑戦するも自由。<br>
         "手に職"をつけたい方、地元宮城で腰を据えたい方、歓迎します。
@@ -311,12 +333,12 @@ ul,ol{list-style:none}
     </div>
 
     <div class="job-grid">
-      <div class="job-card"><p class="_no fj">JOB 01</p><h3 class="_h">生産技能職</h3><p class="_t">未経験歓迎。鋳造・機械加工・検査いずれかを担当。</p></div>
-      <div class="job-card"><p class="_no fj">JOB 02</p><h3 class="_h">生産技術</h3><p class="_t">設備改善、ライン設計、工程改革。経験者優遇。</p></div>
-      <div class="job-card"><p class="_no fj">JOB 03</p><h3 class="_h">品質保証</h3><p class="_t">出荷前検査、品質監査、クレーム対応。</p></div>
-      <div class="job-card"><p class="_no fj">JOB 04</p><h3 class="_h">経理</h3><p class="_t">月次決算、原価管理、予算策定。実務経験3年以上。</p></div>
-      <div class="job-card"><p class="_no fj">JOB 05</p><h3 class="_h">社内SE</h3><p class="_t">基幹システム運用、ネットワーク管理、DX推進。</p></div>
-      <div class="job-card"><p class="_no fj">JOB 06</p><h3 class="_h">設備保全</h3><p class="_t">生産設備の保全・改善・新規導入。電気・機械資格歓迎。</p></div>
+      <div class="job-card" data-num="01"><h3 class="_h">生産技能職</h3><p class="_t">未経験歓迎。鋳造・機械加工・検査いずれかを担当。</p></div>
+      <div class="job-card" data-num="02"><h3 class="_h">生産技術</h3><p class="_t">設備改善、ライン設計、工程改革。経験者優遇。</p></div>
+      <div class="job-card" data-num="03"><h3 class="_h">品質保証</h3><p class="_t">出荷前検査、品質監査、クレーム対応。</p></div>
+      <div class="job-card" data-num="04"><h3 class="_h">経理</h3><p class="_t">月次決算、原価管理、予算策定。実務経験3年以上。</p></div>
+      <div class="job-card" data-num="05"><h3 class="_h">社内SE</h3><p class="_t">基幹システム運用、ネットワーク管理、DX推進。</p></div>
+      <div class="job-card" data-num="06"><h3 class="_h">設備保全</h3><p class="_t">生産設備の保全・改善・新規導入。電気・機械資格歓迎。</p></div>
     </div>
 
     <div class="spec-wrap">
@@ -346,11 +368,11 @@ ul,ol{list-style:none}
       <h2 class="_ttl">選考フロー</h2>
     </div>
     <div class="flow-grid">
-      <div class="flow-step an"><p class="_no fj">STEP 01</p><span class="_icon">1</span><h3 class="_h">エントリー</h3><p class="_t">WEBフォームから簡単応募。24時間受付。</p></div>
-      <div class="flow-step an"><p class="_no fj">STEP 02</p><span class="_icon">2</span><h3 class="_h">会社見学</h3><p class="_t">工場見学・先輩社員との座談会。リアルを体感。</p></div>
-      <div class="flow-step an"><p class="_no fj">STEP 03</p><span class="_icon">3</span><h3 class="_h">書類選考</h3><p class="_t">履歴書・エントリーシートを送付。</p></div>
-      <div class="flow-step an"><p class="_no fj">STEP 04</p><span class="_icon">4</span><h3 class="_h">面接</h3><p class="_t">1〜2回の面接で、お互いを深く知る時間。</p></div>
-      <div class="flow-step an"><p class="_no fj">STEP 05</p><span class="_icon">5</span><h3 class="_h">内定</h3><p class="_t">入社手続き・配属のご案内。</p></div>
+      <div class="flow-step an"><p class="_no fj">01</p><h3 class="_h">エントリー</h3><p class="_t">WEBから簡単応募</p></div>
+      <div class="flow-step an"><p class="_no fj">02</p><h3 class="_h">会社見学</h3><p class="_t">工場を直接体感</p></div>
+      <div class="flow-step an"><p class="_no fj">03</p><h3 class="_h">書類選考</h3><p class="_t">エントリーシート送付</p></div>
+      <div class="flow-step an"><p class="_no fj">04</p><h3 class="_h">面接</h3><p class="_t">1〜2回の面接</p></div>
+      <div class="flow-step an"><p class="_no fj">05</p><h3 class="_h">内定</h3><p class="_t">入社まで丁寧サポート</p></div>
     </div>
   </div>
 </section>
