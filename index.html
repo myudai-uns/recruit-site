@@ -189,20 +189,17 @@ ul,ol{list-style:none}
 .sec-recruit ._bg{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-family:'Josefin Sans',sans-serif;font-size:13rem;font-weight:700;color:transparent;-webkit-text-stroke:1px rgba(46,139,87,.08);white-space:nowrap;pointer-events:none}
 .sec-recruit h2{font-size:2.2rem;font-weight:700;margin-bottom:10px;position:relative;z-index:1}
 .sec-recruit ._sub{font-size:1.3rem;color:#666;margin-bottom:35px;position:relative;z-index:1}
-.rec-steps{display:grid;grid-template-columns:repeat(4,1fr);gap:60px 10px;max-width:1180px;margin:0 auto 60px;padding:40px 20px;position:relative;z-index:1}
-.rec-step{--y:0;padding:20px 10px;text-align:center;transition:transform .4s cubic-bezier(.2,.9,.3,1.3);position:relative}
-.rec-step:nth-child(1){transform:rotate(-5deg) translateY(-14px)}
-.rec-step:nth-child(2){transform:rotate(4deg) translateY(22px)}
-.rec-step:nth-child(3){transform:rotate(-3deg) translateY(-8px)}
-.rec-step:nth-child(4){transform:rotate(5deg) translateY(26px)}
-.rec-step:hover:nth-child(1){transform:rotate(-5deg) translateY(-24px)}
-.rec-step:hover:nth-child(2){transform:rotate(4deg) translateY(12px)}
-.rec-step:hover:nth-child(3){transform:rotate(-3deg) translateY(-18px)}
-.rec-step:hover:nth-child(4){transform:rotate(5deg) translateY(16px)}
+.rec-steps{display:grid;grid-template-columns:repeat(4,1fr);gap:40px 30px;max-width:1180px;margin:0 auto 30px;padding:40px 20px;position:relative;z-index:1}
+.rec-step{padding:20px 10px;text-align:center;transition:transform .4s cubic-bezier(.2,.9,.3,1.3);position:relative;transform:rotate(-6deg)}
+.rec-step:hover{transform:rotate(-6deg) translateY(-10px)}
 .rec-step ._no{font-family:'Josefin Sans',sans-serif;font-size:clamp(5rem,7.5vw,8.5rem);font-weight:900;color:transparent;-webkit-text-stroke:2px var(--green);line-height:.85;margin-bottom:10px;letter-spacing:-.02em;display:block;white-space:nowrap}
 .rec-step ._ttl{font-size:clamp(2.6rem,3.4vw,3.8rem);font-weight:900;color:var(--green-dark);margin-bottom:8px;line-height:1.15;white-space:nowrap}
 .rec-step ._txt{font-size:clamp(1.3rem,1.4vw,1.55rem);color:#555;font-weight:600;line-height:1.5;letter-spacing:.02em;white-space:nowrap}
-.rec-step::after{display:none}
+.rec-step::after{content:'';position:absolute;top:50%;right:-24px;transform:translateY(-50%) rotate(6deg);width:0;height:0;border-top:16px solid transparent;border-bottom:16px solid transparent;border-left:22px solid var(--yellow);display:block;z-index:2;filter:drop-shadow(0 2px 4px rgba(46,139,87,.2))}
+.rec-step:last-child::after{display:none}
+.rec-note{max-width:980px;margin:0 auto 40px;padding:16px 26px;position:relative;z-index:1;background:rgba(245,197,24,.12);border-left:4px solid var(--yellow);border-radius:8px;font-size:1.35rem;color:#444;line-height:1.8;text-align:left}
+.rec-note ._mark{display:inline-block;padding:3px 12px;background:var(--yellow);color:var(--dark);font-size:1.15rem;font-weight:700;border-radius:4px;margin-right:10px;letter-spacing:.05em;vertical-align:middle}
+.rec-note strong{color:var(--green-dark);font-weight:700}
 .rec-links{display:flex;justify-content:center;gap:20px;position:relative;z-index:1;flex-wrap:wrap}
 .rec-link{position:relative;display:flex;align-items:center;justify-content:center;width:280px;height:90px;border-radius:12px;overflow:hidden;transition:all .3s;box-shadow:0 10px 30px rgba(0,0,0,.2);text-decoration:none;background:var(--yellow);color:var(--dark)}
 .rec-link._alt{background:var(--green-dark);color:#fff}
@@ -421,11 +418,12 @@ ul,ol{list-style:none}
     <h2>あなたのエントリーを待っています</h2>
     <p class="_sub">まずは募集要項をチェック。会社見学も随時受付中です。</p>
     <div class="rec-steps">
-      <div class="rec-step"><p class="_no fj">STEP 01</p><p class="_ttl">エントリー</p><p class="_txt">WEBから簡単応募</p></div>
-      <div class="rec-step"><p class="_no fj">STEP 02</p><p class="_ttl">会社見学</p><p class="_txt">工場を直接体感</p></div>
-      <div class="rec-step"><p class="_no fj">STEP 03</p><p class="_ttl">面接</p><p class="_txt">1〜2回の面接</p></div>
-      <div class="rec-step"><p class="_no fj">STEP 04</p><p class="_ttl">内定</p><p class="_txt">入社まで丁寧サポート</p></div>
+      <div class="rec-step"><p class="_no fj">01</p><p class="_ttl">エントリー</p><p class="_txt">ウェブから簡単応募</p></div>
+      <div class="rec-step"><p class="_no fj">02</p><p class="_ttl">会社見学</p><p class="_txt">工場を直接体感</p></div>
+      <div class="rec-step"><p class="_no fj">03</p><p class="_ttl">面接</p><p class="_txt">1〜2回の面接</p></div>
+      <div class="rec-step"><p class="_no fj">04</p><p class="_ttl">内定</p><p class="_txt">入社まで丁寧サポート</p></div>
     </div>
+    <p class="rec-note"><span class="_mark">NOTE</span><strong>新卒採用</strong>のご応募は<strong>マイナビ</strong>経由でお願いしております。エントリーボタンよりマイナビのページへお進みください。</p>
     <div class="rec-links">
       <a href="recruit.html#new" class="rec-link"><span class="_lbl">新卒採用</span><span class="_mini">NEW GRAD &#8594;</span></a>
       <a href="recruit.html#mid" class="rec-link _alt"><span class="_lbl">中途採用</span><span class="_mini">CAREER &#8594;</span></a>
