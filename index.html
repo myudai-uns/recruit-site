@@ -57,6 +57,25 @@ ul,ol{list-style:none}
 .cta-arrow{display:inline-flex;align-items:center;justify-content:center;width:32px;height:32px;border-radius:50%;background:var(--green-dark);flex-shrink:0}
 .cta-arrow svg{width:12px;height:auto}
 
+/* Innovative arrow CTA */
+.arw{display:inline-flex;flex-direction:column;align-items:flex-start;gap:10px;position:relative;padding:6px 0 10px;cursor:pointer;text-decoration:none}
+.arw ._mini{font-family:'Josefin Sans',sans-serif;font-size:1.15rem;font-weight:700;letter-spacing:.4em;color:var(--yellow);text-transform:uppercase;transform:translateX(2px);transition:transform .4s}
+.arw ._row{display:flex;align-items:center;gap:22px}
+.arw ._lbl{font-size:clamp(1.9rem,2.1vw,2.4rem);font-weight:900;color:var(--green-dark);letter-spacing:-.015em;line-height:1.1;position:relative;transform:rotate(-2deg);transform-origin:left center;transition:transform .45s cubic-bezier(.2,.9,.3,1.3);white-space:nowrap}
+.arw ._lbl::before{content:attr(data-en);position:absolute;left:0;top:-14px;font-family:'Josefin Sans',sans-serif;font-size:8rem;font-weight:900;color:transparent;-webkit-text-stroke:1.5px rgba(46,139,87,.1);letter-spacing:-.04em;line-height:.85;pointer-events:none;z-index:-1;opacity:0;transform:translateX(-20px);transition:opacity .5s,transform .5s}
+.arw:hover ._lbl::before{opacity:1;transform:translateX(-10px)}
+.arw ._lbl::after{content:'';position:absolute;left:0;right:0;bottom:-8px;height:3px;background:var(--yellow);transform:scaleX(0);transform-origin:left;transition:transform .55s cubic-bezier(.2,.9,.3,1.3)}
+.arw:hover ._lbl::after{transform:scaleX(1)}
+.arw ._line{position:relative;width:58px;height:2px;background:var(--green-dark);transition:width .5s cubic-bezier(.2,.9,.3,1.3),background .3s;flex-shrink:0}
+.arw ._line::after{content:'';position:absolute;top:50%;right:-1px;width:0;height:0;border-top:7px solid transparent;border-bottom:7px solid transparent;border-left:12px solid var(--green-dark);transform:translateY(-50%);transition:border-left-color .3s}
+.arw:hover ._line{width:96px;background:var(--yellow)}
+.arw:hover ._line::after{border-left-color:var(--yellow)}
+.arw:hover ._lbl{transform:rotate(-2deg) translateX(8px)}
+.arw:hover ._mini{transform:translateX(8px)}
+.arw.center{align-items:center}
+.arw.center ._lbl::before{left:50%;transform:translateX(calc(-50% - 20px))}
+.arw.center:hover ._lbl::before{transform:translateX(calc(-50% - 10px))}
+
 /* ===== HERO ===== */
 .hero{position:relative;width:100%;height:100vh;min-height:700px;overflow:hidden;background:var(--green)}
 .hero ._puzzle{position:absolute;top:0;left:0;width:100%;height:100%;display:flex;gap:3px;z-index:1}
@@ -281,14 +300,14 @@ ul,ol{list-style:none}
 <!-- HEADER -->
 <header id="header">
   <p class="_logo">
-    <a href="#">
+    <a href="index.html">
       <img src="images/logo.svg" alt="AT-T" class="_logo-img" style="height:28px">
       <span class="_company">アイシン高丘東北</span>
       <span class="_text fr">RECRUITING SITE</span>
     </a>
   </p>
   <div class="_ctrls">
-    <p class="_entry"><a href="#">ENTRY</a></p>
+    <p class="_entry"><a href="entry.html">ENTRY</a></p>
     <button class="ham" onclick="document.getElementById('mn').classList.toggle('active')"><span></span><span></span><span></span></button>
   </div>
 </header>
@@ -307,7 +326,7 @@ ul,ol{list-style:none}
 </div>
 
 <!-- Side CTA -->
-<p class="side-cta"><a href="#"><span>エントリーする</span><span class="cta-arrow"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="10" viewBox="0 0 18.693 16.245"><path d="M17.358,6.071,11.423.136a.662.662,0,0,0-.742,0L9.2,1.471a.662.662,0,0,0,0,.742l3.709,3.709a.517.517,0,0,1-.3.89H.445C.148,6.664,0,6.961,0,7.257V9.186a.393.393,0,0,0,.445.445H12.462a.517.517,0,0,1,.3.89L9.2,14.082a.662.662,0,0,0,0,.742l1.335,1.335a.662.662,0,0,0,.742,0l6.973-6.973a1.434,1.434,0,0,0,0-2.077Z" fill="#fff"/></svg></span></a></p>
+<p class="side-cta"><a href="entry.html"><span>エントリーする</span><span class="cta-arrow"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="10" viewBox="0 0 18.693 16.245"><path d="M17.358,6.071,11.423.136a.662.662,0,0,0-.742,0L9.2,1.471a.662.662,0,0,0,0,.742l3.709,3.709a.517.517,0,0,1-.3.89H.445C.148,6.664,0,6.961,0,7.257V9.186a.393.393,0,0,0,.445.445H12.462a.517.517,0,0,1,.3.89L9.2,14.082a.662.662,0,0,0,0,.742l1.335,1.335a.662.662,0,0,0,.742,0l6.973-6.973a1.434,1.434,0,0,0,0-2.077Z" fill="#fff"/></svg></span></a></p>
 
 <!-- HERO -->
 <section class="hero" id="top">
@@ -325,8 +344,8 @@ ul,ol{list-style:none}
 
 <!-- MARQUEE -->
 <div class="marquee">
-  <div class="_row _r1"><ul><li><a href="#" class="fj">About</a></li><li><a href="#" class="fj">Work</a></li><li><a href="#" class="fj">Data</a></li><li><a href="#" class="fj">People</a></li></ul><ul><li><a href="#" class="fj">About</a></li><li><a href="#" class="fj">Work</a></li><li><a href="#" class="fj">Data</a></li><li><a href="#" class="fj">People</a></li></ul></div>
-  <div class="_row _r2"><ul><li><a href="#" class="fj">About</a></li><li><a href="#" class="fj">Work</a></li><li><a href="#" class="fj">Data</a></li><li><a href="#" class="fj">People</a></li></ul><ul><li><a href="#" class="fj">About</a></li><li><a href="#" class="fj">Work</a></li><li><a href="#" class="fj">Data</a></li><li><a href="#" class="fj">People</a></li></ul></div>
+  <div class="_row _r1"><ul><li><a href="company.html" class="fj">About</a></li><li><a href="work.html" class="fj">Work</a></li><li><a href="#numbers" class="fj">Data</a></li><li><a href="people.html" class="fj">People</a></li></ul><ul><li><a href="company.html" class="fj">About</a></li><li><a href="work.html" class="fj">Work</a></li><li><a href="#numbers" class="fj">Data</a></li><li><a href="people.html" class="fj">People</a></li></ul></div>
+  <div class="_row _r2"><ul><li><a href="company.html" class="fj">About</a></li><li><a href="work.html" class="fj">Work</a></li><li><a href="#numbers" class="fj">Data</a></li><li><a href="people.html" class="fj">People</a></li></ul><ul><li><a href="company.html" class="fj">About</a></li><li><a href="work.html" class="fj">Work</a></li><li><a href="#numbers" class="fj">Data</a></li><li><a href="people.html" class="fj">People</a></li></ul></div>
 </div>
 
 <!-- COMPANY -->
@@ -342,7 +361,7 @@ ul,ol{list-style:none}
         地元にいながら、世界の道を走るクルマに自分の仕事が届く。<br class="pc">
         その実感が、ここにはあります。
       </p>
-      <p class="_more"><a href="company.html" class="fj">会社を詳しく知る <span class="cta-arrow"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="10" viewBox="0 0 18.693 16.245"><path d="M17.358,6.071,11.423.136a.662.662,0,0,0-.742,0L9.2,1.471a.662.662,0,0,0,0,.742l3.709,3.709a.517.517,0,0,1-.3.89H.445C.148,6.664,0,6.961,0,7.257V9.186a.393.393,0,0,0,.445.445H12.462a.517.517,0,0,1,.3.89L9.2,14.082a.662.662,0,0,0,0,.742l1.335,1.335a.662.662,0,0,0,.742,0l6.973-6.973a1.434,1.434,0,0,0,0-2.077Z" fill="#fff"/></svg></span></a></p>
+      <p class="_more"><a href="company.html" class="arw"><span class="_mini fj">About company</span><span class="_row"><span class="_lbl" data-en="ABOUT">会社を詳しく知る</span><span class="_line"></span></span></a></p>
     </div>
     <div class="_photo">
       <img src="images/sns/01_factory_exterior.jpg" alt="工場外観">
@@ -367,7 +386,7 @@ ul,ol{list-style:none}
         AT-Tでは、ひとつの工場の中でものづくりの全工程を経験できます。<br>
         未経験でも安心の教育体制。先輩がそばにいる環境で、確実にスキルが身につきます。
       </p>
-      <p class="_more"><a href="#" class="fj">仕事の流れを見る <span class="cta-arrow"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="10" viewBox="0 0 18.693 16.245"><path d="M17.358,6.071,11.423.136a.662.662,0,0,0-.742,0L9.2,1.471a.662.662,0,0,0,0,.742l3.709,3.709a.517.517,0,0,1-.3.89H.445C.148,6.664,0,6.961,0,7.257V9.186a.393.393,0,0,0,.445.445H12.462a.517.517,0,0,1,.3.89L9.2,14.082a.662.662,0,0,0,0,.742l1.335,1.335a.662.662,0,0,0,.742,0l6.973-6.973a1.434,1.434,0,0,0,0-2.077Z" fill="#fff"/></svg></span></a></p>
+      <p class="_more"><a href="work.html" class="arw"><span class="_mini fj">Our work</span><span class="_row"><span class="_lbl" data-en="WORK">仕事の流れを見る</span><span class="_line"></span></span></a></p>
       <div class="_photo-sub"><img src="images/sns/16_brake_parts_closeup.png" alt="ブレーキ部品"></div>
     </div>
   </div>
@@ -407,7 +426,7 @@ ul,ol{list-style:none}
       <button class="inext" aria-label="次へ">&#8594;</button>
     </div>
   </div>
-  <div class="more-center"><a href="#" class="fj">社員インタビュー一覧 <span class="cta-arrow"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="10" viewBox="0 0 18.693 16.245"><path d="M17.358,6.071,11.423.136a.662.662,0,0,0-.742,0L9.2,1.471a.662.662,0,0,0,0,.742l3.709,3.709a.517.517,0,0,1-.3.89H.445C.148,6.664,0,6.961,0,7.257V9.186a.393.393,0,0,0,.445.445H12.462a.517.517,0,0,1,.3.89L9.2,14.082a.662.662,0,0,0,0,.742l1.335,1.335a.662.662,0,0,0,.742,0l6.973-6.973a1.434,1.434,0,0,0,0-2.077Z" fill="#fff"/></svg></span></a></div>
+  <div class="more-center"><a href="people.html" class="arw center"><span class="_mini fj">All interviews</span><span class="_row"><span class="_lbl" data-en="PEOPLE">社員インタビュー一覧</span><span class="_line"></span></span></a></div>
 </section>
 
 <!-- RECRUIT -->
@@ -440,10 +459,10 @@ ul,ol{list-style:none}
         <div class="footer-ext"><a href="https://www.at-tohoku.co.jp/" target="_blank">コーポレートサイト</a><a href="#">個人情報保護方針</a></div>
       </div>
       <div class="footer-nav">
-        <div class="footer-nav-col"><h4>会社を知る</h4><ul><li><a href="#">企業理念</a></li><li><a href="#">会社概要</a></li><li><a href="#">沿革</a></li><li><a href="#">アクセス</a></li></ul></div>
-        <div class="footer-nav-col"><h4>仕事を知る</h4><ul><li><a href="#">事業紹介</a></li><li><a href="#">製品紹介</a></li><li><a href="#">働く環境</a></li></ul></div>
-        <div class="footer-nav-col"><h4>社員紹介</h4><ul><li><a href="#">生産技能職</a></li><li><a href="#">生産技術</a></li><li><a href="#">総合職</a></li></ul></div>
-        <div class="footer-nav-col"><h4>採用情報</h4><ul><li><a href="#">新卒採用</a></li><li><a href="#">中途採用</a></li><li><a href="#">よくある質問</a></li></ul></div>
+        <div class="footer-nav-col"><h4>会社を知る</h4><ul><li><a href="company.html#vision">企業理念</a></li><li><a href="company.html#overview">会社概要</a></li><li><a href="company.html#history">沿革</a></li><li><a href="company.html#access">アクセス</a></li></ul></div>
+        <div class="footer-nav-col"><h4>仕事を知る</h4><ul><li><a href="work.html">事業紹介</a></li><li><a href="work.html">製品紹介</a></li><li><a href="work.html">働く環境</a></li></ul></div>
+        <div class="footer-nav-col"><h4>社員紹介</h4><ul><li><a href="people.html">生産技能職</a></li><li><a href="people.html">生産技術</a></li><li><a href="people.html">総合職</a></li></ul></div>
+        <div class="footer-nav-col"><h4>採用情報</h4><ul><li><a href="recruit.html#new">新卒採用</a></li><li><a href="recruit.html#mid">中途採用</a></li><li><a href="recruit.html#faq">よくある質問</a></li></ul></div>
       </div>
     </div>
     <div class="footer-bottom"><p class="footer-cp fj">Copyright &copy; AISIN TAKAOKA TOHOKU All Rights Reserved.</p></div>
