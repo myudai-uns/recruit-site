@@ -58,20 +58,22 @@ ul,ol{list-style:none}
 .cta-arrow svg{width:12px;height:auto}
 
 /* Innovative arrow CTA */
-.arw{display:inline-flex;flex-direction:column;align-items:flex-start;gap:10px;position:relative;padding:6px 0 10px;cursor:pointer;text-decoration:none}
-.arw ._mini{font-family:'Josefin Sans',sans-serif;font-size:1.15rem;font-weight:700;letter-spacing:.4em;color:var(--yellow);text-transform:uppercase;transform:translateX(2px);transition:transform .4s}
-.arw ._row{display:flex;align-items:center;gap:22px}
-.arw ._lbl{font-size:clamp(1.9rem,2.1vw,2.4rem);font-weight:900;color:var(--green-dark);letter-spacing:-.015em;line-height:1.1;position:relative;transform:rotate(-2deg);transform-origin:left center;transition:transform .45s cubic-bezier(.2,.9,.3,1.3);white-space:nowrap}
-.arw ._lbl::before{content:attr(data-en);position:absolute;left:0;top:-14px;font-family:'Josefin Sans',sans-serif;font-size:8rem;font-weight:900;color:transparent;-webkit-text-stroke:1.5px rgba(46,139,87,.1);letter-spacing:-.04em;line-height:.85;pointer-events:none;z-index:-1;opacity:0;transform:translateX(-20px);transition:opacity .5s,transform .5s}
+.arw{display:inline-flex;flex-direction:column;align-items:flex-start;gap:12px;position:relative;padding:10px 0 14px;cursor:pointer;text-decoration:none}
+.arw ._mini{font-family:'Josefin Sans',sans-serif;font-size:1.2rem;font-weight:800;letter-spacing:.4em;color:var(--yellow);text-transform:uppercase;transform:translateX(2px);transition:transform .4s;-webkit-text-stroke:.5px var(--green-dark)}
+.arw ._row{display:flex;align-items:center;gap:24px}
+.arw ._lbl{font-size:clamp(2.1rem,2.4vw,2.8rem);font-weight:900;color:var(--green-dark);letter-spacing:-.015em;line-height:1.1;position:relative;transform:rotate(-2deg);transform-origin:left center;transition:transform .45s cubic-bezier(.2,.9,.3,1.3);white-space:nowrap}
+.arw ._lbl::before{content:attr(data-en);position:absolute;left:0;top:-18px;font-family:'Josefin Sans',sans-serif;font-size:9rem;font-weight:900;color:transparent;-webkit-text-stroke:1.5px rgba(46,139,87,.1);letter-spacing:-.04em;line-height:.85;pointer-events:none;z-index:-1;opacity:0;transform:translateX(-20px);transition:opacity .5s,transform .5s}
 .arw:hover ._lbl::before{opacity:1;transform:translateX(-10px)}
-.arw ._lbl::after{content:'';position:absolute;left:0;right:0;bottom:-8px;height:3px;background:var(--yellow);transform:scaleX(0);transform-origin:left;transition:transform .55s cubic-bezier(.2,.9,.3,1.3)}
+.arw ._lbl::after{content:'';position:absolute;left:0;right:0;bottom:-10px;height:5px;background:var(--yellow);transform:scaleX(0);transform-origin:left;transition:transform .55s cubic-bezier(.2,.9,.3,1.3);border-radius:2px}
 .arw:hover ._lbl::after{transform:scaleX(1)}
-.arw ._line{position:relative;width:58px;height:2px;background:var(--green-dark);transition:width .5s cubic-bezier(.2,.9,.3,1.3),background .3s;flex-shrink:0}
-.arw ._line::after{content:'';position:absolute;top:50%;right:-1px;width:0;height:0;border-top:7px solid transparent;border-bottom:7px solid transparent;border-left:12px solid var(--green-dark);transform:translateY(-50%);transition:border-left-color .3s}
-.arw:hover ._line{width:96px;background:var(--yellow)}
-.arw:hover ._line::after{border-left-color:var(--yellow)}
-.arw:hover ._lbl{transform:rotate(-2deg) translateX(8px)}
-.arw:hover ._mini{transform:translateX(8px)}
+.arw ._line{position:relative;width:88px;height:4px;background:var(--green-dark);transition:width .5s cubic-bezier(.2,.9,.3,1.3),background .3s,height .3s;flex-shrink:0;border-radius:2px}
+.arw ._line::after{content:'';position:absolute;top:50%;right:-2px;width:0;height:0;border-top:11px solid transparent;border-bottom:11px solid transparent;border-left:18px solid var(--green-dark);transform:translateY(-50%);transition:border-left-color .3s,border-left-width .3s}
+.arw ._line::before{content:'';position:absolute;top:50%;right:-2px;width:18px;height:18px;background:var(--yellow);border-radius:50%;transform:translate(50%,-50%) scale(0);transition:transform .5s cubic-bezier(.2,.9,.3,1.3);z-index:0}
+.arw:hover ._line{width:130px;background:var(--yellow);height:5px}
+.arw:hover ._line::after{border-left-color:var(--yellow);border-left-width:22px;border-top-width:13px;border-bottom-width:13px}
+.arw:hover ._line::before{transform:translate(50%,-50%) scale(1.4)}
+.arw:hover ._lbl{transform:rotate(-2deg) translateX(10px)}
+.arw:hover ._mini{transform:translateX(12px);letter-spacing:.5em}
 .arw.center{align-items:center}
 .arw.center ._lbl::before{left:50%;transform:translateX(calc(-50% - 20px))}
 .arw.center:hover ._lbl::before{transform:translateX(calc(-50% - 10px))}
@@ -517,7 +519,7 @@ ul,ol{list-style:none}
   const w=document.getElementById('itvSlides');
   data.forEach(d=>{
     const s=document.createElement('div');s.className='swiper-slide';
-    s.innerHTML=`<a href="#" class="itv-card ${d.cls}">
+    s.innerHTML=`<a href="people.html" class="itv-card ${d.cls}">
       <div class="_head"><div class="_top"><p class="_ini fj">${d.ini}</p><p class="_info"><span class="b">${d.dept}</span><br>${d.yr}</p></div><p class="_quote">${d.q.replace('\n','<br>')}</p></div>
       <div class="_portrait"><img src="${d.img}" alt="${d.ini}"></div></a>`;
     w.appendChild(s);
