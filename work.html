@@ -55,50 +55,71 @@ ul,ol{list-style:none}
 .breadcrumb a{color:var(--green-dark)}
 
 /* INTRO */
-.sec-intro{padding:100px 0 60px;text-align:center}
+.sec-intro{padding:120px 0 60px;text-align:center;position:relative;overflow:hidden}
+.sec-intro::before{content:'OUR WORK';position:absolute;top:40px;left:50%;transform:translateX(-50%) rotate(-3deg);font-family:'Josefin Sans',sans-serif;font-size:clamp(7rem,12vw,14rem);font-weight:700;color:transparent;-webkit-text-stroke:1px rgba(46,139,87,.08);white-space:nowrap;pointer-events:none;letter-spacing:-.02em;z-index:0}
+.sec-intro .content{position:relative;z-index:1}
 .sec-intro ._label{font-family:'Josefin Sans',sans-serif;font-size:1.5rem;font-weight:600;letter-spacing:.15em;color:var(--green);margin-bottom:18px}
-.sec-intro ._ttl{font-size:3.4rem;font-weight:900;line-height:1.5;margin-bottom:30px}
-.sec-intro ._ttl ._accent{color:var(--green)}
+.sec-intro ._ttl{font-size:clamp(2.8rem,4.4vw,4.6rem);font-weight:900;line-height:1.4;margin-bottom:30px;letter-spacing:-.01em;transform:rotate(-1.5deg);display:inline-block}
+.sec-intro ._ttl ._accent{color:var(--green);-webkit-text-stroke:1px var(--green-dark);color:var(--yellow)}
 .sec-intro ._body{max-width:780px;margin:0 auto;font-size:1.5rem;line-height:2.2;color:#555}
 
 /* 3工程 */
-.sec-flow{padding:60px 0 100px;background:var(--green-bg);position:relative;overflow:hidden}
-.flow-item{display:flex;gap:60px;align-items:center;margin-bottom:80px}
+.sec-flow{padding:80px 0 120px;background:var(--green-bg);position:relative;overflow:hidden}
+.sec-flow::before{content:'PROCESS';position:absolute;top:50px;right:-50px;font-family:'Josefin Sans',sans-serif;font-size:clamp(8rem,15vw,20rem);font-weight:700;color:transparent;-webkit-text-stroke:1px rgba(46,139,87,.08);white-space:nowrap;pointer-events:none;transform:rotate(-4deg);letter-spacing:-.02em;line-height:.85;z-index:0}
+.sec-flow .content{position:relative;z-index:1}
+.flow-item{display:flex;gap:70px;align-items:center;margin-bottom:110px;position:relative}
 .flow-item:last-child{margin-bottom:0}
 .flow-item._rev{flex-direction:row-reverse}
-.flow-item ._photo{flex:0 0 48%;border-radius:20px;overflow:hidden;box-shadow:0 15px 40px rgba(0,0,0,.1);position:relative}
+.flow-item ._photo{flex:0 0 48%;border-radius:22px;overflow:hidden;box-shadow:0 20px 50px rgba(26,92,56,.18);position:relative;transform:rotate(-2deg);transition:transform .5s}
+.flow-item._rev ._photo{transform:rotate(2deg)}
+.flow-item:hover ._photo{transform:rotate(0)}
 .flow-item ._photo img{width:100%;aspect-ratio:4/3;object-fit:cover;transition:transform .5s}
 .flow-item:hover ._photo img{transform:scale(1.04)}
-.flow-item ._photo ._no{position:absolute;top:18px;left:18px;background:var(--yellow);color:var(--dark);width:62px;height:62px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Josefin Sans',sans-serif;font-size:2rem;font-weight:700;box-shadow:0 5px 15px rgba(245,197,24,.4)}
-.flow-item ._txt{flex:1}
-.flow-item ._label{font-family:'Josefin Sans',sans-serif;font-size:1.3rem;font-weight:600;letter-spacing:.15em;color:var(--green);margin-bottom:12px}
-.flow-item ._h{font-size:3rem;font-weight:900;color:var(--green-dark);margin-bottom:22px;line-height:1.4}
-.flow-item ._t{font-size:1.45rem;line-height:2.1;color:#444;margin-bottom:20px}
-.flow-item ._tag{display:inline-block;background:#fff;color:var(--green-dark);padding:6px 16px;border-radius:30px;font-size:1.2rem;font-weight:600;margin:3px 6px 3px 0;border:1px solid rgba(46,139,87,.2)}
+.flow-item ._photo ._no{position:absolute;top:-30px;right:-25px;z-index:5;font-family:'Josefin Sans',sans-serif;font-size:clamp(9rem,13vw,15rem);font-weight:900;color:var(--yellow);line-height:.85;letter-spacing:-.04em;-webkit-text-stroke:3px var(--green-dark);transform:rotate(-8deg);pointer-events:none;text-shadow:0 4px 0 rgba(26,92,56,.3)}
+.flow-item._rev ._photo ._no{right:auto;left:-25px;transform:rotate(8deg)}
+.flow-item ._txt{flex:1;position:relative}
+.flow-item ._label{font-family:'Josefin Sans',sans-serif;font-size:1.3rem;font-weight:700;letter-spacing:.2em;color:var(--green-dark);margin-bottom:18px;background:var(--yellow);display:inline-block;padding:5px 16px;border-radius:4px;transform:rotate(-2deg)}
+.flow-item ._h{font-size:clamp(2.8rem,3.8vw,4.2rem);font-weight:900;color:var(--green-dark);margin-bottom:26px;line-height:1.3;letter-spacing:-.02em;transform:rotate(-1.2deg);display:inline-block}
+.flow-item ._t{font-size:1.55rem;line-height:2.15;color:#444;margin-bottom:24px}
+.flow-item ._tag{display:inline-block;background:#fff;color:var(--green-dark);padding:8px 18px;border-radius:30px;font-size:1.25rem;font-weight:700;margin:4px 6px 4px 0;border:2px solid var(--green);transition:.3s}
+.flow-item ._tag:hover{background:var(--green);color:#fff;transform:translateY(-2px)}
 
 /* 職種 */
-.sec-jobs{padding:100px 0;background:#fff}
-.sec-jobs ._head{text-align:center;margin-bottom:60px}
+.sec-jobs{padding:120px 0;background:#fff;position:relative;overflow:hidden}
+.sec-jobs::before{content:'JOB';position:absolute;top:80px;left:-50px;font-family:'Josefin Sans',sans-serif;font-size:clamp(10rem,18vw,24rem);font-weight:900;color:transparent;-webkit-text-stroke:1px rgba(46,139,87,.08);pointer-events:none;transform:rotate(-6deg);letter-spacing:-.04em;line-height:.85;z-index:0}
+.sec-jobs ._head{text-align:center;margin-bottom:70px;position:relative;z-index:2}
 .sec-jobs ._label{font-family:'Josefin Sans',sans-serif;font-size:1.5rem;font-weight:600;letter-spacing:.15em;color:var(--green);margin-bottom:12px}
-.sec-jobs ._ttl{font-size:3rem;font-weight:900;color:var(--green-dark)}
-.jobs-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:25px;max-width:1100px;margin:0 auto}
-.job-card{background:var(--green-bg);border-radius:16px;padding:32px 26px;transition:transform .3s,box-shadow .3s;border-top:4px solid var(--green)}
-.job-card:hover{transform:translateY(-5px);box-shadow:0 12px 30px rgba(0,0,0,.08)}
-.job-card ._no{font-family:'Josefin Sans',sans-serif;font-size:1.1rem;color:var(--yellow);font-weight:700;letter-spacing:.15em;margin-bottom:10px}
-.job-card ._h{font-size:2rem;font-weight:700;color:var(--green-dark);margin-bottom:10px;line-height:1.5}
-.job-card ._type{display:inline-block;background:var(--green);color:#fff;padding:4px 12px;font-size:1.1rem;font-weight:600;border-radius:20px;margin-bottom:14px}
-.job-card ._t{font-size:1.35rem;color:#555;line-height:1.9}
+.sec-jobs ._ttl{font-size:clamp(3rem,4.4vw,4.6rem);font-weight:900;color:var(--green-dark);transform:rotate(-2deg);display:inline-block;letter-spacing:-.02em}
+.jobs-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:36px 28px;max-width:1200px;margin:0 auto;padding:30px 10px;position:relative;z-index:1}
+.job-card{background:#fff;border-radius:18px;padding:40px 30px 34px;transition:transform .4s cubic-bezier(.2,.9,.3,1.2),box-shadow .3s,border-color .3s;border:2px solid var(--green-bg);position:relative;overflow:hidden}
+.job-card::before{content:'';position:absolute;top:0;left:0;right:0;height:5px;background:linear-gradient(90deg,var(--green) 0%,var(--yellow) 100%)}
+.job-card::after{content:attr(data-num);position:absolute;bottom:-38px;right:-16px;font-family:'Josefin Sans',sans-serif;font-size:13rem;font-weight:900;color:transparent;-webkit-text-stroke:1.5px rgba(46,139,87,.09);line-height:.85;pointer-events:none;transition:transform .4s,color .3s;letter-spacing:-.04em}
+.job-card:nth-child(odd){transform:rotate(-1.5deg) translateY(-8px)}
+.job-card:nth-child(even){transform:rotate(1.5deg) translateY(8px)}
+.job-card:nth-child(3n+2){transform:rotate(-2.2deg)}
+.job-card:hover{transform:rotate(0) translateY(-14px);box-shadow:0 24px 50px rgba(46,139,87,.2);border-color:var(--green)}
+.job-card:hover::after{transform:rotate(-10deg) scale(1.08);-webkit-text-stroke-color:rgba(245,197,24,.25)}
+.job-card ._type{display:block;font-size:clamp(2.4rem,3vw,3.2rem);font-weight:900;color:var(--green-dark);margin-bottom:6px;line-height:1.2;letter-spacing:-.015em;position:relative;z-index:2}
+.job-card ._h{display:block;font-size:1.65rem;font-weight:700;color:var(--green);margin-bottom:22px;line-height:1.55;padding-left:14px;border-left:3px solid var(--yellow);position:relative;z-index:2}
+.job-card ._t{font-size:1.5rem;color:#444;line-height:2;position:relative;z-index:2;font-weight:500}
 
 /* 働く環境 */
-.sec-env{padding:100px 0;background:var(--green-dark);color:#fff;position:relative;overflow:hidden}
-.sec-env ._head{text-align:center;margin-bottom:55px}
+.sec-env{padding:120px 0;background:var(--green-dark);color:#fff;position:relative;overflow:hidden}
+.sec-env::before{content:'ENVIRONMENT';position:absolute;top:60px;right:-80px;font-family:'Josefin Sans',sans-serif;font-size:clamp(8rem,14vw,18rem);font-weight:700;color:transparent;-webkit-text-stroke:1px rgba(245,197,24,.1);pointer-events:none;transform:rotate(-4deg);letter-spacing:-.02em;line-height:.85;white-space:nowrap;z-index:0}
+.sec-env .content{position:relative;z-index:1}
+.sec-env ._head{text-align:center;margin-bottom:70px}
 .sec-env ._label{font-family:'Josefin Sans',sans-serif;font-size:1.5rem;font-weight:600;letter-spacing:.15em;color:var(--yellow);margin-bottom:12px}
-.sec-env ._ttl{font-size:3rem;font-weight:900}
-.env-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:30px;max-width:1000px;margin:0 auto}
-.env-card{background:rgba(255,255,255,.07);border-radius:14px;padding:28px 26px;transition:background .3s}
-.env-card:hover{background:rgba(255,255,255,.12)}
-.env-card ._h{font-size:1.9rem;font-weight:700;margin-bottom:10px;color:var(--yellow)}
-.env-card ._t{font-size:1.4rem;line-height:1.9;color:rgba(255,255,255,.85)}
+.sec-env ._ttl{font-size:clamp(3rem,4.4vw,4.6rem);font-weight:900;transform:rotate(-2deg);display:inline-block;letter-spacing:-.02em}
+.env-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:44px 38px;max-width:1100px;margin:0 auto;padding:30px 10px}
+.env-card{background:rgba(255,255,255,.05);border-radius:18px;padding:44px 36px 40px;transition:transform .4s cubic-bezier(.2,.9,.3,1.2),background .3s,border-color .3s;position:relative;overflow:hidden;border:2px solid rgba(245,197,24,.12)}
+.env-card:nth-child(1){transform:rotate(-2deg)}
+.env-card:nth-child(2){transform:rotate(2deg) translateY(24px)}
+.env-card:nth-child(3){transform:rotate(2deg) translateY(-24px)}
+.env-card:nth-child(4){transform:rotate(-2deg)}
+.env-card:hover{transform:rotate(0) translateY(-10px);background:rgba(255,255,255,.1);border-color:var(--yellow)}
+.env-card ._no{position:absolute;top:-20px;right:14px;font-family:'Josefin Sans',sans-serif;font-size:clamp(7rem,10vw,11rem);font-weight:900;color:transparent;-webkit-text-stroke:1.5px rgba(245,197,24,.3);line-height:.85;letter-spacing:-.03em;pointer-events:none;transform:rotate(-8deg);z-index:0}
+.env-card ._h{font-size:clamp(2.2rem,2.9vw,2.9rem);font-weight:900;margin-bottom:20px;color:var(--yellow);line-height:1.35;transform:rotate(-1.5deg);display:inline-block;position:relative;z-index:2;letter-spacing:-.01em}
+.env-card ._t{font-size:1.5rem;line-height:2.05;color:rgba(255,255,255,.92);position:relative;z-index:2;font-weight:500}
 
 /* CTA */
 .cta-bottom{padding:80px 0;background:var(--green);color:#fff;text-align:center}
@@ -132,10 +153,16 @@ ul,ol{list-style:none}
 @media(max-width:1024px){
   .ham{display:flex}#header ._entry{display:none}
   .page-hero ._ttl{font-size:3.6rem}
-  .flow-item,.flow-item._rev{flex-direction:column;gap:30px}
-  .flow-item ._photo{width:100%}
-  .jobs-grid{grid-template-columns:repeat(2,1fr)}
-  .env-grid{grid-template-columns:1fr}
+  .flow-item,.flow-item._rev{flex-direction:column;gap:40px}
+  .flow-item ._photo,.flow-item._rev ._photo{width:100%;flex:0 0 auto;transform:rotate(-1.5deg)}
+  .flow-item ._photo ._no{font-size:10rem;top:-18px;right:-10px}
+  .flow-item._rev ._photo ._no{left:-10px}
+  .jobs-grid{grid-template-columns:repeat(2,1fr);gap:28px 22px}
+  .job-card:nth-child(odd),.job-card:nth-child(even),.job-card:nth-child(3n+2){transform:rotate(-1deg)}
+  .job-card:nth-child(even){transform:rotate(1deg)}
+  .env-grid{grid-template-columns:1fr;gap:34px}
+  .env-card:nth-child(1),.env-card:nth-child(2),.env-card:nth-child(3),.env-card:nth-child(4){transform:rotate(-1.5deg) translateY(0)}
+  .env-card:nth-child(even){transform:rotate(1.5deg)}
   .side-cta{display:none}
   .footer-top{flex-direction:column;gap:35px}
 }
@@ -147,8 +174,14 @@ ul,ol{list-style:none}
   .page-hero{height:38vh;min-height:260px}
   .page-hero ._ttl{font-size:2.6rem}
   .sec-intro ._ttl{font-size:2.4rem}
-  .flow-item ._h,.sec-jobs ._ttl,.sec-env ._ttl{font-size:2.2rem}
+  .flow-item ._h{font-size:2.4rem}
+  .sec-jobs ._ttl,.sec-env ._ttl{font-size:2.6rem}
   .jobs-grid{grid-template-columns:1fr}
+  .job-card ._type{font-size:2.4rem}
+  .job-card ._t{font-size:1.45rem}
+  .env-card ._h{font-size:2.2rem}
+  .flow-item ._photo ._no{font-size:7rem;top:-12px;right:-6px}
+  .flow-item._rev ._photo ._no{left:-6px}
   .footer-nav{flex-direction:column;gap:20px}
 }
 </style>
@@ -238,12 +271,12 @@ ul,ol{list-style:none}
       <h2 class="_ttl">職種紹介</h2>
     </div>
     <div class="jobs-grid">
-      <div class="job-card"><p class="_no fj">JOB 01</p><p class="_type">生産技能職</p><h3 class="_h">ものづくりの現場を動かす</h3><p class="_t">鋳造・機械加工・検査の各現場で、実際に製品を生み出す中核メンバー。高校卒から技能を磨き、リーダー・班長へとキャリアアップ。</p></div>
-      <div class="job-card"><p class="_no fj">JOB 02</p><p class="_type">生産技術</p><h3 class="_h">工場を進化させる</h3><p class="_t">設備の改善・新ライン立上げ・自動化推進など、工場全体の生産性を設計する技術職。機械・電気・制御の知識を活かせます。</p></div>
-      <div class="job-card"><p class="_no fj">JOB 03</p><p class="_type">品質保証</p><h3 class="_h">世界基準の品質を守る</h3><p class="_t">お客様に渡る全製品の品質を保証する最後の砦。測定・試験・不具合解析を通じて、AT-Tブランドを支えます。</p></div>
-      <div class="job-card"><p class="_no fj">JOB 04</p><p class="_type">総合職(事務)</p><h3 class="_h">会社を支える</h3><p class="_t">総務・人事・経理・調達など、事業運営を支えるバックオフィス。アイシングループ全体との連携もあり、視野が広がります。</p></div>
-      <div class="job-card"><p class="_no fj">JOB 05</p><p class="_type">社内SE</p><h3 class="_h">DXで現場を強くする</h3><p class="_t">工場の生産管理システム、データ活用、社内ITインフラの運用まで。ものづくり企業のDX推進を担う専門職。</p></div>
-      <div class="job-card"><p class="_no fj">JOB 06</p><p class="_type">設備保全</p><h3 class="_h">24時間365日、工場を止めない</h3><p class="_t">生産設備の予防保全、故障対応、改善改造を担当。機械に強くなりたい、手を動かす専門性を極めたい人に。</p></div>
+      <div class="job-card" data-num="01"><h3 class="_type">生産技能職</h3><p class="_h">ものづくりの現場を動かす</p><p class="_t">鋳造・機械加工・検査の各現場で、実際に製品を生み出す中核メンバー。高校卒から技能を磨き、リーダー・班長へとキャリアアップ。</p></div>
+      <div class="job-card" data-num="02"><h3 class="_type">生産技術</h3><p class="_h">工場を進化させる</p><p class="_t">設備の改善・新ライン立上げ・自動化推進など、工場全体の生産性を設計する技術職。機械・電気・制御の知識を活かせます。</p></div>
+      <div class="job-card" data-num="03"><h3 class="_type">品質保証</h3><p class="_h">世界基準の品質を守る</p><p class="_t">お客様に渡る全製品の品質を保証する最後の砦。測定・試験・不具合解析を通じて、AT-Tブランドを支えます。</p></div>
+      <div class="job-card" data-num="04"><h3 class="_type">総合職</h3><p class="_h">会社を支えるバックオフィス</p><p class="_t">総務・人事・経理・調達など、事業運営を支えるバックオフィス。アイシングループ全体との連携もあり、視野が広がります。</p></div>
+      <div class="job-card" data-num="05"><h3 class="_type">社内SE</h3><p class="_h">DXで現場を強くする</p><p class="_t">工場の生産管理システム、データ活用、社内ITインフラの運用まで。ものづくり企業のDX推進を担う専門職。</p></div>
+      <div class="job-card" data-num="06"><h3 class="_type">設備保全</h3><p class="_h">24時間365日、工場を止めない</p><p class="_t">生産設備の予防保全、故障対応、改善改造を担当。機械に強くなりたい、手を動かす専門性を極めたい人に。</p></div>
     </div>
   </div>
 </section>
@@ -255,10 +288,10 @@ ul,ol{list-style:none}
       <h2 class="_ttl">働く環境</h2>
     </div>
     <div class="env-grid">
-      <div class="env-card"><h3 class="_h">充実の教育体制</h3><p class="_t">未経験入社でも安心。座学+OJTで技能を身につけ、階層別・職種別の研修で継続的に成長できます。アイシングループ全体の教育制度も活用可能。</p></div>
-      <div class="env-card"><h3 class="_h">最新設備</h3><p class="_t">アイシングループの投資力で、毎年のように最新機械が入る工場。CNCマシン、ロボット、自動化ラインなど、最先端の設備で働けます。</p></div>
-      <div class="env-card"><h3 class="_h">安全第一</h3><p class="_t">全員で「ゼロ災」を目指す安全文化。保護具・環境整備・KY活動・安全衛生委員会まで、仕組みと文化の両面で支えています。</p></div>
-      <div class="env-card"><h3 class="_h">福利厚生</h3><p class="_t">社員寮・食堂・シャワールーム完備。年間休日121日・有給取得率91%・賞与4.7ヶ月・転勤なし。プライベートも大切にできます。</p></div>
+      <div class="env-card"><span class="_no fj">01</span><h3 class="_h">充実の教育体制</h3><p class="_t">未経験入社でも安心。座学+OJTで技能を身につけ、階層別・職種別の研修で継続的に成長できます。アイシングループ全体の教育制度も活用可能。</p></div>
+      <div class="env-card"><span class="_no fj">02</span><h3 class="_h">最新設備</h3><p class="_t">アイシングループの投資力で、毎年のように最新機械が入る工場。CNCマシン、ロボット、自動化ラインなど、最先端の設備で働けます。</p></div>
+      <div class="env-card"><span class="_no fj">03</span><h3 class="_h">安全第一</h3><p class="_t">全員で「ゼロ災」を目指す安全文化。保護具・環境整備・KY活動・安全衛生委員会まで、仕組みと文化の両面で支えています。</p></div>
+      <div class="env-card"><span class="_no fj">04</span><h3 class="_h">福利厚生</h3><p class="_t">社員寮・食堂・シャワールーム完備。年間休日121日・有給取得率91%・賞与4.7ヶ月・転勤なし。プライベートも大切にできます。</p></div>
     </div>
   </div>
 </section>
