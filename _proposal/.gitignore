@@ -1,0 +1,8 @@
+# 中間成果物（PDF生成時に再生成される）
+*.png
+*.jpg
+*.jpeg
+
+# 一時ファイル
+_mail.txt
+_rebuild-docs-only.js

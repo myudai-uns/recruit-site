@@ -1,0 +1,116 @@
+/* Wireframe-only stylesheet — grayscale, structure only */
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{font-size:62.5%}
+body{font-family:-apple-system,'Segoe UI','Helvetica Neue',sans-serif;color:#333;background:#f4f4f4;font-size:1.3rem;line-height:1.7}
+
+.canvas{max-width:1280px;margin:30px auto;background:#fff;border:1px solid #aaa;padding:0}
+.wf-topbar{background:#222;color:#fff;padding:10px 20px;font-size:1.1rem;letter-spacing:.08em;display:flex;justify-content:space-between;align-items:center}
+.wf-topbar ._l{font-weight:700}
+.wf-topbar ._r{opacity:.7;font-size:1rem}
+.wf-topbar a{color:#fff;margin-left:10px;opacity:.7;text-decoration:none}
+.wf-topbar a:hover{opacity:1}
+
+/* Section block */
+.sec{border:1px solid #bbb;margin:20px;padding:24px;position:relative;background:#fff}
+.sec + .sec{margin-top:14px}
+.sec-label{position:absolute;top:-10px;left:14px;background:#fff;padding:0 8px;font-size:1.05rem;letter-spacing:.12em;color:#555;font-weight:700}
+.sec-note{margin-top:14px;font-size:1.1rem;color:#888;font-style:italic;border-top:1px dashed #ccc;padding-top:10px}
+.sec-note::before{content:'※ '}
+
+/* Headings / text placeholders */
+.h1{font-size:2.4rem;font-weight:700;color:#222;margin-bottom:10px;border-bottom:2px solid #222;padding-bottom:6px;display:inline-block}
+.h2{font-size:1.8rem;font-weight:700;color:#333;margin-bottom:8px}
+.h3{font-size:1.5rem;font-weight:700;color:#444;margin-bottom:6px}
+.txt{color:#666;margin-bottom:8px}
+.txt-sm{font-size:1.15rem;color:#888}
+.dummy-line{height:10px;background:#eaeaea;margin:6px 0;border-radius:2px}
+.dummy-line.w80{width:80%}
+.dummy-line.w60{width:60%}
+.dummy-line.w40{width:40%}
+.dummy-line.dark{background:#ccc}
+
+/* Image/photo placeholder — X diagonals */
+.img{background:#fafafa;border:1px solid #999;position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;color:#888;font-size:1.1rem;letter-spacing:.1em}
+.img::before,.img::after{content:'';position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none}
+.img::before{background:linear-gradient(to top right,transparent calc(50% - 1px),#bbb,transparent calc(50% + 1px))}
+.img::after{background:linear-gradient(to top left,transparent calc(50% - 1px),#bbb,transparent calc(50% + 1px))}
+.img ._lbl{position:relative;z-index:1;background:#fafafa;padding:2px 8px;border:1px dashed #aaa}
+
+/* Button / CTA placeholder */
+.btn{display:inline-flex;align-items:center;gap:8px;padding:10px 22px;border:2px solid #333;background:#fff;color:#333;font-size:1.15rem;font-weight:700;letter-spacing:.05em}
+.btn.fill{background:#333;color:#fff}
+.btn-lg{padding:14px 32px;font-size:1.35rem}
+
+/* Header/Footer placeholders */
+.wf-header{display:flex;justify-content:space-between;align-items:center;padding:16px 24px;border-bottom:1px solid #aaa;background:#fafafa}
+.wf-header ._logo{font-weight:700;font-size:1.4rem;letter-spacing:.05em}
+.wf-header nav{display:flex;gap:22px;font-size:1.15rem;color:#555}
+.wf-footer{background:#333;color:#bbb;padding:28px 24px;font-size:1.1rem}
+.wf-footer ._cols{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-bottom:16px}
+.wf-footer ._col ._h{color:#fff;font-weight:700;margin-bottom:6px;border-bottom:1px solid #555;padding-bottom:4px}
+.wf-footer ._col ._l{display:block;color:#aaa;padding:2px 0}
+
+/* Grid utilities */
+.g{display:grid;gap:14px}
+.g-2{grid-template-columns:1fr 1fr}
+.g-3{grid-template-columns:repeat(3,1fr)}
+.g-4{grid-template-columns:repeat(4,1fr)}
+.g-5{grid-template-columns:repeat(5,1fr)}
+.g-6{grid-template-columns:repeat(6,1fr)}
+.flex{display:flex;gap:14px;align-items:center}
+.between{justify-content:space-between}
+
+/* Box variants */
+.box{border:1px solid #bbb;padding:14px;background:#fff}
+.box-dashed{border:1px dashed #bbb}
+.box-pad{padding:20px 16px}
+.stat{text-align:center;padding:18px 10px;border:1px solid #bbb}
+.stat ._n{font-size:2.4rem;font-weight:700;color:#333}
+.stat ._l{font-size:1rem;color:#888;letter-spacing:.1em}
+
+/* Tabs */
+.tabs{display:flex;gap:0;margin-bottom:16px;border-bottom:2px solid #333}
+.tabs ._t{padding:10px 24px;background:#eee;border:1px solid #bbb;border-bottom:none;font-weight:700;font-size:1.2rem}
+.tabs ._t.on{background:#fff;color:#000;border-top:2px solid #333;border-left:1px solid #333;border-right:1px solid #333}
+
+/* Pills (filter) */
+.pills{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px}
+.pills ._p{padding:6px 16px;border:1px solid #999;border-radius:50px;font-size:1.1rem;background:#fff}
+.pills ._p.on{background:#333;color:#fff}
+
+/* Flow steps */
+.flow{display:flex;gap:14px;align-items:stretch}
+.flow ._s{flex:1;border:1px solid #bbb;padding:14px;text-align:center;position:relative;background:#fff}
+.flow ._s::after{content:'▶';position:absolute;right:-12px;top:50%;transform:translateY(-50%);color:#aaa;font-size:1.2rem;z-index:2}
+.flow ._s:last-child::after{display:none}
+.flow ._s ._n{font-size:1.2rem;color:#888;font-weight:700}
+.flow ._s ._t{font-weight:700;margin-top:4px}
+
+/* FAQ accordion */
+.faq ._i{border-bottom:1px solid #ccc;padding:14px 0}
+.faq ._q{display:flex;justify-content:space-between;font-weight:700;color:#333}
+.faq ._q::before{content:'Q. ';font-weight:700;color:#888;margin-right:6px}
+.faq ._q ._x{color:#888}
+
+/* Form */
+.form ._row{display:grid;grid-template-columns:180px 1fr;gap:14px;padding:12px 0;border-bottom:1px dashed #ddd;align-items:center}
+.form ._lbl{font-weight:700;font-size:1.2rem}
+.form ._req{font-size:.9rem;color:#c33;margin-left:6px;vertical-align:super}
+.form ._input{height:32px;border:1px solid #999;background:#fff}
+.form ._input.tall{height:90px}
+.form ._radio{display:flex;gap:16px}
+.form ._radio span{display:inline-flex;align-items:center;gap:6px;font-size:1.2rem}
+.form ._radio span::before{content:'○';color:#666}
+.form ._radio span.on::before{content:'●';color:#333}
+
+/* Step progress */
+.progress{display:flex;justify-content:space-between;align-items:center;margin:14px 0 20px;padding:0 30px}
+.progress ._s{flex:1;text-align:center;position:relative;color:#999}
+.progress ._s ._n{width:34px;height:34px;border:2px solid #999;border-radius:50%;margin:0 auto 4px;display:flex;align-items:center;justify-content:center;background:#fff;font-weight:700}
+.progress ._s.on{color:#333}
+.progress ._s.on ._n{border-color:#333;background:#333;color:#fff}
+.progress ._s::after{content:'';position:absolute;top:17px;right:-50%;left:50%;height:2px;background:#ccc;z-index:-1}
+.progress ._s:last-child::after{display:none}
+
+/* Marquee placeholder */
+.marquee{border-top:1px solid #bbb;border-bottom:1px solid #bbb;padding:14px 0;font-size:2rem;color:#bbb;letter-spacing:.2em;font-weight:700;overflow:hidden;white-space:nowrap;text-align:center}

@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>アイシン高丘東北 採用サイト 情報設計の考え方</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{font-size:62.5%}
+body{font-family:'Noto Sans JP','Hiragino Kaku Gothic ProN','Yu Gothic',sans-serif;color:#222;background:#e5e5e5;font-size:1.35rem;line-height:1.95}
+.page{width:1240px;min-height:1754px;background:#fff;margin:20px auto;padding:90px 100px;position:relative;box-shadow:0 4px 20px rgba(0,0,0,.08);page-break-after:always}
+.page:last-child{page-break-after:auto}
+
+/* COVER */
+.cover{display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:0 100px}
+.cover ._label{font-size:1.4rem;letter-spacing:.3em;color:#666;margin-bottom:24px}
+.cover ._client{font-size:1.8rem;color:#333;margin-bottom:40px}
+.cover ._ttl{font-size:4rem;font-weight:700;line-height:1.5;color:#1a3a2a;margin-bottom:20px;letter-spacing:.02em}
+.cover ._sub-ttl{font-size:1.8rem;color:#555;font-weight:400;margin-bottom:80px}
+.cover ._meta{border-top:1px solid #ccc;border-bottom:1px solid #ccc;padding:24px 60px;display:flex;gap:60px;font-size:1.3rem;color:#555}
+.cover ._meta ._row{text-align:left}
+.cover ._meta ._h{font-size:1.1rem;color:#888;margin-bottom:4px;letter-spacing:.1em}
+.cover ._meta ._v{font-size:1.4rem;color:#222;font-weight:500}
+
+/* COMMON */
+.pg-head{margin-bottom:38px;padding-bottom:16px;border-bottom:2px solid #1a5c38}
+.pg-no{font-size:1.2rem;color:#1a5c38;letter-spacing:.15em;font-weight:700;margin-bottom:8px}
+.pg-ttl{font-size:2.6rem;font-weight:700;color:#1a3a2a;letter-spacing:.02em}
+.pg-footer{position:absolute;bottom:40px;left:100px;right:100px;display:flex;justify-content:space-between;font-size:1.1rem;color:#999;padding-top:12px;border-top:1px solid #ddd}
+
+.lead{font-size:1.4rem;line-height:2.05;color:#333;margin-bottom:28px}
+
+.block{margin-bottom:26px}
+.block h3{font-size:1.7rem;font-weight:700;color:#1a3a2a;margin-bottom:12px;padding-left:14px;border-left:4px solid #1a5c38}
+.block p{font-size:1.32rem;line-height:2;color:#333;margin-bottom:10px;text-indent:1em}
+.block p.no-indent{text-indent:0}
+.block p:last-child{margin-bottom:0}
+.block strong{color:#1a3a2a;font-weight:700}
+
+.sub{margin-top:18px;margin-bottom:18px}
+.sub h4{font-size:1.4rem;font-weight:700;color:#1a3a2a;margin-bottom:8px}
+.sub h4::before{content:'';display:inline-block;width:8px;height:8px;background:#1a5c38;margin-right:10px;vertical-align:middle}
+
+/* Persona table */
+.ptable{width:100%;border-collapse:collapse;margin-top:10px;font-size:1.2rem}
+.ptable th,.ptable td{border:1px solid #ccc;padding:10px 14px;text-align:left;line-height:1.75;vertical-align:top}
+.ptable th{background:#f5f8f5;color:#1a3a2a;font-weight:700;width:18%}
+
+/* Flow diagram */
+.flowdiag{background:#fafafa;border:1px solid #ddd;padding:24px 26px;margin:16px 0 10px}
+.flowdiag ._row{display:flex;align-items:center;gap:12px;margin-bottom:14px}
+.flowdiag ._row:last-child{margin-bottom:0}
+.flowdiag ._step{padding:10px 16px;background:#fff;border:1px solid #1a5c38;color:#1a3a2a;font-weight:700;font-size:1.25rem;min-width:160px;text-align:center}
+.flowdiag ._arrow{color:#1a5c38;font-size:1.6rem;font-weight:700}
+.flowdiag ._note{color:#555;font-size:1.15rem;line-height:1.75}
+
+@media print{
+  body{background:#fff}
+  .page{margin:0;box-shadow:none;page-break-after:always}
+}
+</style>
+</head>
+<body>
+
+<!-- COVER -->
+<div class="page cover">
+  <p class="_label">INFORMATION ARCHITECTURE</p>
+  <p class="_client">アイシン高丘東北株式会社 御中</p>
+  <h1 class="_ttl">採用サイト 情報設計の考え方<br>— ワイヤーフレームの設計根拠 —</h1>
+  <p class="_sub-ttl">なぜこの構成・この順序・この情報量にしたのか</p>
+  <div class="_meta">
+    <div class="_row"><p class="_h">作成日</p><p class="_v">2026年4月22日</p></div>
+    <div class="_row"><p class="_h">バージョン</p><p class="_v">v1.0</p></div>
+    <div class="_row"><p class="_h">作成</p><p class="_v">Unsee 三上</p></div>
+  </div>
+</div>
+
+<!-- 01: 前提 -->
+<div class="page">
+  <div class="pg-head">
+    <p class="pg-no">01</p>
+    <h2 class="pg-ttl">本資料の目的と設計の前提</h2>
+  </div>
+
+  <p class="lead">本資料は、併せてお送りしているワイヤーフレームについて「なぜこの構成としたのか」を情報設計（Information Architecture）の観点から説明するものです。デザインや表現そのものではなく、<strong>どの情報を、誰に向けて、どの順序で、どの粒度で並べるか</strong>の判断根拠をまとめています。</p>
+
+  <div class="block">
+    <h3>採用サイトの目的</h3>
+    <p class="no-indent">御社採用サイトが果たすべき役割を、以下の4点として整理しました。情報設計はこの4点を満たすことを前提に組み立てています。</p>
+    <div class="sub">
+      <h4>候補者の不安を払拭すること</h4>
+      <p>若年層が自動車部品工場に抱きがちな「きつい／地味／田舎」といったイメージを、写真・数字・社員像によって段階的に上書きします。</p>
+    </div>
+    <div class="sub">
+      <h4>候補者本人だけでなく、保護者・教員にも耐える情報量を持つこと</h4>
+      <p>特に高卒世代は保護者・教員が志望先に関与します。定量データ・会社概要・募集要項といった「大人が確認する情報」を省略せず掲載します。</p>
+    </div>
+    <div class="sub">
+      <h4>応募までの心理的ハードルを最小化すること</h4>
+      <p>選考フロー、働く環境、社員の声を通じて「応募してから入社までの全体像」を事前に可視化し、心理的な未知要素を減らします。</p>
+    </div>
+    <div class="sub">
+      <h4>応募経路を正しく分岐させること</h4>
+      <p>新卒はマイナビで一元管理されるため、サイト内で重複フォームを持たず誘導先を一本化します。中途は自社で直接受付します。</p>
+    </div>
+  </div>
+
+  <div class="pg-footer"><span>アイシン高丘東北 採用サイト 情報設計の考え方</span><span>01 / 目的と前提</span></div>
+</div>
+
+<!-- 02: ペルソナと情報ニーズ -->
+<div class="page">
+  <div class="pg-head">
+    <p class="pg-no">02</p>
+    <h2 class="pg-ttl">ペルソナと情報ニーズ</h2>
+  </div>
+
+  <p class="lead">情報設計のすべての判断は、想定される主要ペルソナの情報ニーズに立脚しています。以下の5ペルソナを前提に、どのページ・どのセクションがどのペルソナに刺さるのかを紐付けながら構成を決めました。</p>
+
+  <table class="ptable">
+    <tr><th>ペルソナ</th><th>情報ニーズの中心</th><th>サイト内で優先的に到達してもらいたい情報</th></tr>
+    <tr><td>①新卒大卒（総合職志望）</td><td>地元で安定／ホワイト度／キャリアパス</td><td>数字で見るAT-T／代表メッセージ／総合職の詳細／社員紹介（大卒・総合職）</td></tr>
+    <tr><td>②新卒高卒（生産技能職志望）</td><td>未経験OK／教育体制／現場の様子／通勤</td><td>3工程紹介／働く環境／社員紹介（高卒・技能職）／アクセス</td></tr>
+    <tr><td>③中途（生産技術）</td><td>裁量／設備投資／改善文化</td><td>職種紹介（生産技術）／沿革／中途募集要項</td></tr>
+    <tr><td>④中途（経理・社内SE）</td><td>専門性／柔軟な働き方／経営への影響</td><td>職種紹介（総合職・SE）／福利厚生／代表メッセージ</td></tr>
+    <tr><td>⑤中途（生産技能職）</td><td>現場経験活用／安定収入</td><td>3工程紹介／募集要項（中途）／働く環境</td></tr>
+  </table>
+
+  <div class="block" style="margin-top:26px">
+    <h3>保護者・教員の存在</h3>
+    <p class="no-indent">上記の候補者本人に加え、<strong>意思決定の補助者</strong>として保護者・教員が存在します。特に新卒高卒では志望先決定の主要な関与者になるため、会社概要・募集要項・アクセスといった「ちゃんとした会社であることが1ページで分かる」領域を確実に担保します。</p>
+  </div>
+
+  <div class="pg-footer"><span>アイシン高丘東北 採用サイト 情報設計の考え方</span><span>02 / ペルソナ</span></div>
+</div>
+
+<!-- 03: なぜ6ページか -->
+<div class="page">
+  <div class="pg-head">
+    <p class="pg-no">03</p>
+    <h2 class="pg-ttl">なぜ全6ページ構成としたか</h2>
+  </div>
+
+  <p class="lead">採用サイトのページ数は、少なすぎると情報が混雑し、多すぎると候補者が迷います。本ワイヤーフレームでは<strong>「トップ＋詳細4ページ＋エントリー1ページ」の計6ページ</strong>としました。その判断根拠を以下に示します。</p>
+
+  <div class="block">
+    <h3>ページ分割の判断軸</h3>
+    <p class="no-indent">「このページを離れても、候補者が離脱しないだけの理由があるか」を軸にページを分けました。トップページから離脱する理由は「より詳しく知りたい」と「応募したい」の2種類であり、前者を満たす4カテゴリ（会社／仕事／社員／採用）を独立ページとし、後者を1ページに集約しています。</p>
+  </div>
+
+  <div class="block">
+    <h3>4つの詳細ページの役割分担</h3>
+    <div class="sub">
+      <h4>会社を知る（company.html）— 「信頼」を担当</h4>
+      <p>企業の背骨となる情報（理念／代表／概要／沿革／アクセス）を集約。候補者本人よりも「保護者・教員が確認するページ」として位置付けています。</p>
+    </div>
+    <div class="sub">
+      <h4>仕事を知る（work.html）— 「業務イメージ」を担当</h4>
+      <p>3工程と6職種によって業務内容を具体化。未経験層がまず抱く「何をする仕事か」という問いに答える役割を担います。</p>
+    </div>
+    <div class="sub">
+      <h4>社員紹介（people.html）— 「共感」を担当</h4>
+      <p>多様な属性の社員を見せることで「自分に似た人がいる」という共感を生み、応募確度を引き上げます。</p>
+    </div>
+    <div class="sub">
+      <h4>採用情報（recruit.html）— 「判断」を担当</h4>
+      <p>募集要項・選考フロー・FAQを集約し、候補者および意思決定の補助者が最終判断を下すための材料を提供します。</p>
+    </div>
+  </div>
+
+  <div class="block">
+    <h3>検討したが不採用とした構成</h3>
+    <p class="no-indent">候補として「事業紹介」「福利厚生」「数字で見るAT-T」を独立ページ化することも検討しましたが、いずれもそれ単体で回遊を発生させるだけの動機にならず、候補者の回遊パス上で重複コンテンツを生む懸念があったため、上位ページの1セクションとして吸収する設計としました。</p>
+  </div>
+
+  <div class="pg-footer"><span>アイシン高丘東北 採用サイト 情報設計の考え方</span><span>03 / ページ数の根拠</span></div>
+</div>
+
+<!-- 04: ページ間導線 -->
+<div class="page">
+  <div class="pg-head">
+    <p class="pg-no">04</p>
+    <h2 class="pg-ttl">ページ間の導線設計</h2>
+  </div>
+
+  <p class="lead">候補者の「知りたい順序」と、御社が「伝えたい順序」を重ね合わせて動線を設計しています。候補者はトップページで「この会社に興味があるか」を判断し、その後の4カテゴリは必ずしも直列ではなく、興味に応じて自由に行き来できる構造としました。</p>
+
+  <div class="block">
+    <h3>主要な導線パターン</h3>
+    <div class="flowdiag">
+      <div class="_row"><span class="_step">TOP</span><span class="_arrow">→</span><span class="_step">会社を知る</span><span class="_arrow">→</span><span class="_note">信頼獲得パス（保護者・教員）</span></div>
+      <div class="_row"><span class="_step">TOP</span><span class="_arrow">→</span><span class="_step">仕事を知る</span><span class="_arrow">→</span><span class="_note">業務理解パス（未経験／中途）</span></div>
+      <div class="_row"><span class="_step">TOP</span><span class="_arrow">→</span><span class="_step">社員紹介</span><span class="_arrow">→</span><span class="_note">共感パス（全ペルソナ）</span></div>
+      <div class="_row"><span class="_step">TOP</span><span class="_arrow">→</span><span class="_step">採用情報</span><span class="_arrow">→</span><span class="_step">エントリー</span></div>
+      <div class="_row"><span class="_step">エントリー</span><span class="_arrow">→</span><span class="_step">マイナビ</span><span class="_arrow"></span><span class="_note">新卒選択時のみ</span></div>
+    </div>
+    <p>直列でなく複数のパスを許容する理由は、候補者のサイト訪問動機が多様で、どこから入ってもエントリーに到達できる必要があるためです。すべてのページの右サイドとヘッダーに「ENTRY」を常設する運用と合わせて、最短経路を常に確保しています。</p>
+  </div>
+
+  <div class="block">
+    <h3>トップページに要約セクションを置く理由</h3>
+    <p class="no-indent">トップには各詳細ページの要約セクション（会社／仕事／数字／社員／採用）を並べています。これは<strong>「1ページだけ読めば全体像が分かる」状態を作るため</strong>です。忙しい候補者や、詳細ページに入る前に全体感を掴みたい候補者のために、トップを「目次兼ダイジェスト」として機能させる設計です。</p>
+  </div>
+
+  <div class="pg-footer"><span>アイシン高丘東北 採用サイト 情報設計の考え方</span><span>04 / ページ間導線</span></div>
+</div>
+
+<!-- 05: トップページの情報階層 -->
+<div class="page">
+  <div class="pg-head">
+    <p class="pg-no">05</p>
+    <h2 class="pg-ttl">トップページの情報階層</h2>
+  </div>
+
+  <p class="lead">トップページのセクション順序は、候補者の関心の立ち上がり方と、離脱しやすいタイミングを踏まえて決めました。「まず強い印象」「次に信頼」「そして興味」「最後に行動」という流れで並べています。</p>
+
+  <div class="block">
+    <h3>セクション順序とその根拠</h3>
+    <div class="sub">
+      <h4>1. ヒーロー — 強い印象</h4>
+      <p>開いて数秒で離脱判定がされるため、写真（動き）とキャッチコピーの衝撃力を最優先で配置します。</p>
+    </div>
+    <div class="sub">
+      <h4>2. 会社紹介 — 短い文脈</h4>
+      <p>「どこの会社か」を一言で提示。詳細は company.html に送る二段構えで、トップでの認知負荷を抑えます。</p>
+    </div>
+    <div class="sub">
+      <h4>3. 仕事紹介（Our Work）— 業務の具体化</h4>
+      <p>「何をする仕事か」を3工程で示し、候補者の最大の不安を早期に解消します。詳細は work.html へ。</p>
+    </div>
+    <div class="sub">
+      <h4>4. 数字で見るAT-T — 信頼の定量化</h4>
+      <p>ホワイト度の指標（121日／91％／4.7ヶ月など）を数字で提示し、「工場＝きつい」のイメージを反証します。このポジションに置くのは、業務イメージを持った直後に「でも、ちゃんとした会社だよ」と重ねて訴えるのが最も効くためです。</p>
+    </div>
+    <div class="sub">
+      <h4>5. 社員インタビュー — 共感</h4>
+      <p>人物情報はこのあたりで提示するのがちょうど良い温度感です。早すぎると文脈がなく、遅すぎると離脱したあとになります。</p>
+    </div>
+    <div class="sub">
+      <h4>6. 採用情報（選考フロー簡略）— 行動</h4>
+      <p>最後に「この先、どういう手順で応募すればよいか」を簡潔に示し、エントリーへ繋ぎます。</p>
+    </div>
+  </div>
+
+  <div class="pg-footer"><span>アイシン高丘東北 採用サイト 情報設計の考え方</span><span>05 / トップの情報階層</span></div>
+</div>
+
+<!-- 06: 下層ページの情報階層 -->
+<div class="page">
+  <div class="pg-head">
+    <p class="pg-no">06</p>
+    <h2 class="pg-ttl">下層ページの情報階層</h2>
+  </div>
+
+  <p class="lead">各下層ページのセクション順序は、そのページを訪れた候補者が持っている質問の順序に沿って並べています。</p>
+
+  <div class="block">
+    <h3>会社を知る</h3>
+    <p class="no-indent">「この会社は何を目指しているか → 誰が経営しているか → 客観的にどんな会社か → どんな歴史か → どこにあるか」の順。抽象から具体へ、主観から客観へと段階的に降りていく構成です。</p>
+  </div>
+
+  <div class="block">
+    <h3>仕事を知る</h3>
+    <p class="no-indent">「どんな工程があるか → どんな職種があるか → どんな環境で働くか」の順。業務の外形（工程）→業務の中身（職種）→業務の周辺（環境）という粒度で並べ、未経験層が理解を段階的に深められるようにしています。</p>
+  </div>
+
+  <div class="block">
+    <h3>社員紹介</h3>
+    <p class="no-indent">「絞り込み → 本人たち（インタビューカード） → 周縁の声（リアルな声）」の順。候補者がまず自分の関心領域に絞り込み、詳細な人物像を見て、最後に取材では拾えない本音に触れられるよう配置しています。</p>
+  </div>
+
+  <div class="block">
+    <h3>採用情報</h3>
+    <p class="no-indent">「新卒／中途の分岐 → 職種 → 要項 → フロー → FAQ」の順。大きな切替（新卒／中途）から始め、関心のある職種を選び、要項で判断し、フローで先を見通し、最後に残った疑問をFAQで解消するという意思決定の流れそのままに並べています。</p>
+  </div>
+
+  <div class="block">
+    <h3>エントリー</h3>
+    <p class="no-indent">「今どこにいるか（プログレス） → 応募区分の選択 → 区分に応じた表示 → 補助的な連絡手段」の順。応募という一度きりの行為のなかで、候補者の心理的負担を減らすため、全体感を先に見せてから詳細に入る構成にしています。</p>
+  </div>
+
+  <div class="pg-footer"><span>アイシン高丘東北 採用サイト 情報設計の考え方</span><span>06 / 下層の情報階層</span></div>
+</div>
+
+<!-- 07: 設計上の工夫 -->
+<div class="page">
+  <div class="pg-head">
+    <p class="pg-no">07</p>
+    <h2 class="pg-ttl">情報設計上の主な工夫</h2>
+  </div>
+
+  <p class="lead">情報の並びだけでなく、以下のような工夫を通じて、候補者の認知負荷と離脱率を下げる設計を行っています。</p>
+
+  <div class="block">
+    <h3>チャンク分割と段階的開示</h3>
+    <p class="no-indent">採用サイトで扱う情報は量が多いため、トップページで全てを載せず、各カテゴリの要約だけを提示して詳細は下層ページへ送る「段階的開示」を徹底しました。候補者が一度に処理する情報量を、各画面で7要素前後に抑えるイメージです。</p>
+  </div>
+
+  <div class="block">
+    <h3>同じ情報の複数経路での露出</h3>
+    <p class="no-indent">重要な情報（例：年間休日121日）は、トップの「数字で見るAT-T」と、採用情報ページの募集要項の両方に配置しています。1つの画面しか見ずに離脱する候補者にも必要な情報が届くよう、意図的に冗長化している箇所があります。</p>
+  </div>
+
+  <div class="block">
+    <h3>条件分岐による認知負荷の削減</h3>
+    <p class="no-indent">エントリーページでは応募区分の選択に応じて表示を動的に切り替えます。「自分には関係ない情報」を画面上に見せないことで、候補者が判断すべき情報量を半減させる設計です。</p>
+  </div>
+
+  <div class="block">
+    <h3>CTAの常設とヒエラルキー</h3>
+    <p class="no-indent">「ENTRY」ボタンは全ページのヘッダーと右サイドに常設し、いつでも応募に進める状態を維持します。一方、本文中のCTAはセクションごとに1つまでに制限し、「常設CTA＋文脈CTA」という二層構造で押し付けがましさを避けています。</p>
+  </div>
+
+  <div class="block">
+    <h3>イニシャル運用による社員情報の取り扱い</h3>
+    <p class="no-indent">社員名はイニシャル表記とすることで、取材協力のハードルを下げつつ、候補者が人物像を掴むのに必要な情報（職種・入社年・ポートレート）は確保しています。これは情報設計というより情報運用の判断ですが、「見せられる情報」の総量を実務的に増やすための重要な工夫です。</p>
+  </div>
+
+  <div class="pg-footer"><span>アイシン高丘東北 採用サイト 情報設計の考え方</span><span>07 / 設計上の工夫</span></div>
+</div>
+
+<!-- 08: まとめ -->
+<div class="page">
+  <div class="pg-head">
+    <p class="pg-no">08</p>
+    <h2 class="pg-ttl">まとめ</h2>
+  </div>
+
+  <p class="lead">本ワイヤーフレームの情報設計は、特定のビジュアル表現から導かれたものではなく、<strong>「誰が、どんな順序で、何を確認したいか」</strong>という候補者行動の想定から組み立てています。したがってデザイン段階で表現やレイアウトが変わっても、骨格となる情報の並び・粒度・動線は維持されるべきものと位置付けています。</p>
+
+  <div class="block">
+    <h3>今後のデザインフェーズでの運用方針</h3>
+    <p class="no-indent">デザインフェーズでは、本ワイヤーフレームで定めた<strong>セクションの有無・順序・情報粒度・ページ間動線</strong>を前提としつつ、表現の自由度を確保します。仮にセクションの追加・削除・順序変更が発生する場合は、本資料の「なぜそうしたか」に立ち戻り、変更の情報設計的な合理性を都度確認しながら進める想定です。</p>
+  </div>
+
+  <div class="block">
+    <h3>ご確認いただきたい点</h3>
+    <p class="no-indent">特に以下の3点について、方向性のご確認をお願いできればと存じます。</p>
+    <div class="sub">
+      <h4>ページ数とページ分割（全6ページ構成）の方針</h4>
+      <p>独立ページとする4カテゴリ（会社／仕事／社員／採用）の切り出し方に違和感がないか。</p>
+    </div>
+    <div class="sub">
+      <h4>新卒応募のマイナビ誘導という運用前提</h4>
+      <p>エントリーページの動的分岐の前提として、この運用を採る想定で問題ないか。</p>
+    </div>
+    <div class="sub">
+      <h4>社員紹介のイニシャル表記</h4>
+      <p>個人特定を避けつつ情報量を確保するための運用。実名表記への切替が必要な社員がいるか。</p>
+    </div>
+  </div>
+
+  <div class="pg-footer"><span>アイシン高丘東北 採用サイト 情報設計の考え方</span><span>08 / まとめ</span></div>
+</div>
+
+</body>
+</html>

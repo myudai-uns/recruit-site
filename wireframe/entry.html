@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ja"><head>
+<meta charset="UTF-8"><title>Wireframe / ENTRY</title>
+<link rel="stylesheet" href="_wire.css">
+</head><body>
+<div class="canvas">
+<div class="wf-topbar">
+  <span class="_l">WIREFRAME / エントリー（entry.html）</span>
+  <span class="_r">
+    <a href="index.html">一覧</a><a href="top.html">TOP</a><a href="company.html">会社</a><a href="work.html">仕事</a><a href="people.html">社員</a><a href="recruit.html">採用</a><a href="entry.html">ENTRY</a>
+  </span>
+</div>
+
+<div class="wf-header">
+  <div class="_logo">[LOGO] アイシン高丘東北 RECRUITING SITE</div>
+  <nav><span>会社を知る</span><span>仕事を知る</span><span>社員紹介</span><span>採用情報</span><span class="btn">ENTRY</span></nav>
+</div>
+
+<!-- PAGE HEAD -->
+<div class="sec"><span class="sec-label">PAGE HEAD</span>
+  <p class="h1">ENTRY — エントリー</p>
+  <p class="txt">応募区分により表示内容が動的に切り替わります。</p>
+</div>
+
+<!-- PROGRESS -->
+<div class="sec"><span class="sec-label">PROGRESS</span>
+  <div class="progress">
+    <div class="_s on"><div class="_n">1</div>入力</div>
+    <div class="_s"><div class="_n">2</div>確認</div>
+    <div class="_s"><div class="_n">3</div>送信完了</div>
+  </div>
+</div>
+
+<!-- 応募区分 -->
+<div class="sec"><span class="sec-label">BRANCH（応募区分）</span>
+  <p class="h3">応募区分をお選びください</p>
+  <div class="form" style="margin-top:10px">
+    <div class="_row">
+      <span class="_lbl">区分 <span class="_req">必須</span></span>
+      <div class="_radio"><span class="on">新卒採用</span><span>中途採用</span></div>
+    </div>
+  </div>
+  <p class="sec-note">選択内容に応じて下の表示が切り替わる（新卒 = マイナビバナー / 中途 = 自社フォーム）。</p>
+</div>
+
+<!-- 新卒パターン -->
+<div class="sec" style="border-style:dashed"><span class="sec-label">IF: 新卒採用 選択時</span>
+  <div class="box box-pad" style="text-align:center">
+    <p class="h2">マイナビからご応募ください</p>
+    <p class="txt">新卒採用はマイナビにて一元管理しています。</p>
+    <div style="margin-top:14px"><span class="btn fill btn-lg">マイナビ 応募ページへ ▶</span></div>
+  </div>
+</div>
+
+<!-- 中途パターン -->
+<div class="sec" style="border-style:dashed"><span class="sec-label">IF: 中途採用 選択時</span>
+  <p class="h2">エントリーフォーム</p>
+  <div class="form" style="margin-top:10px">
+    <div class="_row"><span class="_lbl">氏名 <span class="_req">必須</span></span><div class="_input"></div></div>
+    <div class="_row"><span class="_lbl">フリガナ <span class="_req">必須</span></span><div class="_input"></div></div>
+    <div class="_row"><span class="_lbl">生年月日 <span class="_req">必須</span></span><div class="_input"></div></div>
+    <div class="_row"><span class="_lbl">メール <span class="_req">必須</span></span><div class="_input"></div></div>
+    <div class="_row"><span class="_lbl">電話番号 <span class="_req">必須</span></span><div class="_input"></div></div>
+    <div class="_row"><span class="_lbl">住所</span><div class="_input"></div></div>
+    <div class="_row"><span class="_lbl">学歴</span><div class="_input"></div></div>
+    <div class="_row"><span class="_lbl">職歴</span><div class="_input tall"></div></div>
+    <div class="_row"><span class="_lbl">志望動機</span><div class="_input tall"></div></div>
+    <div class="_row"><span class="_lbl">工場見学希望</span><div class="_radio"><span>希望する</span><span>希望しない</span></div></div>
+  </div>
+  <div style="text-align:center;margin-top:18px"><span class="btn fill btn-lg">確認画面へ ▶</span></div>
+</div>
+
+<!-- CONTACT -->
+<div class="sec"><span class="sec-label">CONTACT（電話問い合わせ）</span>
+  <div class="g g-2">
+    <div><p class="h3">お電話でのお問い合わせ</p><p class="txt">XXX-XXXX-XXXX</p><p class="txt-sm">受付：平日 9:00〜17:00 / 担当：人事部</p></div>
+    <div class="box box-pad"><p class="txt-sm">フォーム入力が難しい場合や、応募前のご質問は電話で承ります。</p></div>
+  </div>
+</div>
+
+<div class="wf-footer">
+  <div class="_cols">
+    <div class="_col"><p class="_h">ABOUT</p><span class="_l">企業理念</span><span class="_l">会社概要</span><span class="_l">沿革</span><span class="_l">アクセス</span></div>
+    <div class="_col"><p class="_h">WORK</p><span class="_l">3工程</span><span class="_l">職種紹介</span><span class="_l">働く環境</span></div>
+    <div class="_col"><p class="_h">PEOPLE</p><span class="_l">インタビュー</span><span class="_l">社員の声</span></div>
+    <div class="_col"><p class="_h">RECRUIT</p><span class="_l">新卒</span><span class="_l">中途</span><span class="_l">FAQ</span><span class="_l">ENTRY</span></div>
+  </div>
+  <div style="border-top:1px solid #555;padding-top:10px">&copy; Aisin Takaoka Tohoku Co., Ltd.</div>
+</div>
+
+</div></body></html>

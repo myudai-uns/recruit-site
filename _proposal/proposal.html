@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>アイシン高丘東北 採用サイト ワイヤーフレーム提案</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{font-size:62.5%}
+body{font-family:'Noto Sans JP','Hiragino Kaku Gothic ProN','Yu Gothic',sans-serif;color:#222;background:#e5e5e5;font-size:1.35rem;line-height:1.95}
+.page{width:1240px;min-height:1754px;background:#fff;margin:20px auto;padding:90px 100px;position:relative;box-shadow:0 4px 20px rgba(0,0,0,.08);page-break-after:always}
+.page:last-child{page-break-after:auto}
+
+/* COVER */
+.cover{display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:0 100px}
+.cover ._label{font-size:1.4rem;letter-spacing:.3em;color:#666;margin-bottom:24px}
+.cover ._client{font-size:1.8rem;color:#333;margin-bottom:40px}
+.cover ._ttl{font-size:4.2rem;font-weight:700;line-height:1.5;color:#1a3a2a;margin-bottom:20px;letter-spacing:.02em}
+.cover ._sub-ttl{font-size:2rem;color:#555;font-weight:400;margin-bottom:80px}
+.cover ._meta{border-top:1px solid #ccc;border-bottom:1px solid #ccc;padding:24px 60px;display:flex;gap:60px;font-size:1.3rem;color:#555}
+.cover ._meta ._row{text-align:left}
+.cover ._meta ._h{font-size:1.1rem;color:#888;margin-bottom:4px;letter-spacing:.1em}
+.cover ._meta ._v{font-size:1.4rem;color:#222;font-weight:500}
+
+/* COMMON */
+.pg-head{margin-bottom:44px;padding-bottom:16px;border-bottom:2px solid #1a5c38}
+.pg-no{font-size:1.2rem;color:#1a5c38;letter-spacing:.15em;font-weight:700;margin-bottom:8px}
+.pg-ttl{font-size:2.6rem;font-weight:700;color:#1a3a2a;letter-spacing:.02em}
+.pg-footer{position:absolute;bottom:40px;left:100px;right:100px;display:flex;justify-content:space-between;font-size:1.1rem;color:#999;padding-top:12px;border-top:1px solid #ddd}
+
+/* DOCUMENT */
+.doc-section{margin-bottom:34px}
+.doc-section h3{font-size:1.7rem;font-weight:700;color:#1a3a2a;margin-bottom:14px;padding-left:14px;border-left:4px solid #1a5c38}
+.doc-section p{font-size:1.35rem;line-height:2;color:#333;margin-bottom:14px}
+.doc-section p:last-child{margin-bottom:0}
+.doc-section strong{color:#1a3a2a;font-weight:700}
+
+.lead{font-size:1.4rem;line-height:2.05;color:#333;margin-bottom:30px}
+
+/* SITEMAP list (簡素化) */
+.sm-list ._item{padding:16px 0;border-bottom:1px dotted #ccc}
+.sm-list ._item:last-child{border-bottom:none}
+.sm-list ._item ._ttl{font-size:1.5rem;font-weight:700;color:#1a3a2a;margin-bottom:4px}
+.sm-list ._item ._ttl ._en{font-size:1.1rem;color:#888;font-weight:400;margin-left:10px;letter-spacing:.08em}
+.sm-list ._item ._desc{font-size:1.3rem;color:#555;line-height:1.9}
+
+/* RATIONALE — prose style */
+.rat-block{margin-bottom:28px}
+.rat-block h4{font-size:1.5rem;font-weight:700;color:#1a3a2a;margin-bottom:10px}
+.rat-block h4::before{content:'';display:inline-block;width:8px;height:8px;background:#1a5c38;margin-right:10px;vertical-align:middle}
+.rat-block p{font-size:1.32rem;line-height:2;color:#333;margin-bottom:10px;text-indent:1em}
+.rat-block p:last-child{margin-bottom:0}
+.rat-block p.no-indent{text-indent:0}
+
+.info-box{margin-top:10px;padding:16px 22px;background:#fafafa;border:1px solid #ddd;font-size:1.25rem;color:#555;line-height:1.9}
+.info-box strong{color:#1a3a2a}
+
+@media print{
+  body{background:#fff}
+  .page{margin:0;box-shadow:none;page-break-after:always}
+}
+</style>
+</head>
+<body>
+
+<!-- COVER -->
+<div class="page cover">
+  <p class="_label">PROPOSAL / WIREFRAME</p>
+  <p class="_client">アイシン高丘東北株式会社 御中</p>
+  <h1 class="_ttl">採用サイト リニューアル<br>ワイヤーフレーム ご提案</h1>
+  <p class="_sub-ttl">構成・導線・設計意図 説明資料</p>
+  <div class="_meta">
+    <div class="_row"><p class="_h">作成日</p><p class="_v">2026年4月22日</p></div>
+    <div class="_row"><p class="_h">バージョン</p><p class="_v">v1.0 / Wireframe</p></div>
+    <div class="_row"><p class="_h">作成</p><p class="_v">Unsee 三上</p></div>
+  </div>
+</div>
+
+<!-- SITEMAP -->
+<div class="page">
+  <div class="pg-head">
+    <p class="pg-no">01</p>
+    <h2 class="pg-ttl">サイトマップ</h2>
+  </div>
+
+  <p class="lead">本サイトは<strong>全6ページ構成</strong>です。トップページを起点として「会社を知る」「仕事を知る」「社員紹介」「採用情報」の順に会社理解を段階的に深めていただき、最終的にエントリーページへ誘導する導線を設計しました。</p>
+
+  <div class="doc-section">
+    <h3>ページ一覧</h3>
+    <div class="sm-list">
+      <div class="_item">
+        <p class="_ttl">トップページ<span class="_en">index.html</span></p>
+        <p class="_desc">ヒーロー／会社紹介／仕事紹介／数字で見るAT-T／社員インタビュー／採用情報の要約を1ページに凝縮し、各セクションから詳細ページへ遷移する構成です。</p>
+      </div>
+      <div class="_item">
+        <p class="_ttl">会社を知る<span class="_en">company.html</span></p>
+        <p class="_desc">企業理念・代表メッセージ・会社概要・沿革・アクセス情報を通じて、候補者および保護者へ会社の信頼性を伝えるページです。</p>
+      </div>
+      <div class="_item">
+        <p class="_ttl">仕事を知る<span class="_en">work.html</span></p>
+        <p class="_desc">鋳造・機械加工・検査の3工程と6つの職種、働く環境（教育・休暇・設備・キャリアパス）を紹介し、業務の全体像を伝えます。</p>
+      </div>
+      <div class="_item">
+        <p class="_ttl">社員紹介<span class="_en">people.html</span></p>
+        <p class="_desc">イニシャル表記の社員インタビュー9名と、職種フィルター、社員のリアルな声によって、候補者が共感できる人物像を見つけられる設計です。</p>
+      </div>
+      <div class="_item">
+        <p class="_ttl">採用情報<span class="_en">recruit.html</span></p>
+        <p class="_desc">新卒・中途のタブ切替、募集要項、職種、選考フロー、よくある質問を掲載し、応募判断に必要な情報をこのページ単体で完結させます。</p>
+      </div>
+      <div class="_item">
+        <p class="_ttl">エントリー<span class="_en">entry.html</span></p>
+        <p class="_desc">応募区分の選択に応じて表示が動的に切り替わります。新卒選択時はマイナビ誘導バナー、中途選択時は自社フォームを表示します。</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="info-box">
+    <strong>共通要素：</strong>全ページ共通で、ヘッダー右上に「ENTRY」ボタンと、右サイドに固定CTA「エントリーする」を配置しています。新卒採用はマイナビ経由で一元管理、中途採用は自社フォームで受付する運用を想定しています。
+  </div>
+
+  <div class="pg-footer"><span>アイシン高丘東北 採用サイト ワイヤーフレーム</span><span>01 / サイトマップ</span></div>
+</div>
+
+<!-- RATIONALE: TOP -->
+<div class="page">
+  <div class="pg-head">
+    <p class="pg-no">02</p>
+    <h2 class="pg-ttl">トップページ 設計意図</h2>
+  </div>
+
+  <p class="lead">トップページは、若年層（高卒〜20代中途）が抱きがちな「自動車部品工場＝きつい・地味」という先入観の払拭を最優先に設計しました。写真・数字・動きの三要素で「ここで働く未来」を具体的に想起させる入口として機能させ、保護者や教員といった意思決定の補助者にも会社の姿勢が伝わるよう配慮しています。</p>
+
+  <div class="rat-block">
+    <h4>ヒーロー</h4>
+    <p>工場・社員・設備の写真を3列の縦自動スクロールで配置し、中央に「君の手から、明日が走り出す。」というキャッチコピーを大きく置きます。採用サイトは開いてから数秒で離脱判定されるため、写真の動きと現場のリアル感を初撃で見せることで、工場に対するネガティブイメージを最初のスクロール前に上書きする狙いです。</p>
+  </div>
+
+  <div class="rat-block">
+    <h4>会社紹介</h4>
+    <p>「地元にいながら世界の道を走るクルマに自分の仕事が届く」という主旨のコピーで、地元志向とグローバル感の両立を訴求します。宮城に残りたい若者が抱きがちな「田舎＝世界と切り離される」という不安を、トヨタ自動車東日本・SUBARU・日野自動車といった主要顧客との実績によって裏付ける構成です。</p>
+  </div>
+
+  <div class="rat-block">
+    <h4>仕事紹介</h4>
+    <p>鋳造→機械加工→検査の一貫生産を「一貫生産だから、自分の成長が見える」というコピーで差別化します。未経験層にとっての最大の不安は「何をする仕事か分からない」ことなので、ここでは工程のスコープだけを先に提示し、詳細は仕事を知るページへ誘導する二段構えにしています。</p>
+  </div>
+
+  <div class="rat-block">
+    <h4>数字で見るAT-T</h4>
+    <p>年間休日121日、有給取得率91％、賞与4.7ヶ月、転勤なしといったホワイト度指標を数字で可視化します。全ペルソナに共通する「工場は休めない・きつい」という不安への最大の反証材料であり、言葉による説明よりも数字の方が即座に説得力を持たせられる領域です。</p>
+  </div>
+
+  <div class="rat-block">
+    <h4>社員インタビュー</h4>
+    <p>イニシャル表記とポートレート、職種と入社年を添えた6名分のスライダーを配置します。「自分と近い人がすでに働いている」という共感が応募確度を最も高めるため、個人特定を避けつつ人柄を感じさせるイニシャル運用を採用しました。</p>
+  </div>
+
+  <div class="rat-block">
+    <h4>採用情報（簡略版）</h4>
+    <p>エントリーから内定までの4ステップと、マイナビ経由の注記を簡潔に示します。応募から入社までの全体感を事前に伝えることで心理的ハードルが下がるため、特に保護者が判断に関与する高卒世代に向けて有効な配置です。</p>
+  </div>
+
+  <div class="pg-footer"><span>アイシン高丘東北 採用サイト ワイヤーフレーム</span><span>02 / トップページ</span></div>
+</div>
+
+<!-- RATIONALE: COMPANY -->
+<div class="page">
+  <div class="pg-head">
+    <p class="pg-no">03</p>
+    <h2 class="pg-ttl">会社を知る 設計意図</h2>
+  </div>
+
+  <p class="lead">「知らない会社」から「信頼できる会社」へと認識を変えていただくためのページです。企業理念、代表メッセージ、会社概要、沿革、アクセスといった情報で企業の背骨となる価値観と実績を伝え、候補者本人だけでなく保護者や教員にも会社としての確かさが伝わる構成にしています。</p>
+
+  <div class="rat-block">
+    <h4>企業理念</h4>
+    <p>アイシングループの一員としてのミッション・バリューを提示します。大企業グループの安定感と、東北拠点としての独自性を両立させ、「大きな会社の安心」と「小さな工場の温かさ」を同時に訴求します。</p>
+  </div>
+
+  <div class="rat-block">
+    <h4>代表メッセージ</h4>
+    <p>経営トップの言葉を大きく配置し、顔写真と署名を添えて人格を感じさせます。候補者は「誰のもとで働くか」を重視する傾向があり、トップが採用に本気で向き合う姿勢を見せることで信頼を構築します。</p>
+  </div>
+
+  <div class="rat-block">
+    <h4>会社概要</h4>
+    <p>設立2009年、資本金4.9億円、従業員340名、売上71.8億円といった基本情報を定義リスト形式で整然と列挙します。保護者や教員が最も重視する定量情報なので、装飾を排し事実だけを端的に見せることで「ちゃんとした会社」であることが一目で伝わります。</p>
+  </div>
+
+  <div class="rat-block">
+    <h4>沿革</h4>
+    <p>2009年の設立から現在までの節目をタイムライン形式で表示します。「歴史ある会社」の信頼感と、「新しい会社だから成長性がある」という魅力を同時に伝えられる表現で、若い会社ならではのフレッシュさも訴求できます。</p>
+  </div>
+
+  <div class="rat-block">
+    <h4>アクセス</h4>
+    <p>宮城県黒川郡大衡村の本社工場について、住所と地図で所在を明確に示します。「通勤できるのか」は応募判断の重要軸であり、地元の高校生・大学生が即座に行ける／行けないを判断できるよう、早い段階で情報を出します。</p>
+  </div>
+
+  <div class="pg-footer"><span>アイシン高丘東北 採用サイト ワイヤーフレーム</span><span>03 / 会社を知る</span></div>
+</div>
+
+<!-- RATIONALE: WORK -->
+<div class="page">
+  <div class="pg-head">
+    <p class="pg-no">04</p>
+    <h2 class="pg-ttl">仕事を知る 設計意図</h2>
+  </div>
+
+  <p class="lead">「何をする仕事か」を最速で理解していただくためのページです。職種名を視覚的に最大サイズで提示し、未経験者でも具体的な業務イメージを持てるよう配慮しながら、自然に詳細情報や応募判断へつなげる構成を取っています。</p>
+
+  <div class="rat-block">
+    <h4>3工程紹介（鋳造・機械加工・検査）</h4>
+    <p>一貫生産の3工程を縦並びの大型カードで説明します。「自動車部品」とだけ言われても具体的な作業イメージは湧きにくいため、鉄を溶かす、削る、検査するという工程を先に示すことで、後続の職種紹介の理解が深まる設計です。</p>
+  </div>
+
+  <div class="rat-block">
+    <h4>職種紹介</h4>
+    <p>生産技能職、生産技術、品質保証、総合職、社内SE、設備保全の6職種を、職種名そのものを最大サイズで掲載します。「JOB01」といった記号的なラベルよりも職種名を大きく見せる方が直感的で、候補者が自分の志望職種をまず探すという行動に合わせたヒエラルキーにしています。</p>
+  </div>
+
+  <div class="rat-block">
+    <h4>働く環境</h4>
+    <p>教育（OJT）、休暇（年間休日121日）、設備（社員寮・食堂）、キャリアパスの4点をブロック形式で紹介します。働きやすさは若年層の最重要判断軸であり、数字だけでは伝わらない「雰囲気」を写真と配置によって補完する狙いです。</p>
+  </div>
+
+  <div class="pg-footer"><span>アイシン高丘東北 採用サイト ワイヤーフレーム</span><span>04 / 仕事を知る</span></div>
+</div>
+
+<!-- RATIONALE: PEOPLE -->
+<div class="page">
+  <div class="pg-head">
+    <p class="pg-no">05</p>
+    <h2 class="pg-ttl">社員紹介 設計意図</h2>
+  </div>
+
+  <p class="lead">「自分に似た人が、すでにここで働いている」と候補者に感じていただくためのページです。性別・年齢・職種・入社経路にわたる属性の多様性を担保し、新卒から中途まで、工場未経験者・経験者のいずれであっても共感できる人物が少なくとも1名は見つかる構成を意識しました。</p>
+
+  <div class="rat-block">
+    <h4>職種フィルター</h4>
+    <p>ALL、生産技能、技術、品質保証、総合職、社内SEのピル型ボタンで絞り込みを行えます。候補者は自分の志望職種の先輩を真っ先に探すため、動線を短縮して離脱を防ぐ狙いです。初期表示はALLとしています。</p>
+  </div>
+
+  <div class="rat-block">
+    <h4>インタビューカード</h4>
+    <p>ポートレート写真、キャッチコピー、イニシャル表記、所属と入社年で構成されるカードを9枚、3カラムで配置します。本名の全面開示は社員の心理的負担やプライバシーリスクが大きいため、イニシャル運用とすることで社員側も協力しやすく、候補者も自分に近い属性を把握できます。</p>
+  </div>
+
+  <div class="rat-block">
+    <h4>リアルな声</h4>
+    <p>「20代・男性・製造部」のような属性のみの表記で、匿名の短い感想を4〜8件列挙します。整ったインタビュー記事より、本音に近い「つぶやき」のトーンが若年層には刺さりやすく、正式な取材には応じない社員層の声も拾える利点があります。</p>
+  </div>
+
+  <div class="pg-footer"><span>アイシン高丘東北 採用サイト ワイヤーフレーム</span><span>05 / 社員紹介</span></div>
+</div>
+
+<!-- RATIONALE: RECRUIT -->
+<div class="page">
+  <div class="pg-head">
+    <p class="pg-no">06</p>
+    <h2 class="pg-ttl">採用情報 設計意図</h2>
+  </div>
+
+  <p class="lead">募集要項を網羅的に、かつ見やすく掲載するためのページです。応募判断に必要な材料をこのページ単体で完結させることを目標とし、候補者本人だけでなく保護者・教員が印刷して確認したいケースにも耐えられる情報量と整理を意識しています。</p>
+
+  <div class="rat-block">
+    <h4>新卒／中途タブ切替</h4>
+    <p>上部にピル型タブを配置し、新卒・中途を切り替えて表示します。URLハッシュで直接遷移も可能です。2種類の募集要項を上下に並べると読者の集中力が途切れやすいため、タブ切替で認知負荷を半減させる狙いです。</p>
+  </div>
+
+  <div class="rat-block">
+    <h4>職種カード</h4>
+    <p>新卒3種、中途6種を仕事を知るページと同じレイアウトで表示します。デザイン言語を揃えることで、サイト全体のブランド認知を強化する意図があります。</p>
+  </div>
+
+  <div class="rat-block">
+    <h4>募集要項</h4>
+    <p>給与、休日、福利厚生、手当、教育制度を定義リスト形式で整理します。保護者は募集要項ひとつで「この会社は大丈夫か」を判断する傾向があるため、情報を隠さず全て見せることが結果として信頼の獲得につながります。</p>
+  </div>
+
+  <div class="rat-block">
+    <h4>選考フロー</h4>
+    <p>エントリー、会社見学、書類選考、面接、内定の5段階を表示します。トップページのフローと同じ表現で統一することでブランドの一貫性を保ちつつ、会社見学を早い段階に置くことで「まず気軽に来てほしい」という姿勢を伝えます。</p>
+  </div>
+
+  <div class="rat-block">
+    <h4>よくある質問</h4>
+    <p>代表的な7問程度をアコーディオン形式で掲載します。FAQは埋もれやすいコンテンツですが、質問数が少ない場合は視覚的なアクセントをつけることで読み飛ばしを防ぎます。</p>
+  </div>
+
+  <div class="pg-footer"><span>アイシン高丘東北 採用サイト ワイヤーフレーム</span><span>06 / 採用情報</span></div>
+</div>
+
+<!-- RATIONALE: ENTRY -->
+<div class="page">
+  <div class="pg-head">
+    <p class="pg-no">07</p>
+    <h2 class="pg-ttl">エントリー 設計意図</h2>
+  </div>
+
+  <p class="lead">「応募」という最後のハードルを、できるだけ低くするためのページです。新卒はマイナビへ、中途はそのまま自社フォームへと、応募区分によって表示を動的に切り替え、応募意思が固まった候補者だけでなく、応募を迷っている層の問い合わせ代替としても機能するように設計しました。</p>
+
+  <div class="rat-block">
+    <h4>プログレス表示</h4>
+    <p>「入力」「確認」「送信完了」の3段階でプログレスを可視化し、現在位置を明示します。フォーム離脱の最大要因は「あとどれくらいかかるか分からない」という不安であるため、3段階での可視化により「短い」と認識されやすくします。</p>
+  </div>
+
+  <div class="rat-block">
+    <h4>応募区分による動的分岐</h4>
+    <p>新卒選択時はマイナビ誘導バナーのみを、中途選択時は自社フォームのみを表示します。新卒応募はマイナビで一括管理されるため、自社フォームで入力させても結局マイナビへ誘導し直しになり、そこで離脱が発生します。最初から一本化することでこの問題を回避します。</p>
+  </div>
+
+  <div class="rat-block">
+    <h4>中途エントリーフォーム</h4>
+    <p>氏名、フリガナ、生年月日、連絡先、学歴、職歴、志望動機、工場見学希望などの項目を、必須と任意を明示して掲載します。必須項目を絞りすぎると選考情報が不足し、多すぎると離脱が増えるため、工場見学希望を任意項目として設けることで応募前段階の興味層も受け皿として拾います。</p>
+  </div>
+
+  <div class="rat-block">
+    <h4>電話問い合わせ代替</h4>
+    <p>電話番号、受付時間、担当部署をフォーム下に明示します。保護者や高卒層はメールより電話を好む傾向が強く、応募以外の問い合わせ窓口としても機能させます。</p>
+  </div>
+
+  <div class="pg-footer"><span>アイシン高丘東北 採用サイト ワイヤーフレーム</span><span>07 / エントリー</span></div>
+</div>
+
+</body>
+</html>
