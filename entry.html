@@ -110,6 +110,22 @@ ul,ol{list-style:none}
 .agree-ck{display:flex;align-items:center;gap:10px;justify-content:center;padding:16px;background:var(--green-bg);border-radius:10px;margin-bottom:30px;font-weight:700;font-size:1.4rem;color:var(--green-dark)}
 .agree-ck input{width:20px;height:20px;accent-color:var(--green)}
 
+/* MYNAVI NOTICE — shown only for 新卒 */
+.mynavi-notice{display:none;background:linear-gradient(135deg,#fff 0%,var(--yellow-glow) 100%);border:2px solid var(--yellow);border-radius:20px;padding:40px 44px;margin:0 0 36px;position:relative;overflow:hidden}
+.mynavi-notice::before{content:'MYNAVI';position:absolute;top:-14px;right:-16px;font-family:'Josefin Sans',sans-serif;font-size:8rem;font-weight:900;color:transparent;-webkit-text-stroke:1.5px rgba(245,197,24,.25);letter-spacing:-.04em;line-height:.85;pointer-events:none;transform:rotate(-6deg)}
+.mynavi-notice ._badge{display:inline-block;padding:6px 16px;background:var(--green-dark);color:var(--yellow);font-family:'Josefin Sans',sans-serif;font-size:1.1rem;font-weight:700;letter-spacing:.2em;border-radius:20px;margin-bottom:16px;position:relative;z-index:1}
+.mynavi-notice ._ttl{font-size:clamp(2rem,2.4vw,2.6rem);font-weight:900;color:var(--green-dark);line-height:1.5;margin-bottom:14px;position:relative;z-index:1;letter-spacing:-.01em}
+.mynavi-notice ._ttl ._y{color:var(--yellow);-webkit-text-stroke:1px var(--green-dark)}
+.mynavi-notice ._body{font-size:1.4rem;line-height:2;color:#444;margin-bottom:26px;position:relative;z-index:1}
+.mynavi-notice ._btn{display:inline-flex;align-items:center;gap:14px;padding:20px 44px;background:var(--green-dark);color:#fff;font-size:1.6rem;font-weight:900;letter-spacing:.06em;border-radius:60px;box-shadow:0 10px 26px rgba(26,92,56,.3);transition:transform .3s,box-shadow .3s,background .3s;position:relative;z-index:1}
+.mynavi-notice ._btn:hover{background:var(--green);transform:translateY(-3px);box-shadow:0 14px 30px rgba(26,92,56,.4);opacity:1}
+.mynavi-notice ._btn ._mark{display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:50%;background:var(--yellow);color:var(--green-dark);font-size:1.2rem;font-weight:900;flex-shrink:0;font-family:'Josefin Sans',sans-serif}
+.mynavi-notice ._btn ._arw{font-size:1.8rem;transition:transform .3s}
+.mynavi-notice ._btn:hover ._arw{transform:translateX(6px)}
+.mynavi-notice ._sub{margin-top:16px;font-size:1.2rem;color:#666;position:relative;z-index:1}
+.form-wrap.is-new .mynavi-notice{display:block}
+.form-wrap.is-new .form-fields{display:none}
+
 /* SUBMIT */
 .submit-row{text-align:center;padding-top:16px}
 .submit-btn{position:relative;display:inline-flex;align-items:center;gap:14px;padding:22px 72px;background:var(--yellow);color:var(--dark);font-size:1.7rem;font-weight:900;letter-spacing:.08em;border:none;border-radius:60px;cursor:pointer;box-shadow:0 10px 30px rgba(245,197,24,.35);transition:.3s;overflow:hidden}
@@ -250,6 +266,24 @@ ul,ol{list-style:none}
         </div>
       </div>
 
+      <!-- MYNAVI NOTICE (新卒のみ) -->
+      <div class="mynavi-notice">
+        <span class="_badge fj">For New Grad</span>
+        <h3 class="_ttl"><span class="_y">新卒採用</span>のご応募は<br>マイナビ経由でお願いしております。</h3>
+        <p class="_body">
+          新卒採用のエントリーはマイナビの弊社採用ページより受け付けております。<br>
+          下のボタンよりマイナビの専用ページへお進みください。
+        </p>
+        <a href="https://job.mynavi.jp/" target="_blank" rel="noopener" class="_btn">
+          <span class="_mark fj">M</span>
+          <span>マイナビでエントリーする</span>
+          <span class="_arw">&#8594;</span>
+        </a>
+        <p class="_sub">※ マイナビへの会員登録（無料）が必要です。中途採用・インターンご希望の方は、上の選択肢を変更してください。</p>
+      </div>
+
+      <div class="form-fields">
+
       <!-- 希望職種 -->
       <div class="fg">
         <label>希望職種 <span class="req">必須</span></label>
@@ -378,6 +412,8 @@ ul,ol{list-style:none}
         <button type="submit" class="submit-btn">エントリー内容を送信</button>
         <p class="submit-note">※ 送信後、2営業日以内に採用担当よりご連絡いたします</p>
       </div>
+
+      </div><!-- /.form-fields -->
     </form>
   </div>
 
@@ -413,10 +449,19 @@ ul,ol{list-style:none}
 const obs=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('v');obs.unobserve(e.target)}})},{threshold:.1,rootMargin:'0px 0px -30px 0px'});
 document.querySelectorAll('.an').forEach(el=>obs.observe(el));
 
+// Toggle mynavi notice based on 応募区分
+const wrap=document.querySelector('.form-wrap');
+const syncType=()=>{
+  const v=document.querySelector('input[name=type]:checked')?.value;
+  wrap.classList.toggle('is-new',v==='new');
+};
+document.querySelectorAll('input[name=type]').forEach(r=>r.addEventListener('change',syncType));
+
 // Read query param to pre-select application type
 const params=new URLSearchParams(location.search);
 const t=params.get('type');
 if(t){const r=document.querySelector('input[name=type][value="'+t+'"]');if(r)r.checked=true}
+syncType();
 </script>
 </body>
 </html>
